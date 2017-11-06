@@ -32,7 +32,7 @@ namespace cnit255team
         private void ViewDidAppear()
         {
             // iOS 11 style Nav. Bar.
-            this.NavigationController.NavigationBar.PrefersLargeTitles = false;
+            this.NavigationController.NavigationBar.PrefersLargeTitles = true;
         }
 
         public override void DidReceiveMemoryWarning()
