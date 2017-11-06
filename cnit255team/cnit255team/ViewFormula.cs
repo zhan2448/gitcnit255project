@@ -33,7 +33,6 @@ namespace cnit255team
                 Graphs[i] = AddGraph((LabelsNames[i] + ":"), InputFormat[i]);
                 Graphs[i].Item1.Frame = new CGRect(positionX, positionY, Graphs[i].Item1.Frame.Width, Graphs[i].Item1.Frame.Height);
                 Graphs[i].Item2.Frame = new CGRect((positionX + Graphs[i].Item1.Frame.Right), positionY, Graphs[i].Item2.Frame.Width, Graphs[i].Item1.Frame.Height);
-                Graphs[i].Item2.BackgroundColor = UIColor.Gray;
                 positionY = (int)Graphs[i].Item2.Frame.Bottom + 10;
 
                 View.AddSubview(Graphs[i].Item1);
@@ -49,17 +48,17 @@ namespace cnit255team
         private UILabel AddLabel(string label, string style)
         {
             UILabel lb = new UILabel();
-            lb.AdjustsFontSizeToFitWidth = true;
+          //  lb.AdjustsFontSizeToFitWidth = true;
             lb.TextAlignment = UITextAlignment.Left;
             // lb.AutosizesSubviews = true;
             lb.Text = label;
 
-            //To-Do: different selction for different capitalisations.
+            //To-Do: different selection for different capitalisations.
 
             if (style == "normal")
             {
                 // If different background, change:
-                lb.TextColor = UIColor.Red;
+                lb.TextColor = UIColor.Black;
 
                 CGRect frame = lb.Frame;
                 frame.Size = new CGSize(100, 30);
@@ -77,6 +76,7 @@ namespace cnit255team
             {
                 var txtField = new UITextField();
                 txtField.BorderStyle = UITextBorderStyle.RoundedRect;
+                txtField.BackgroundColor = UIColor.White;
 
                 CGRect frame = txtField.Frame;
                 frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, 30);
