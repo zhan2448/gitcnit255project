@@ -5,7 +5,7 @@
 //
 using Foundation;
 
-namespace FInalversion
+namespace FinalVersion
 {
     [Register("ViewController")]
     partial class ViewController

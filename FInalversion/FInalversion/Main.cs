@@ -1,6 +1,6 @@
 ﻿using UIKit;
 
-namespace FInalversion
+namespace FinalVersion
 {
     public class Application
     {

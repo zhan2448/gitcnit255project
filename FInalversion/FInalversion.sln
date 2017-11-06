@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FInalversion", "FInalversion\FInalversion.csproj", "{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinalVersion", "FinalVersion\FinalVersion.csproj", "{A8FC8B13-0DEE-4826-A764-896A480779F6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +11,13 @@ Global
 		Debug|iPhone = Debug|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Release|iPhone.ActiveCfg = Release|iPhone
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Release|iPhone.Build.0 = Release|iPhone
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Debug|iPhone.ActiveCfg = Debug|iPhone
-		{1CDED1B9-A642-4962-BA0B-E78C0BE03EBB}.Debug|iPhone.Build.0 = Debug|iPhone
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Release|iPhone.ActiveCfg = Release|iPhone
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Release|iPhone.Build.0 = Release|iPhone
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{A8FC8B13-0DEE-4826-A764-896A480779F6}.Debug|iPhone.Build.0 = Debug|iPhone
 	EndGlobalSection
 EndGlobal

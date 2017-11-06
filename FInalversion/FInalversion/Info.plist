@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>FInalversion</string>
+	<string>FinalVersion</string>
 	<key>CFBundleIdentifier</key>
-	<string>CNIT255.FInalversion</string>
+	<string>CNIT255.FinalVersion</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
