@@ -8,6 +8,7 @@ namespace cnit255team
         private double Population_Mean;
         private DataSet DataSet;
         // Sys Data
+        public string Title = "T_Value";
         public string[] ToChooseData = new string[1];
         public string[,] ToPrintData = new string[1, 2] { { "Pop. Mean:", "s" } };
 

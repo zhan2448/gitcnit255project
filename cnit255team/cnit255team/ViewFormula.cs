@@ -22,12 +22,12 @@ namespace cnit255team
             View.BackgroundColor = UIColor.White;
 
             // TEST DATA
-
-
+            //
+            //
             //
         }
 
-        public void ViewDidAppear() {
+        private void ViewDidAppear() {
             this.NavigationController.NavigationBar.PrefersLargeTitles = false;
         }
 
