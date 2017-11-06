@@ -20,11 +20,6 @@ namespace cnit255team
         {
             base.ViewDidLoad();
             View.BackgroundColor = UIColor.White;
-
-            // TEST DATA
-
-
-            //
         }
 
         public void ViewDidAppear() {
