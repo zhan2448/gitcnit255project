@@ -14,7 +14,7 @@ namespace cnit255team
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
+            this.ViewDidAppear();
 
             var btn1 = UIButton.FromType(UIButtonType.System);
             btn1.Frame = new CGRect(20, 200, 280, 44);
@@ -27,6 +27,12 @@ namespace cnit255team
 
                 this.NavigationController.PushViewController(VFormula, true);
             };
+        }
+
+        private void ViewDidAppear()
+        {
+            // iOS 11 style Nav. Bar.
+            this.NavigationController.NavigationBar.PrefersLargeTitles = false;
         }
 
         public override void DidReceiveMemoryWarning()
