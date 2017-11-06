@@ -12,8 +12,11 @@ namespace cnit255team
 
         public override UIWindow Window
         {
+<<<<<<< HEAD
             //cccc
+=======
             //tttt
+>>>>>>> 7153ca6e6bac0a4f2bfdd7dcbb98c9f6e8892823
             get;
             set;
         }
