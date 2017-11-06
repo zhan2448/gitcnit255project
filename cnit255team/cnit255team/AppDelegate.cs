@@ -13,8 +13,19 @@ namespace cnit255team
         public override UIWindow Window
         {
 
-            //fuck
-           
+
+            //test2
+
+
+
+
+
+            //aaaa
+            //bbbb
+
+
+
+//test3
 
             get;
             set;
@@ -34,7 +45,7 @@ namespace cnit255team
             // This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
             // or when the user quits the application and it begins the transition to the background state.
             // Games should use this method to pause the game.
-           
+            //yest
         }
 
         public override void DidEnterBackground(UIApplication application)
