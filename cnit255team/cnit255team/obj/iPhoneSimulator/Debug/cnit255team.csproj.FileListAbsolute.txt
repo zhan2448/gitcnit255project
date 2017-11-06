@@ -1,0 +1,9 @@
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/bin/iPhoneSimulator/Debug/cnit255team.exe
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/bin/iPhoneSimulator/Debug/cnit255team.pdb
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/ibtool/_BundleResourceWithLogicalName.items
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/actool/_PartialAppManifest.items
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/actool/_BundleResourceWithLogicalName.items
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/optimized/
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/cnit255team.csproj.CoreCompileInputs.cache
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/cnit255team.exe
+/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/cnit255team.pdb

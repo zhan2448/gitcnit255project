@@ -1,5 +1,5 @@
 ﻿using System;
-
+using CoreGraphics;
 using UIKit;
 
 namespace cnit255team
@@ -15,6 +15,18 @@ namespace cnit255team
         {
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
+
+            var btn1 = UIButton.FromType(UIButtonType.System);
+            btn1.Frame = new CGRect(20, 200, 280, 44);
+            btn1.SetTitle("Click Me", UIControlState.Normal);
+            View.AddSubview(btn1);
+
+            btn1.TouchUpInside += (sender, e) => {
+                ViewFormula VFormula = new ViewFormula();
+                VFormula.PrepareInputArea(new string[] { }, 0, new string[2] { "Population Mean", "DataSet" }, new string[2] { "s", "s" });
+
+                this.NavigationController.PushViewController(VFormula, true);
+            };
         }
 
         public override void DidReceiveMemoryWarning()

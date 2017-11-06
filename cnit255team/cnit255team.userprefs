@@ -1,13 +1,12 @@
 ﻿<Properties StartupConfiguration="{89836E07-88A8-4F7A-B9AB-EC1362A24C70}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="cnit255team/Main.storyboard">
+  <MonoDevelop.Ide.Workbench ActiveDocument="cnit255team/ViewFormula.cs">
     <Files>
-      <File FileName="cnit255team/AppDelegate.cs" Line="15" Column="1" />
-      <File FileName="cnit255team/Main.storyboard" />
+      <File FileName="cnit255team/AppDelegate.cs" Line="32" Column="5" />
+      <File FileName="cnit255team/ViewFormula.cs" Line="14" Column="18" />
+      <File FileName="cnit255team/ViewController.cs" Line="5" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.cnit255team PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.32F05258-734E-419F-8D0B-9A625331F3C0">
-    <MonoDevelop.MacDev.AppleDevelopmentTeam />
-  </MonoDevelop.Ide.ItemProperties.cnit255team>
+  <MonoDevelop.Ide.ItemProperties.cnit255team PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.BC07877D-BF65-4BD7-8889-EBB88AD7864A" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
