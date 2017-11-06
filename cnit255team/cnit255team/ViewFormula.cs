@@ -22,7 +22,7 @@ namespace cnit255team
             View.BackgroundColor = UIColor.White;
         }
 
-        //
+        // Functional Methods:
         public void PrepareInputArea(string[] Segments, int segmentSelected, string[] LabelsNames, string[] InputFormat)
         {
             Graphs = new Tuple<UILabel, UITextField>[LabelsNames.Length];
@@ -44,7 +44,7 @@ namespace cnit255team
 
 
 
-        // System Functions:
+        // System Methods:
         private UILabel AddLabel(string label, string style)
         {
             UILabel lb = new UILabel();
