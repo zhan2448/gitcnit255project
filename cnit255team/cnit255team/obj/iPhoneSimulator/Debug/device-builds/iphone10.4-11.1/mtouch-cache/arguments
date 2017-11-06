@@ -1,9 +1,9 @@
-# Version: 11.4.0.93 (d15-5: 1b460cb9)
+# Version: 11.2.0.0 (d15-4-xi: 12e80e01)
 # [first argument, ignore] # --cache
-/Library/Frameworks/Xamarin.iOS.framework/Versions/11.4.0.93/lib/mtouch/mtouch.exe \
-	'/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/mtouch-cache' \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/11.2.1.0/lib/mtouch/mtouch.exe \
+	/Users/kevinzhang/cnit255/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/mtouch-cache \
 	--sim \
-	'/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/bin/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/cnit255team.app' \
+	/Users/kevinzhang/cnit255/gitcnit255project/cnit255team/cnit255team/bin/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/cnit255team.app \
 	--executable \
 	cnit255team \
 	--debug \
@@ -18,7 +18,7 @@
 	--http-message-handler=HttpClientHandler \
 	--abi=x86_64 \
 	--symbollist \
-	'/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/mtouch-symbols.list' \
+	/Users/kevinzhang/cnit255/gitcnit255project/cnit255team/cnit255team/obj/iPhoneSimulator/Debug/device-builds/iphone10.4-11.1/mtouch-symbols.list \
 	--dsym=no \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
@@ -32,4 +32,4 @@
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
 	--target-framework \
 	'Xamarin.iOS,v1.0' \
-	'/Users/artem/Library/Mobile Documents/com~apple~CloudDocs/Classes/CNIT 25501/gitcnit255project/cnit255team/cnit255team/bin/iPhoneSimulator/Debug/cnit255team.exe' \
+	/Users/kevinzhang/cnit255/gitcnit255project/cnit255team/cnit255team/bin/iPhoneSimulator/Debug/cnit255team.exe \
