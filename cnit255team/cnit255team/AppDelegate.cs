@@ -13,6 +13,19 @@ namespace cnit255team
         public override UIWindow Window
         {
 
+
+
+
+
+
+
+
+            //test
+
+
+
+
+
             get;
             set;
         }
