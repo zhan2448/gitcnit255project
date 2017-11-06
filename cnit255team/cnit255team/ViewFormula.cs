@@ -48,7 +48,6 @@ namespace cnit255team
         private UILabel AddLabel(string label, string style)
         {
             UILabel lb = new UILabel();
-          //  lb.AdjustsFontSizeToFitWidth = true;
             lb.TextAlignment = UITextAlignment.Left;
             // lb.AutosizesSubviews = true;
             lb.Text = label;
