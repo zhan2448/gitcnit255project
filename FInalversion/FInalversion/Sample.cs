@@ -3,28 +3,30 @@ using System.Linq;
 
 namespace FinalVersion
 {
-    public class Sample : Expression
+    public class Sample : ExpressionComposed
     {
         // Data
-        // To-Do: Values should have their own class.
-        private Sample Values;
-        private double Sample_Mean;
-        private double Sample_SD;
-        private int Sample_Size;
+        private DataSet Data_Set;
+        // Values[0] – (double)Sample Mean.
+        // Values[1] – (double)Sample S.D.
+        // Values[2] – (int)Sample Size.
 
-        // Two constructors meaning there should be two ToChooseData elements.
+
         public Sample()
         {
-            Title = "DataSet";
-            Type = "";
+            Segments.Add("From Data");
+            Segments.Add("From Values");
 
-            // Setting up additional data
-            InputNames[0] = "From Data";
-            InputNames[1] = "From Values";
-            InputList[1, 0] = "Sample Mean";
-            InputList[1, 1] = "Sample S.D.";
-            InputList[1, 2] = "Sample Size";
+            Titles.Add("Sample Mean");
+            Titles.Add("Sample S.D.");
+            Titles.Add("Sample Size");
+
+            InputTypes.Add("s");
+            InputTypes.Add("s");
+            InputTypes.Add("s");
         }
+
+        public Sample(int xSelectedSegment) {}
 
         public void CalculateValue(double[] xDataSet)
         {
@@ -43,16 +45,15 @@ namespace FinalVersion
         }
 
 
-        private void SetSample_Values(double[] xDataSet) { Values = xDataSet; }
-        public void SetSample_Mean(double xMean) { Sample_Mean = xMean; }
-        public void SetSample_SD(double xSD) { Sample_SD = xSD; }
-        public void SetSample_Size(int xSize) { Sample_Size = xSize; }
+        private void SetSample_Values(double[] xDataSet) { Data_Set.SetValues(xDataSet); }
+        public void SetSample_Mean(double xMean) { Values[0] = xMean; }
+        public void SetSample_SD(double xSD) { Values[1] = xSD; }
+        public void SetSample_Size(int xSize) { Values[2] = xSize; }
 
-
-        public double[] GetSample_Values() { return Values; }
-        public double GetSample_Mean() { return Sample_Mean; }
-        public double GetSample_SD() { return Sample_SD; }
-        public int GetSample_Size() { return Sample_Size; }
+        public double[] GetSample_Values() { return Data_Set.GetValues(); }
+        public double GetSample_Mean() { return (double)Values[0]; }
+        public double GetSample_SD() { return (double)Values[1]; }
+        public int GetSample_Size() { return (int)Values[2]; }
 
         public double CalculateSample_Mean(double[] xDataSet)
         {

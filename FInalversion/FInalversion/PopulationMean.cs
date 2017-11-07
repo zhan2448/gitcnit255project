@@ -6,7 +6,7 @@ namespace FinalVersion
         public PopulationMean()
         {
             Title = "Population Mean";
-            Type = "s";
+            InputType = "s";
         }
 
         public void CalculateValue(double xValue) { Value = xValue; }

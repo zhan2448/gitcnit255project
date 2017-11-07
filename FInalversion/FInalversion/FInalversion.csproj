@@ -114,6 +114,7 @@
     <Compile Include="Expression.cs" />
     <Compile Include="Sample.cs" />
     <Compile Include="PopulationMean.cs" />
+    <Compile Include="ExpressionComposed.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

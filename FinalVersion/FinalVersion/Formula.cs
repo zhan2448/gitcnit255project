@@ -3,25 +3,37 @@ namespace FinalVersion
 {
     public class Formula
     {
-        private object Answer;
+        // Data
+        private Expression Answer;
         private object[] Expressions;
+        // Show Data
+        private string Title;
+        private string Description;
 
         public Formula()
         {
         }
 
-        public void SetAnswer(object xAns)
+        public void SetTitle(string xTitle) { Title = xTitle; }
+
+        public void SetDescription(string xDescription) { Description = xDescription; }
+
+        public void SetAnswer(Expression xAns)
         {
             Answer = xAns;
         }
 
+        public void SetExpressions(object[] xExpressions) {
+            Expressions = xExpressions;
+        }
+
+
+        public string GetTitle() { return Title; }
+        public string GetDescription() { return Description; }
+
         public object GetAnswer()
         {
             return Answer;
-        }
-
-        public void SetExpressions(object[] xExpressions) {
-            Expressions = xExpressions;
         }
 
         public object[] GetExpressions() {

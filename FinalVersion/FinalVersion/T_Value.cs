@@ -5,16 +5,16 @@ namespace FinalVersion
     {
         // Data
         private PopulationMean Population_Mean;
-        private DataSet DataSet;
+        private Sample Sample;
 
         public T_Value() { 
             Title = "T_Value";
-            Type = "s";
+            InputType = "s";
         }
 
-        public void CalculateValue(double xPop_Mean, DataSet xDataSet) {
+        public void CalculateValue(double xPop_Mean, Sample xDataSet) {
             SetPopulation_Mean(xPop_Mean);
-            SetDataSet(xDataSet);
+            SetSample(Sample);
             double Mean = xDataSet.GetSample_Mean();
             double h_mean = xPop_Mean;
             double sd = xDataSet.GetSample_SD();
@@ -32,9 +32,9 @@ namespace FinalVersion
             }
         }
         public void SetPopulation_Mean(double xPop_Mean) { Population_Mean.CalculateValue(xPop_Mean); }
-        public void SetDataSet(DataSet xDataSet) { DataSet = xDataSet; }
+        public void SetSample(Sample xSample) { Sample = xSample; }
 
-        public DataSet GetDataSet() { return DataSet; }
+        public Sample GetSample() { return Sample; }
         public double GetPopulation_Mean() { return Population_Mean.GetValue(); }
     }
 }
