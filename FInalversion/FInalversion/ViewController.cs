@@ -2,7 +2,7 @@
 using CoreGraphics;
 using UIKit;
 
-namespace cnit255team
+namespace FinalVersion
 {
     public partial class ViewController : UIViewController
     {

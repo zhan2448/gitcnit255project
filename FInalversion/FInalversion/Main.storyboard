@@ -17,8 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews/>
                     </view>
-                    <navigationItem title="Title" id="248" key="navigationItem"/>
+                    <navigationItem title="Main Page" id="248" key="navigationItem"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,13 +33,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue id="249" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
-                        <segue id="347" destination="254" kind="show"/>
+                        <segue id="1068" destination="254" kind="show"/>
+                        <segue id="1422" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="216" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-622" y="-3"/>
+            <point key="canvasLocation" x="-610" y="462"/>
         </scene>
         <scene sceneID="253">
             <objects>
