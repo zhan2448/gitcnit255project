@@ -4,19 +4,18 @@ namespace FinalVersion
 {
     public class DataSet : Expression
     {
-        private double[] Values;
+        private double[] DSValues;
 
         public DataSet()
         {
-            Title = "Values";
-            InputType = "m";
+            Titles.Add("Values");
+            InputTypes.Add("m");
         }
 
         // To-Do: different methods for passed fetched/unfetched string dataset.
-        public void SetValues(double[] xValues) { Values = xValues; }
+        public void SetValues(double[] xValues) { DSValues = xValues; }
 
-        public double[] GetValues() { return Values; }
-
+        public double[] GetDSValues() { return DSValues; }
 
         // To-Do: Fetch dataSet method.
 

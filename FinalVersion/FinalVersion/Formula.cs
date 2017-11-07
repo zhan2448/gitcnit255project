@@ -31,7 +31,7 @@ namespace FinalVersion
         public string GetTitle() { return Title; }
         public string GetDescription() { return Description; }
 
-        public object GetAnswer()
+        public Expression GetAnswer()
         {
             return Answer;
         }

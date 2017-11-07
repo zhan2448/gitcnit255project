@@ -1,20 +1,21 @@
 ﻿using System;
 namespace FinalVersion
 {
-    class T_Value : Expression
+    class T_Value : ExpressionComposed
     {
-        // Data
-        private PopulationMean Population_Mean;
-        private Sample Sample;
+        // Values[0] – (double)T_Value.
 
-        public T_Value() { 
-            Title = "T_Value";
-            InputType = "s";
+        public T_Value() : base() { 
+            Titles.Add("T_Value");
+            InputTypes.Add("s");
+
+            SubExpressions.Add(new PopulationMean());
+            SubExpressions.Add(new Sample());
         }
 
         public void CalculateValue(double xPop_Mean, Sample xDataSet) {
             SetPopulation_Mean(xPop_Mean);
-            SetSample(Sample);
+            SetSample(xDataSet);
             double Mean = xDataSet.GetSample_Mean();
             double h_mean = xPop_Mean;
             double sd = xDataSet.GetSample_SD();
@@ -28,13 +29,13 @@ namespace FinalVersion
                 temp3 = Math.Abs(temp3);
                 temp3 = Math.Round(temp3, 4);
 
-                Value = temp3;
+                Values[0] = (double)temp3;
             }
         }
-        public void SetPopulation_Mean(double xPop_Mean) { Population_Mean.CalculateValue(xPop_Mean); }
-        public void SetSample(Sample xSample) { Sample = xSample; }
+        public void SetPopulation_Mean(double xPop_Mean) { ((PopulationMean)SubExpressions[0]).CalculateValue(xPop_Mean); }
+        public void SetSample(Sample xSample) { SubExpressions[1] = xSample; }
 
-        public Sample GetSample() { return Sample; }
-        public double GetPopulation_Mean() { return Population_Mean.GetValue(); }
+        public Sample GetSample() { return (Sample)SubExpressions[1]; }
+        public double GetPopulation_Mean() { return (double)(((PopulationMean)SubExpressions[0]).GetValues())[0]; }
     }
 }

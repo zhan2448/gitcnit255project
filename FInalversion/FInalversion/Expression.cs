@@ -6,26 +6,34 @@ namespace FinalVersion
     public abstract class Expression
     {
         // Data
-        protected double Value;
-        protected string[] InputNames;
-        protected string[,] InputList;
+        protected List<object> Values;
         // Show Data
-        protected string Title;
-        protected string InputType;
+        protected int SegmentSelected;
+        protected List<string> Segments;
+        protected List<string> Titles;
+        protected List<string> InputTypes;
 
         public Expression()
         {
-            // Setting up default values
-            Title = "not set";
-            InputType = "not set";
+            Values = new List<object>();
+            Segments = new List<string>();
+            Titles = new List<string>();
+            InputTypes = new List<string>();
         }
 
-       // public void SetValue(double xValue) { Value = xValue; }
+        public Expression(int xSelectedSegment) : this()
+        {
+            SegmentSelected = xSelectedSegment;
+        }
 
-        public double GetValue() { return Value; }
+        public void SetValues(List<object> xValues) { Values = xValues; }
 
-        public string GetInputType() { return InputType; }
+        public List<object> GetValues() { return Values; }
 
-        public void CalculateValue() { }
+        public List<string> GetTitles() { return Titles; }
+
+        public List<string> GetInputTypes() { return InputTypes; }
+
+        public void CalculateValues() { }
     }
 }

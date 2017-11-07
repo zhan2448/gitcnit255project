@@ -4,6 +4,7 @@ using System.Reflection;
 //using CustomCodeAttributes;
 using CoreGraphics;
 using UIKit;
+using System.Collections.Generic;
 
 namespace FinalVersion
 {
@@ -29,14 +30,42 @@ namespace FinalVersion
             positionY = (int)NavigationController.NavigationBar.Frame.Bottom + positionX;
             PrepareHeading(OpenedFormula.GetTitle(), OpenedFormula.GetDescription());
 
-            //PrepareExpresionsArea();
+            // Get a comprehensive list of expressions titles and inputTypes
+            Queue<Expression> AllExprs = new Queue<Expression>();
+            AllExprs.Enqueue(OpenedFormula.GetAnswer());
+
+            List<string> AllTitles = new List<string>(), AllInputTypes = new List<string>();
+
+            while(true) {
+                if(0 == AllExprs.Count) {
+                    break;
+                }
+
+                Expression TempExpr = AllExprs.Dequeue();
+                if(TempExpr is ExpressionComposed) {
+                    foreach (Expression SubExpr in ((ExpressionComposed)TempExpr).GetSubExressions()) {
+                        AllExprs.Enqueue(SubExpr);
+                    }
+                }
+
+                AllTitles.AddRange(TempExpr.GetTitles());
+                AllInputTypes.AddRange(TempExpr.GetInputTypes());
+            }
+
+            string[] AllTitlesArray = AllTitles.ToArray();
+            string[] AllInputTypesArray = AllInputTypes.ToArray();
+
+
+            PrepareExpresionsArea(new string[1] {""}, 0, AllTitlesArray, AllInputTypesArray);
 
 
             View.BackgroundColor = UIColor.White;
         }
 
+
         // Functional Methods:
-        private void PrepareHeading(string title, string desc) {
+        private void PrepareHeading(string title, string desc)
+        {
             this.Title = title;
 
             UILabel lb = AddLabel(desc, "description");
@@ -44,7 +73,6 @@ namespace FinalVersion
             positionY = (int)lb.Frame.Bottom + positionX;
             View.AddSubview(lb);
         }
-
 
         private void PrepareExpresionsArea(string[] Segments, int segmentSelected, string[] LabelsNames, string[] InputFormat)
         {
@@ -63,6 +91,7 @@ namespace FinalVersion
             }
         }
 
+
         // To-Do: Write PrepareAnswerArea() method
         //
 
@@ -70,9 +99,9 @@ namespace FinalVersion
 
 
 
-      //  private string[,] FetchLabels(object[] xExpressions) {
-      //      Expression test = (Expression)Attribute.GetCustomAttribute((MemberInfo)xExpressions[0], typeof(Expression));
-      //  }
+        //  private string[,] FetchLabels(object[] xExpressions) {
+        //      Expression test = (Expression)Attribute.GetCustomAttribute((MemberInfo)xExpressions[0], typeof(Expression));
+        //  }
 
         // UI Generating Methods
         private UILabel AddLabel(string label, string style)
@@ -93,7 +122,8 @@ namespace FinalVersion
                 frame.Size = new CGSize(100, 30);
                 lb.Frame = frame;
             }
-            else if (style == "description") {
+            else if (style == "description")
+            {
                 // If different background, change:
                 lb.TextColor = UIColor.Gray;
 
