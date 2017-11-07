@@ -19,5 +19,13 @@ namespace FinalVersion
         {
             return Answer;
         }
+
+        public void SetExpressions(object[] xExpressions) {
+            Expressions = xExpressions;
+        }
+
+        public object[] GetExpressions() {
+            return Expressions;
+        }
     }
 }

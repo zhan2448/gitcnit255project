@@ -6,6 +6,13 @@ namespace FinalVersion
 {
     public partial class ViewController : UIViewController
     {
+        // Test
+
+        T_Value t = new T_Value();
+        Formula[] TestF = new Formula[1] { };
+
+        //
+
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
