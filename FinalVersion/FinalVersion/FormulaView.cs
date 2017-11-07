@@ -56,7 +56,27 @@ namespace FinalVersion
             string[] AllInputTypesArray = AllInputTypes.ToArray();
 
 
-            PrepareExpresionsArea(new string[1] {""}, 0, AllTitlesArray, AllInputTypesArray);
+            PrepareExpresionsArea(AllTitlesArray, AllInputTypesArray);
+
+            var btnCompute = UIButton.FromType(UIButtonType.System);
+            btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - 75, positionY, 150, 45);
+            btnCompute.SetTitle(OpenedFormula.GetAnswer().GetTitles()[0], UIControlState.Normal);
+            btnCompute.SetTitleColor(UIColor.White, UIControlState.Normal);
+           // btnCompute.Layer.BorderColor = UIColor.FromRGBA(142, 68, 173, 100).CGColor;
+            btnCompute.BackgroundColor = UIColor.FromRGBA(142, 68, 173, 255);
+            btnCompute.Layer.CornerRadius = 5f;
+
+            View.AddSubview(btnCompute);
+
+            //
+            btnCompute.TouchUpInside += (sender, e) =>
+            {
+                FormulaView VFormula = new FormulaView();
+                // To-Do: change the index accordingly to which Formula was selected
+                //VFormula.SetFormula(TestF[0]);
+
+                this.NavigationController.PushViewController(VFormula, true);
+            };
 
 
             View.BackgroundColor = UIColor.White;
@@ -74,8 +94,13 @@ namespace FinalVersion
             View.AddSubview(lb);
         }
 
-        private void PrepareExpresionsArea(string[] Segments, int segmentSelected, string[] LabelsNames, string[] InputFormat)
+        private void PrepareExpresionsArea(string[] LabelsNames, string[] InputFormat)
         {
+            //UITableView table = new UITableView(View.Bounds); // defaults to Plain style
+            //string[] tableItems = LabelsNames;
+            //table.Source = (new UITableViewSource());
+            //Add(table);
+
             Graphs = new Tuple<UILabel, UITextField>[LabelsNames.Length];
 
 
@@ -141,8 +166,8 @@ namespace FinalVersion
             if (type == "s")
             {
                 var txtField = new UITextField();
-                txtField.BorderStyle = UITextBorderStyle.None;
-                txtField.BackgroundColor = UIColor.LightGray;
+                txtField.BorderStyle = UITextBorderStyle.RoundedRect;
+                txtField.BackgroundColor = UIColor.White;
 
                 CGRect frame = txtField.Frame;
                 frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, 30);

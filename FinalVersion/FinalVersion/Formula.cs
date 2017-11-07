@@ -5,7 +5,7 @@ namespace FinalVersion
     {
         // Data
         private Expression Answer;
-        private object[] Expressions;
+        private Expression[] Expressions;
         // Show Data
         private string Title;
         private string Description;
@@ -23,7 +23,7 @@ namespace FinalVersion
             Answer = xAns;
         }
 
-        public void SetExpressions(object[] xExpressions) {
+        public void SetExpressions(Expression[] xExpressions) {
             Expressions = xExpressions;
         }
 
