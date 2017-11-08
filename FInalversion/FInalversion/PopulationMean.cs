@@ -3,15 +3,16 @@ namespace FinalVersion
 {
     public class PopulationMean : Expression
     {
-        // Data
-        // Values[0] – (double)Population Mean.
-
         public PopulationMean()
         {
+            // Data
+            // Values[0] – (double)Population Mean.
+            Values = new object[1];
+
             Titles.Add("Population Mean");
             InputTypes.Add("s");
         }
 
-        public void CalculateValue(double xValue) { Values[0] = (double)xValue; }
+        public void CalculateValues(double xValue) { Values[0] = (double)xValue; }
     }
 }

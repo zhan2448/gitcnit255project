@@ -6,7 +6,7 @@ namespace FinalVersion
     public abstract class Expression
     {
         // Data
-        protected List<object> Values;
+        protected object[] Values;
         // Show Data
         protected int SegmentSelected;
         protected List<string> Segments;
@@ -15,7 +15,6 @@ namespace FinalVersion
 
         public Expression()
         {
-            Values = new List<object>();
             Segments = new List<string>();
             Titles = new List<string>();
             InputTypes = new List<string>();
@@ -26,9 +25,9 @@ namespace FinalVersion
             SegmentSelected = xSelectedSegment;
         }
 
-        public void SetValues(List<object> xValues) { Values = xValues; }
+        public void SetValues(object[] xValues) { Values = xValues; }
 
-        public List<object> GetValues() { return Values; }
+        public object[] GetValues() { return Values; }
 
         public List<string> GetTitles() { return Titles; }
 

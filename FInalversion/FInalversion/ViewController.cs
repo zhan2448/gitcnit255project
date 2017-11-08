@@ -18,15 +18,21 @@ namespace FinalVersion
             this.ViewDidAppear();
 
             // Test Data
+            //Formula[] TestF = new Formula[1];
+            //TestF[0] = new Formula();
+            //TestF[0].SetTitle("T Values from Values");
+            //TestF[0].SetDescription("Calculate T_Value from primitive values.");
+
+            //T_Value t = new T_Value();
+            //TestF[0].SetAnswer(t);
+
             Formula[] TestF = new Formula[1];
             TestF[0] = new Formula();
-            TestF[0].SetTitle("T Values from Values");
-            TestF[0].SetDescription("Calculate T_Value from primitive values.");
+            TestF[0].SetTitle("Calculate P(X), X~Binomial");
+            TestF[0].SetDescription("n - sample size, x - successes, p - probability of x.");
 
-            T_Value t = new T_Value();
-            TestF[0].SetAnswer(t);
-
-            Sample S = new Sample(0);
+            pmf pmFunc = new pmf();
+            TestF[0].SetAnswer(pmFunc);
 
             var btn1 = UIButton.FromType(UIButtonType.System);
             btn1.Frame = new CGRect(20, 200, 280, 44);

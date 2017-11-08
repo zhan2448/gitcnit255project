@@ -5,17 +5,14 @@ namespace FinalVersion
 {
     public class Sample : ExpressionComposed
     {
-        // Data
-        // Values[0] – (double)Sample Mean.
-        // Values[1] – (double)Sample S.D.
-        // Values[2] – (int)Sample Size.
-
-        // Associated Data
-        // SubExpressions[0] – (DataSet).
-
-
         public Sample()
         {
+            // Data
+            // Values[0] – (double)Sample Mean.
+            // Values[1] – (double)Sample S.D.
+            // Values[2] – (int)Sample Size.
+            Values = new object[3];
+
             Segments.Add("From Data");
             Segments.Add("From Values");
 
@@ -27,12 +24,17 @@ namespace FinalVersion
             InputTypes.Add("s");
             InputTypes.Add("s");
 
-            SubExpressions.Add(new DataSet());
+
+            // Associated Data
+            // SubExpressions[0] – (DataSet).
+            SubExpressions = new Expression[1];
+
+            SubExpressions[0] = new DataSet();
         }
 
         public Sample(int xSelectedSegment) {}
 
-        public void CalculateValue(double[] xDataSet)
+        public void CalculateValues(double[] xDataSet)
         {
             SetSample_Values(xDataSet);
 
@@ -41,7 +43,7 @@ namespace FinalVersion
             SetSample_Size(CalculateSample_Size(xDataSet));
         }
 
-        public void CalculateValue(double xMean, double xSD, int xSize)
+        public void CalculateValues(double xMean, double xSD, int xSize)
         {
             SetSample_Mean(xMean);
             SetSample_SD(xSD);

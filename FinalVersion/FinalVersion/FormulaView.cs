@@ -5,6 +5,7 @@ using System.Reflection;
 using CoreGraphics;
 using UIKit;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FinalVersion
 {
@@ -61,7 +62,7 @@ namespace FinalVersion
 
             // Creating Compute button
             var btnCompute = UIButton.FromType(UIButtonType.System);
-            btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - positionX*2, positionY, 150, 45);
+            btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - positionX * 2, positionY, 150, 45);
             btnCompute.SetTitle("Compute", UIControlState.Normal);
             btnCompute.SetTitleColor(UIColor.White, UIControlState.Normal);
             // btnCompute.Layer.BorderColor = UIColor.FromRGBA(142, 68, 173, 100).CGColor;
@@ -70,16 +71,37 @@ namespace FinalVersion
 
             View.AddSubview(btnCompute);
 
-            //
+            // TEST AREA (danger, it's hardcoded)
+            object[] tempArray = new object[3];
+            tempArray[0] = new int();
+            tempArray[1] = new int();
+            tempArray[2] = new double();
+
             btnCompute.TouchUpInside += (sender, e) =>
             {
-                for (int i = 0; i < Graphs.Length; i++)
-                {
-                    // if (OpenedFormula.)
-                    //{
+                // for (int i = 0; i < Graphs.Length; i++)
+                //{
+                //UITextField txt = Graphs[i].Item2;
+                tempArray[0] = int.Parse(Graphs[0].Item2.Text);
+                tempArray[1] = int.Parse(Graphs[1].Item2.Text);
+                tempArray[2] = double.Parse(Graphs[2].Item2.Text);
 
-                    // }
-                }
+                Binomial_RV brv = new Binomial_RV();
+                brv.CalculateValues((int)tempArray[1], (double)tempArray[2]);
+                OpenedFormula.GetType();
+                Type vari = OpenedFormula.GetAnswer().GetType();
+
+                object answer = Convert.ChangeType(OpenedFormula.GetAnswer(), vari);
+
+                // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
+                MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
+                MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
+                Answer.Invoke(null, new object[2] { brv, (int)tempArray[0] });
+
+                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                //answer.GetType().GetMethod("CalculateValues").Invoke(null, new object[2] {brv, (int)tempArray[0]});
+                //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
+                //}
             };
 
 

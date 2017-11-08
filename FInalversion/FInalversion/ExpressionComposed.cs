@@ -5,14 +5,13 @@ namespace FinalVersion
 {
     public abstract class ExpressionComposed : Expression
     {
+        // Data
+        protected Expression[] SubExpressions;
+
         public ExpressionComposed() : base() {
-            SubExpressions = new List<Expression>();
         }
 
-        // Data
-        protected List<Expression> SubExpressions;
-
-        public List<Expression> GetSubExressions()
+        public Expression[] GetSubExressions()
         {
             return SubExpressions;
         }

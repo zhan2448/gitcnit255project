@@ -3,17 +3,24 @@ namespace FinalVersion
 {
     class T_Value : ExpressionComposed
     {
-        // Values[0] – (double)T_Value.
+        public T_Value() : base() {
+            // Data
+            // Values[0] – (double)T_Value.
+            Values = new object[1];
 
-        public T_Value() : base() { 
             Titles.Add("T_Value");
             InputTypes.Add("s");
 
-            SubExpressions.Add(new PopulationMean());
-            SubExpressions.Add(new Sample());
+            // Associated Data
+            // SubExpressions[0] – (PopulationMean).
+            // SubExpressions[1] – (Sample)
+            SubExpressions = new Expression[2];
+
+            SubExpressions[0] = new PopulationMean();
+            SubExpressions[1] = new Sample();
         }
 
-        public void CalculateValue(double xPop_Mean, Sample xDataSet) {
+        public void CalculateValues(double xPop_Mean, Sample xDataSet) {
             SetPopulation_Mean(xPop_Mean);
             SetSample(xDataSet);
             double Mean = xDataSet.GetSample_Mean();
@@ -32,7 +39,7 @@ namespace FinalVersion
                 Values[0] = (double)temp3;
             }
         }
-        public void SetPopulation_Mean(double xPop_Mean) { ((PopulationMean)SubExpressions[0]).CalculateValue(xPop_Mean); }
+        public void SetPopulation_Mean(double xPop_Mean) { ((PopulationMean)SubExpressions[0]).SetValues(new object[] { (double)xPop_Mean }); }
         public void SetSample(Sample xSample) { SubExpressions[1] = xSample; }
 
         public Sample GetSample() { return (Sample)SubExpressions[1]; }
