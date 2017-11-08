@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace FinalVersion
 {
     public class Formula
     {
         // Data
         private Expression Answer;
-        private Expression[] Expressions;
+        private List<int> SegmentsSelected; // Dependent selected segments
         // Show Data
         private string Title;
         private string Description;
 
         public Formula()
         {
+            SegmentsSelected = new List<int>();
         }
 
         public void SetTitle(string xTitle) { Title = xTitle; }
@@ -23,8 +26,35 @@ namespace FinalVersion
             Answer = xAns;
         }
 
-        public void SetExpressions(Expression[] xExpressions) {
-            Expressions = xExpressions;
+        public void SetExpressions(int[] xSelectedSegments)
+        {
+
+            Queue<Expression> AllExprs = new Queue<Expression>();
+            AllExprs.Enqueue(Answer);
+
+            int i = 0;
+            while (true)
+            {
+                if (0 == AllExprs.Count)
+                {
+                    break;
+                }
+
+                Expression iExpression = AllExprs.Dequeue();
+
+                if (iExpression is ExpressionComposed)
+                {
+                    foreach (Expression SubExpr in ((ExpressionComposed)iExpression).GetSubExressions())
+                    {
+                        AllExprs.Enqueue(SubExpr);
+                    }
+                }
+
+
+                SegmentsSelected.Add(xSelectedSegments[i]);
+                // AllTitles.AddRange(TempExpr.GetTitles());
+               // AllInputTypes.AddRange(TempExpr.GetInputTypes());
+            }
         }
 
 
@@ -36,8 +66,9 @@ namespace FinalVersion
             return Answer;
         }
 
-        public object[] GetExpressions() {
-            return Expressions;
-        }
+        //public object[] GetExpressions()
+        //{
+        //    return Expressions;
+        //}
     }
 }

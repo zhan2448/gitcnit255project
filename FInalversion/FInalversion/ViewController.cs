@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreGraphics;
+using System.Collections.Generic;
 using UIKit;
 
 namespace FinalVersion
@@ -26,14 +27,26 @@ namespace FinalVersion
             TestF[0].SetAnswer(t);
 
             Sample S = new Sample(0);
-            TestF[0].SetExpressions(new Sample[1] {S});
-
 
             var btn1 = UIButton.FromType(UIButtonType.System);
             btn1.Frame = new CGRect(20, 200, 280, 44);
             btn1.SetTitle(TestF[0].GetTitle(), UIControlState.Normal);
             View.AddSubview(btn1);
 
+            // TEST INSIDE TEST
+            List<Expression> StatExpressions = new List<Expression>();
+            StatExpressions.Add(new T_Value());
+            StatExpressions.Add(new Sample());
+
+            UIPickerView Pcker = new UIPickerView();
+            Pcker.Frame = new CGRect(0, 250, View.Bounds.Width, 250);
+            Pcker.ShowSelectionIndicator = true;
+            Pcker.Hidden = false;
+
+            Pcker.Model = new ExamplePickerViewModel(StatExpressions);;
+
+
+            View.AddSubview(Pcker);
             //
             btn1.TouchUpInside += (sender, e) =>
             {
@@ -55,6 +68,55 @@ namespace FinalVersion
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+    }
+
+    public class ExamplePickerViewModel : UIPickerViewModel
+    {
+        private List<Expression> _myItems;
+        protected int selectedIndex = 0;
+
+        public ExamplePickerViewModel(List<Expression> items)
+        {
+            _myItems = items;
+        }
+
+        public Expression SelectedItem
+        {
+            get { return _myItems[selectedIndex]; }
+        }
+
+        public override nint GetComponentCount(UIPickerView picker)
+        {
+            return 1;
+        }
+
+        public override nint GetRowsInComponent(UIPickerView picker, nint component)
+        {
+            return _myItems.Count;
+        }
+
+        public override string GetTitle(UIPickerView picker, nint row, nint component)
+        {
+            return _myItems[(int)row].GetTitles()[0];
+        }
+
+        public override void Selected(UIPickerView picker, nint row, nint component)
+        {
+            selectedIndex = (int)row;
+        }
+
+        public override nfloat GetComponentWidth(UIPickerView picker, nint component)
+        {
+            if (component == 0)
+                return 240f;
+            else
+                return 40f;
+        }
+
+        public override nfloat GetRowHeight(UIPickerView picker, nint component)
+        {
+            return 40f;
         }
     }
 }

@@ -35,15 +35,18 @@ namespace FinalVersion
             AllExprs.Enqueue(OpenedFormula.GetAnswer());
 
             List<string> AllTitles = new List<string>(), AllInputTypes = new List<string>();
-
-            while(true) {
-                if(0 == AllExprs.Count) {
+            while (true)
+            {
+                if (0 == AllExprs.Count)
+                {
                     break;
                 }
 
                 Expression TempExpr = AllExprs.Dequeue();
-                if(TempExpr is ExpressionComposed) {
-                    foreach (Expression SubExpr in ((ExpressionComposed)TempExpr).GetSubExressions()) {
+                if (TempExpr is ExpressionComposed)
+                {
+                    foreach (Expression SubExpr in ((ExpressionComposed)TempExpr).GetSubExressions())
+                    {
                         AllExprs.Enqueue(SubExpr);
                     }
                 }
@@ -52,17 +55,15 @@ namespace FinalVersion
                 AllInputTypes.AddRange(TempExpr.GetInputTypes());
             }
 
-            string[] AllTitlesArray = AllTitles.ToArray();
-            string[] AllInputTypesArray = AllInputTypes.ToArray();
+            // Preparing Expressions Area
+            PrepareExpresionsArea(AllTitles.ToArray(), AllInputTypes.ToArray());
 
-
-            PrepareExpresionsArea(AllTitlesArray, AllInputTypesArray);
-
+            // Creating Compute button
             var btnCompute = UIButton.FromType(UIButtonType.System);
-            btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - 75, positionY, 150, 45);
-            btnCompute.SetTitle(OpenedFormula.GetAnswer().GetTitles()[0], UIControlState.Normal);
+            btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - positionX*2, positionY, 150, 45);
+            btnCompute.SetTitle("Compute", UIControlState.Normal);
             btnCompute.SetTitleColor(UIColor.White, UIControlState.Normal);
-           // btnCompute.Layer.BorderColor = UIColor.FromRGBA(142, 68, 173, 100).CGColor;
+            // btnCompute.Layer.BorderColor = UIColor.FromRGBA(142, 68, 173, 100).CGColor;
             btnCompute.BackgroundColor = UIColor.FromRGBA(142, 68, 173, 255);
             btnCompute.Layer.CornerRadius = 5f;
 
@@ -71,11 +72,13 @@ namespace FinalVersion
             //
             btnCompute.TouchUpInside += (sender, e) =>
             {
-                FormulaView VFormula = new FormulaView();
-                // To-Do: change the index accordingly to which Formula was selected
-                //VFormula.SetFormula(TestF[0]);
+                for (int i = 0; i < Graphs.Length; i++)
+                {
+                    // if (OpenedFormula.)
+                    //{
 
-                this.NavigationController.PushViewController(VFormula, true);
+                    // }
+                }
             };
 
 
@@ -144,7 +147,7 @@ namespace FinalVersion
                 // If different background, change:
                 lb.TextColor = UIColor.Black;
 
-                frame.Size = new CGSize(100, 30);
+                frame.Size = new CGSize(100, 36);
                 lb.Frame = frame;
             }
             else if (style == "description")
@@ -152,7 +155,7 @@ namespace FinalVersion
                 // If different background, change:
                 lb.TextColor = UIColor.Gray;
 
-                frame.Size = new CGSize(View.Bounds.Width, 30);
+                frame.Size = new CGSize(View.Bounds.Width, 36);
                 lb.Frame = frame;
             }
 
@@ -170,10 +173,14 @@ namespace FinalVersion
                 txtField.BackgroundColor = UIColor.White;
 
                 CGRect frame = txtField.Frame;
-                frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, 30);
+                frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, 36);
                 txtField.Frame = frame;
 
                 return Tuple.Create(lb, txtField);
+            }
+            else if (type == "m") 
+            {
+                // To-Do: create a textView.
             }
 
             return Tuple.Create(new UILabel(), new UITextField());
