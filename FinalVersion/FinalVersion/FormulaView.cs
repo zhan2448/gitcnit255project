@@ -15,6 +15,7 @@ namespace FinalVersion
         // UI
         private int positionX = 12;
         private int positionY;
+        private nfloat elementsHeigh = 40f;
         private Tuple<UILabel, UITextField>[] Graphs;
 
 
@@ -147,7 +148,7 @@ namespace FinalVersion
                 // If different background, change:
                 lb.TextColor = UIColor.Black;
 
-                frame.Size = new CGSize(100, 36);
+                frame.Size = new CGSize(100, elementsHeigh);
                 lb.Frame = frame;
             }
             else if (style == "description")
@@ -155,7 +156,7 @@ namespace FinalVersion
                 // If different background, change:
                 lb.TextColor = UIColor.Gray;
 
-                frame.Size = new CGSize(View.Bounds.Width, 36);
+                frame.Size = new CGSize(View.Bounds.Width, elementsHeigh);
                 lb.Frame = frame;
             }
 
@@ -173,7 +174,7 @@ namespace FinalVersion
                 txtField.BackgroundColor = UIColor.White;
 
                 CGRect frame = txtField.Frame;
-                frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, 36);
+                frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, elementsHeigh);
                 txtField.Frame = frame;
 
                 return Tuple.Create(lb, txtField);
