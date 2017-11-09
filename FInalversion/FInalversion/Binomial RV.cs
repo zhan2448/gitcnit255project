@@ -9,11 +9,14 @@ namespace FinalVersion
             // Data
             // Values[0] – (int)n.
             // Values[1] – (double)p.
-            Values = new object[2];
+            // Values[2] – (int)x.
+            Values = new object[3];
 
             Titles.Add("n");
             Titles.Add("p");
+            Titles.Add("x");
 
+            InputTypes.Add("s");
             InputTypes.Add("s");
             InputTypes.Add("s");
         }
@@ -21,11 +24,16 @@ namespace FinalVersion
 
         public void SetN(int xN) { Values[0] = (int)xN; }
         public void SetP(double xP) { Values[1] = (double)xP; }
+        public void SetX(int xX) { Values[2] = (int)xX; }
+
         public int GetN() { return (int)Values[0]; }
         public double GetP() { return (double)Values[1]; }
-        public void CalculateValues(int xN, double xP) {
+        public int GetX() { return (int)Values[2]; }
+
+        public void CalculateValues(int xN, double xP, int xX) {
             SetN(xN);
             SetP(xP);
+            SetX(xX);
         }
     }
 }

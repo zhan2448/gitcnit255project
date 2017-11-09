@@ -74,43 +74,49 @@ namespace FinalVersion
             // TEST AREA (danger, it's hardcoded)
             object[] tempArray = new object[3];
             tempArray[0] = new int();
-            tempArray[1] = new int();
-            tempArray[2] = new double();
+            tempArray[1] = new double();
+            tempArray[2] = new int();
 
-            btnCompute.TouchUpInside += (sender, e) =>
+            try
             {
-                // for (int i = 0; i < Graphs.Length; i++)
-                //{
-                //UITextField txt = Graphs[i].Item2;
-                tempArray[0] = int.Parse(Graphs[0].Item2.Text);
-                tempArray[1] = int.Parse(Graphs[1].Item2.Text);
-                tempArray[2] = double.Parse(Graphs[2].Item2.Text);
+                btnCompute.TouchUpInside += (sender, e) =>
+                {
+                    // for (int i = 0; i < Graphs.Length; i++)
+                    //{
+                    //UITextField txt = Graphs[i].Item2;
+                    tempArray[0] = int.Parse(Graphs[1].Item2.Text);
+                    tempArray[1] = double.Parse(Graphs[2].Item2.Text);
+                    tempArray[2] = int.Parse(Graphs[3].Item2.Text);
 
-                Binomial_RV brv = new Binomial_RV();
-                brv.CalculateValues((int)tempArray[1], (double)tempArray[2]);
+                    Binomial_RV brv = new Binomial_RV();
+                    brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2] );
 
-                // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
-                //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
-                //MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
-                //OpenedFormula.GetAnswer().GetType().GetMethods("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[2] { brv, (int)tempArray[0] });
+                    // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
+                    //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
+                    //MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
+                    //OpenedFormula.GetAnswer().GetType().GetMethods("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[2] { brv, (int)tempArray[0] });
 
-                // OpenedFormula.GetAnswer().GetType().GetMethod()
+                    // OpenedFormula.GetAnswer().GetType().GetMethod()
 
-                // ((pmf)OpenedFormula.GetAnswer()).CalculateValues((int)tempArray[0], brv);
+                    // ((pmf)OpenedFormula.GetAnswer()).CalculateValues((int)tempArray[0], brv);
 
-                OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { (int)tempArray[0], brv });
-                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                    OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
+                    //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
 
 
-                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
-                //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
+                    //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                    //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
 
-                // Change it to the proper output area.
-                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                    // Change it to the proper output area.
+                    Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
 
-                //}
-            };
-
+                    //}
+                };
+            }
+            catch
+            {
+                Graphs[0].Item2.Text = "Failed to calculate";
+            }
 
             View.BackgroundColor = UIColor.White;
         }

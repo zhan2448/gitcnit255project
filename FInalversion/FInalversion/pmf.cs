@@ -10,7 +10,7 @@ namespace FinalVersion
             // Values[0] – (int)x.
             Values = new object[1];
 
-            Titles.Add("x");
+            Titles.Add("P(X = x)");
             InputTypes.Add("s");
 
             // Associated Data
@@ -20,16 +20,14 @@ namespace FinalVersion
             SubExpressions[0] = new Binomial_RV();
         }
 
-        public void SetX(int x) { Values[0] = (int)x; }
+        public void SetPX(int xX) { Values[0] = (int)xX; }
 
-        public int GetX() { return (int)Values[0]; }
+        public int GetPX() { return (int)Values[0]; }
 
-        public void CalculateValues(int xX, Binomial_RV xB_rv) {
-            SetX(xX);
-
+        public void CalculateValues(Binomial_RV xB_rv) {
             double p = xB_rv.GetP();
             int n = xB_rv.GetN();
-            int x = (int)Values[0];
+            int x = xB_rv.GetX();
 
             // Forumala: P(X = j) = nCj * p ^ j * q ^ (n - j),
             //        - nCr = n! / ((n-r)! * r!).

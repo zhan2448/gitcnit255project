@@ -13,11 +13,12 @@ namespace FinalVersion
 
             // Associated Data
             // SubExpressions[0] – (PopulationMean).
-            // SubExpressions[1] – (Sample)
+            // SubExpressions[1] – (Sample).
             SubExpressions = new Expression[2];
 
             SubExpressions[0] = new PopulationMean();
             SubExpressions[1] = new Sample();
+            //SubExpressions[1].selectedvalue(0,1);
         }
 
         public void CalculateValues(double xPop_Mean, Sample xDataSet) {
