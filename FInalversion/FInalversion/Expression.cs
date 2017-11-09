@@ -32,7 +32,5 @@ namespace FinalVersion
         public List<string> GetTitles() { return Titles; }
 
         public List<string> GetInputTypes() { return InputTypes; }
-
-        public void CalculateValues() { }
     }
 }

@@ -88,19 +88,26 @@ namespace FinalVersion
 
                 Binomial_RV brv = new Binomial_RV();
                 brv.CalculateValues((int)tempArray[1], (double)tempArray[2]);
-                OpenedFormula.GetType();
-                Type vari = OpenedFormula.GetAnswer().GetType();
-
-                object answer = Convert.ChangeType(OpenedFormula.GetAnswer(), vari);
 
                 // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
-                MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
-                MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
-                Answer.Invoke(null, new object[2] { brv, (int)tempArray[0] });
+                //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
+                //MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
+                //OpenedFormula.GetAnswer().GetType().GetMethods("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[2] { brv, (int)tempArray[0] });
 
-                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
-                //answer.GetType().GetMethod("CalculateValues").Invoke(null, new object[2] {brv, (int)tempArray[0]});
+                // OpenedFormula.GetAnswer().GetType().GetMethod()
+
+                // ((pmf)OpenedFormula.GetAnswer()).CalculateValues((int)tempArray[0], brv);
+
+                OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { (int)tempArray[0], brv });
+                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+
+
+                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
                 //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
+
+                // Change it to the proper output area.
+                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+
                 //}
             };
 
