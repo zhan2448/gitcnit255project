@@ -86,60 +86,13 @@ namespace FinalVersion
                 }
             }
 
-            UIPickerView Pcker = new UIPickerView();
-            Pcker.Frame = new CGRect(0, 250, View.Bounds.Width, 250);
-            Pcker.ShowSelectionIndicator = true;
-            Pcker.Hidden = false;
+           
             FindValuePicker.Model = new FindValuePickerModel(StatExpressions);
-            Pcker.Model = new ExamplePickerViewModel(StatExpressions); ;
+           
 
-            View.AddSubview(Pcker);
+
         }
     }
 
-    public class ExamplePickerViewModel : UIPickerViewModel
-    {
-        private List<Expression> _myItems;
-        protected int selectedIndex = 0;
 
-        public ExamplePickerViewModel(List<Expression> items)
-        {
-            _myItems = items;
-        }
-
-        public Expression SelectedItem
-        {
-            get { return _myItems[selectedIndex]; }
-        }
-
-        public override nint GetComponentCount(UIPickerView picker)
-        {
-            return 1;
-        }
-
-        public override nint GetRowsInComponent(UIPickerView picker, nint component)
-        {
-            return _myItems.Count;
-        }
-
-        public override string GetTitle(UIPickerView picker, nint row, nint component)
-        {
-            return _myItems[(int)row].GetTitles()[0];
-        }
-
-        public override void Selected(UIPickerView picker, nint row, nint component)
-        {
-            selectedIndex = (int)row;
-        }
-
-        public override nfloat GetComponentWidth(UIPickerView picker, nint component)
-        {
-            if (component == 0)
-                return 240f;
-            else
-                return 40f;
-        }
-
-      
-    }
 }

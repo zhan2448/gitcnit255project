@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using UIKit;
+using System;
+
 
 namespace FinalVersion
 {
@@ -21,7 +23,12 @@ namespace FinalVersion
         }
         public override string GetTitle(UIPickerView pickerView, System.nint row, System.nint component)
         {
-            return statExpressions[(int)row].ToString();
+            return statExpressions[(int)row].GetTitles()[0];
+        }
+       
+        public override nfloat GetRowHeight(UIPickerView picker, nint component)
+        {
+            return 40f;
         }
 
     }
