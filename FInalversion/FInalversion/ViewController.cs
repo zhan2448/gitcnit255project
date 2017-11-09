@@ -70,11 +70,9 @@ namespace FinalVersion
 
         private void PreparePicker()
         {
-            // TEST INSIDE TEST
-            var types = Assembly
-    .GetExecutingAssembly()
-    .GetTypes()
-    .Where(t => t.Namespace.StartsWith("FinalVersion", StringComparison.Ordinal));
+            // Dynamically get a list of objects which are of type ExpressionConnected
+            // Reference: https://stackoverflow.com/questions/981330/instantiate-an-object-with-a-runtime-determined-type
+            var types = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace.StartsWith("FinalVersion", StringComparison.Ordinal));
 
             List<Expression> StatExpressions = new List<Expression>();
             foreach (var t in types)
@@ -85,14 +83,7 @@ namespace FinalVersion
                     StatExpressions.Add(obj);
                 }
             }
-
-           
             FindValuePicker.Model = new FindValuePickerModel(StatExpressions);
-           
-
-
         }
     }
-
-
 }
