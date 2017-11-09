@@ -33,10 +33,10 @@ namespace FinalVersion
             PrepareHeading(OpenedFormula.GetTitle(), OpenedFormula.GetDescription());
 
             // Get a comprehensive list of expressions titles and inputTypes
+            List<string> AllTitles = new List<string>(), AllInputTypes = new List<string>();
+
             Queue<Expression> AllExprs = new Queue<Expression>();
             AllExprs.Enqueue(OpenedFormula.GetAnswer());
-
-            List<string> AllTitles = new List<string>(), AllInputTypes = new List<string>();
             while (true)
             {
                 if (0 == AllExprs.Count)
@@ -45,9 +45,9 @@ namespace FinalVersion
                 }
 
                 Expression TempExpr = AllExprs.Dequeue();
-                if (TempExpr is ExpressionComposed)
+                if (TempExpr is ExpressionConnected)
                 {
-                    foreach (Expression SubExpr in ((ExpressionComposed)TempExpr).GetSubExressions())
+                    foreach (Expression SubExpr in ((ExpressionConnected)TempExpr).GetSubExressions())
                     {
                         AllExprs.Enqueue(SubExpr);
                     }
@@ -77,19 +77,17 @@ namespace FinalVersion
             tempArray[1] = new double();
             tempArray[2] = new int();
 
-            try
+            btnCompute.TouchUpInside += (sender, e) =>
             {
-                btnCompute.TouchUpInside += (sender, e) =>
-                {
                     // for (int i = 0; i < Graphs.Length; i++)
                     //{
                     //UITextField txt = Graphs[i].Item2;
                     tempArray[0] = int.Parse(Graphs[1].Item2.Text);
-                    tempArray[1] = double.Parse(Graphs[2].Item2.Text);
-                    tempArray[2] = int.Parse(Graphs[3].Item2.Text);
+                tempArray[1] = double.Parse(Graphs[2].Item2.Text);
+                tempArray[2] = int.Parse(Graphs[3].Item2.Text);
 
-                    Binomial_RV brv = new Binomial_RV();
-                    brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2] );
+                Binomial_RV brv = new Binomial_RV();
+                brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2]);
 
                     // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
                     //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
@@ -112,11 +110,6 @@ namespace FinalVersion
 
                     //}
                 };
-            }
-            catch
-            {
-                Graphs[0].Item2.Text = "Failed to calculate";
-            }
 
             View.BackgroundColor = UIColor.White;
         }

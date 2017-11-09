@@ -1,7 +1,7 @@
 ﻿using System;
 namespace FinalVersion
 {
-    class T_Value : ExpressionComposed
+    class T_Value : ExpressionConnected
     {
         public T_Value() : base() {
             // Data

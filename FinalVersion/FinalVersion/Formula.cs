@@ -42,9 +42,9 @@ namespace FinalVersion
 
                 Expression iExpression = AllExprs.Dequeue();
 
-                if (iExpression is ExpressionComposed)
+                if (iExpression is ExpressionConnected)
                 {
-                    foreach (Expression SubExpr in ((ExpressionComposed)iExpression).GetSubExressions())
+                    foreach (Expression SubExpr in ((ExpressionConnected)iExpression).GetSubExressions())
                     {
                         AllExprs.Enqueue(SubExpr);
                     }

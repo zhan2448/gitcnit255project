@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FinalVersion
 {
-    public class Sample : ExpressionComposed
+    public class Sample : ExpressionConnected
     {
         public Sample()
         {
@@ -13,8 +13,11 @@ namespace FinalVersion
             // Values[2] – (int)Sample Size.
             Values = new object[3];
 
-            Segments.Add("From Data");
-            Segments.Add("From Values");
+            // Segments[0] – Displays fields from this class.
+            // Segments[1] – Displays fields from DataSet.
+            Segments = new string[2];
+            Segments[0] = "From Values";
+            Segments[1] = "From Data";
 
             Titles.Add("Sample Mean");
             Titles.Add("Sample S.D.");
@@ -24,15 +27,15 @@ namespace FinalVersion
             InputTypes.Add("s");
             InputTypes.Add("s");
 
-
             // Associated Data
             // SubExpressions[0] – (DataSet).
             SubExpressions = new Expression[1];
-
             SubExpressions[0] = new DataSet();
         }
 
-        public Sample(int xSelectedSegment) {}
+        public Sample(int xSelectedSegment) : this() {
+            SegmentSelected = xSelectedSegment;
+        }
 
         public void CalculateValues(double[] xDataSet)
         {

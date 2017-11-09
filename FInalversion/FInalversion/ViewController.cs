@@ -1,7 +1,9 @@
 ﻿using System;
 using CoreGraphics;
+using System.Reflection;
 using System.Collections.Generic;
 using UIKit;
+using System.Linq;
 
 namespace FinalVersion
 {
@@ -29,31 +31,21 @@ namespace FinalVersion
             Formula[] TestF = new Formula[1];
             TestF[0] = new Formula();
             TestF[0].SetTitle("Calculate P(X), X~Binomial");
-            TestF[0].SetDescription("n - sample size, x - successes, p - probability of x.");
+            TestF[0].SetDescription("Big numbers break the system.");
 
             pmf pmFunc = new pmf();
             TestF[0].SetAnswer(pmFunc);
+            //
+
+
+            // Should really be a part of another view.
+            PreparePicker();
 
             var btn1 = UIButton.FromType(UIButtonType.System);
             btn1.Frame = new CGRect(20, 200, 280, 44);
             btn1.SetTitle(TestF[0].GetTitle(), UIControlState.Normal);
             View.AddSubview(btn1);
 
-            // TEST INSIDE TEST
-            List<Expression> StatExpressions = new List<Expression>();
-            StatExpressions.Add(new T_Value());
-            StatExpressions.Add(new Sample());
-
-            UIPickerView Pcker = new UIPickerView();
-            Pcker.Frame = new CGRect(0, 250, View.Bounds.Width, 250);
-            Pcker.ShowSelectionIndicator = true;
-            Pcker.Hidden = false;
-
-            Pcker.Model = new ExamplePickerViewModel(StatExpressions);;
-
-
-            View.AddSubview(Pcker);
-            //
             btn1.TouchUpInside += (sender, e) =>
             {
                 FormulaView VFormula = new FormulaView();
@@ -74,6 +66,34 @@ namespace FinalVersion
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+
+        private void PreparePicker()
+        {
+            // TEST INSIDE TEST
+            var types = Assembly
+    .GetExecutingAssembly()
+    .GetTypes()
+    .Where(t => t.Namespace.StartsWith("FinalVersion", StringComparison.Ordinal));
+
+            List<Expression> StatExpressions = new List<Expression>();
+            foreach (var t in types)
+            {
+                if (t.IsSubclassOf(typeof(ExpressionConnected)))
+                {
+                    ExpressionConnected obj = (ExpressionConnected)Activator.CreateInstance(t);
+                    StatExpressions.Add(obj);
+                }
+            }
+
+            UIPickerView Pcker = new UIPickerView();
+            Pcker.Frame = new CGRect(0, 250, View.Bounds.Width, 250);
+            Pcker.ShowSelectionIndicator = true;
+            Pcker.Hidden = false;
+
+            Pcker.Model = new ExamplePickerViewModel(StatExpressions); ;
+
+            View.AddSubview(Pcker);
         }
     }
 

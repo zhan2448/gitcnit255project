@@ -21,6 +21,13 @@ namespace FinalVersion
             InputTypes.Add("s");
         }
 
+        public Binomial_RV(int[] xIndex) : this(){
+            for (int i = 0; i < xIndex.Length; i++)
+            {
+                Titles.RemoveAt(xIndex[i]);
+            }
+        }
+
 
         public void SetN(int xN) { Values[0] = (int)xN; }
         public void SetP(double xP) { Values[1] = (double)xP; }
