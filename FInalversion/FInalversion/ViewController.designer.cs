@@ -13,8 +13,16 @@ namespace FinalVersion
     [Register ("ViewController")]
     partial class ViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIPickerView FindValuePicker { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (FindValuePicker != null) {
+                FindValuePicker.Dispose ();
+                FindValuePicker = null;
+            }
         }
     }
 }

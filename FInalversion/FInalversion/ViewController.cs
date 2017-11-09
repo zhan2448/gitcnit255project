@@ -90,7 +90,7 @@ namespace FinalVersion
             Pcker.Frame = new CGRect(0, 250, View.Bounds.Width, 250);
             Pcker.ShowSelectionIndicator = true;
             Pcker.Hidden = false;
-
+            FindValuePicker.Model = new FindValuePickerModel(StatExpressions);
             Pcker.Model = new ExamplePickerViewModel(StatExpressions); ;
 
             View.AddSubview(Pcker);
@@ -140,9 +140,6 @@ namespace FinalVersion
                 return 40f;
         }
 
-        public override nfloat GetRowHeight(UIPickerView picker, nint component)
-        {
-            return 40f;
-        }
+      
     }
 }
