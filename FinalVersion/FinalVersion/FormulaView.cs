@@ -28,6 +28,7 @@ namespace FinalVersion
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+            this.NavigationController.ToolbarHidden = true;
 
             positionY = (int)NavigationController.NavigationBar.Frame.Bottom + positionX;
             PrepareHeading(OpenedFormula.GetTitle(), OpenedFormula.GetDescription());
@@ -66,7 +67,7 @@ namespace FinalVersion
             btnCompute.SetTitle("Compute", UIControlState.Normal);
             btnCompute.SetTitleColor(UIColor.White, UIControlState.Normal);
             // btnCompute.Layer.BorderColor = UIColor.FromRGBA(142, 68, 173, 100).CGColor;
-            btnCompute.BackgroundColor = UIColor.FromRGBA(142, 68, 173, 255);
+            btnCompute.BackgroundColor = UIColor.FromRGBA(94, 191, 19, 255);
             btnCompute.Layer.CornerRadius = 5f;
 
             View.AddSubview(btnCompute);

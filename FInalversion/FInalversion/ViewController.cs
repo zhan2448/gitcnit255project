@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using UIKit;
 using System.Linq;
+using Foundation;
 
 namespace FinalVersion
 {
@@ -18,6 +19,21 @@ namespace FinalVersion
         {
             base.ViewDidLoad();
             this.ViewDidAppear();
+
+            //this.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, args) =>  
+            //{
+            //}), true);
+
+            // Reference: https://developer.xamarin.com/recipes/ios/content_controls/navigation_controller/add_a_nav_bar_bottom_toolbar/
+            var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
+            var btnLabel = new UIBarButtonItem("Add a Formula", UIBarButtonItemStyle.Plain, target: this, action: new ObjCRuntime.Selector(""));
+
+            this.SetToolbarItems(new UIBarButtonItem[] {
+                spacer,
+                new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {    }), btnLabel,spacer
+            }, true);
+
+            this.NavigationController.ToolbarHidden = false;
 
             // Test Data
             //Formula[] TestF = new Formula[1];
@@ -58,8 +74,14 @@ namespace FinalVersion
 
         private void ViewDidAppear()
         {
+            // Setting up the navigation Bar style.
+            // Reference: https://montemagno.com/ios-tip-change-status-bar-icon-text-colors/
+            this.NavigationController.NavigationBar.TintColor = UIColor.White;
+            NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
+            this.NavigationController.NavigationBar.BarTintColor = UIColor.FromRGBA(66, 32, 168, 255);
+
             // iOS 11 style Nav. Bar.
-            this.NavigationController.NavigationBar.PrefersLargeTitles = true;
+            this.NavigationController.NavigationBar.PrefersLargeTitles = false;
         }
 
         public override void DidReceiveMemoryWarning()
