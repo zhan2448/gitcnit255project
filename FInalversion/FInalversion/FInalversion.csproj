@@ -121,5 +121,10 @@
     <Compile Include="ExpressionInclusive.cs" />
     <Compile Include="FindValuePickerModel.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\画板 1.png" />
+    <BundleResource Include="Resources\资源 1.png" />
+    <BundleResource Include="Resources\资源 2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
