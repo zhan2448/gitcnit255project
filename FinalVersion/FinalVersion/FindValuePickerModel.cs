@@ -8,9 +8,10 @@ namespace FinalVersion
     class FindValuePickerModel : UIPickerViewModel
     {
         private List<Expression> statExpressions;
-        private Expression ex = new Expression();
+        private Expression ex;
 
-        public Expression Ex { get => ex; set => ex = value; }
+
+        public Expression Ex1 { get => ex; set => ex = value; }
 
         public event EventHandler GetSelectedExpression;
 
@@ -37,7 +38,11 @@ namespace FinalVersion
         }
         public override void Selected(UIPickerView pickerView, nint row, nint component)
         {
+
+
             ex = statExpressions[(int)row];
+
+            GetSelectedExpression?.Invoke(null, null);
 
         }
 
