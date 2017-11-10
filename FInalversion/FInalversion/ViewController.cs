@@ -105,7 +105,10 @@ namespace FinalVersion
                     StatExpressions.Add(obj);
                 }
             }
-            FindValuePicker.Model = new FindValuePickerModel(StatExpressions);
+            FindValuePickerModel findpicker = new FindValuePickerModel(StatExpressions);
+
+            FindValuePicker.Model = findpicker;
+        
         }
     }
 }

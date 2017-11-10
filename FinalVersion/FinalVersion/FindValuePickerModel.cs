@@ -8,6 +8,11 @@ namespace FinalVersion
     class FindValuePickerModel : UIPickerViewModel
     {
         private List<Expression> statExpressions;
+        private Expression ex = new Expression();
+
+        public Expression Ex { get => ex; set => ex = value; }
+
+        public event EventHandler GetSelectedExpression;
 
         public FindValuePickerModel(List<Expression> statExpressions)
         {
@@ -19,17 +24,23 @@ namespace FinalVersion
         }
         public override System.nint GetComponentCount(UIPickerView pickerView)
         {
-            return 5;
+            return 1;
         }
         public override string GetTitle(UIPickerView pickerView, System.nint row, System.nint component)
         {
             return statExpressions[(int)row].GetTitles()[0];
         }
-       
+
         public override nfloat GetRowHeight(UIPickerView pickerView, nint component)
         {
-            return 40f;
+            return 30f;
         }
+        public override void Selected(UIPickerView pickerView, nint row, nint component)
+        {
+            ex = statExpressions[(int)row];
+
+        }
+
 
     }
 }
