@@ -14,5 +14,8 @@ namespace FinalVersion
     [Register ("FormulaView")]
     partial class FormulaView
     {
+        void ReleaseDesignerOutlets ()
+        {
+        }
     }
 }
