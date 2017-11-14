@@ -62,12 +62,12 @@ namespace FinalVersion
             PrepareExpresionsArea(AllTitles.ToArray(), AllInputTypes.ToArray());
 
             // Creating Compute button
+            // Real green: UIColor.FromRGBA(94, 191, 19, 255).
             var btnCompute = UIButton.FromType(UIButtonType.System);
             btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - positionX * 2, positionY, 150, 45);
             btnCompute.SetTitle("Compute", UIControlState.Normal);
-            btnCompute.SetTitleColor(UIColor.White, UIControlState.Normal);
-            // btnCompute.Layer.BorderColor = UIColor.FromRGBA(142, 68, 173, 100).CGColor;
-            btnCompute.BackgroundColor = UIColor.FromRGBA(94, 191, 19, 255);
+            btnCompute.SetTitleColor(UIColor.FromRGBA(66, 32, 168, 255), UIControlState.Normal);  
+            btnCompute.BackgroundColor = UIColor.FromRGBA(240, 240, 240, 255);
             btnCompute.Layer.CornerRadius = 5f;
 
             View.AddSubview(btnCompute);
