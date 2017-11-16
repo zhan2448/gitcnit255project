@@ -118,7 +118,6 @@
     <Compile Include="Binomial RV.cs" />
     <Compile Include="pmf.cs" />
     <Compile Include="ExpressionConnected.cs" />
-    <Compile Include="ExpressionInclusive.cs" />
     <Compile Include="FindValuePickerModel.cs" />
   </ItemGroup>
   <ItemGroup>

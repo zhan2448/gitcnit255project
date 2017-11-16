@@ -10,7 +10,10 @@ namespace FinalVersion
             // Values[0] – (int)x.
             Values = new object[1];
 
-            Titles.Add("P(X = x)");
+            Titles.Add("PMF Value");
+
+            Signs.Add("P(X = x)");
+
             InputTypes.Add("s");
 
             // Associated Data

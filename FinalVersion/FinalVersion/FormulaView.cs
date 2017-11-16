@@ -34,7 +34,7 @@ namespace FinalVersion
             PrepareHeading(OpenedFormula.GetTitle(), OpenedFormula.GetDescription());
 
             // Get a comprehensive list of expressions titles and inputTypes
-            List<string> AllTitles = new List<string>(), AllInputTypes = new List<string>();
+            List<string> AllTitles = new List<string>(), AllInputTypes = new List<string>(), AllSigns = new List<string>();
 
             Queue<Expression> AllExprs = new Queue<Expression>();
             AllExprs.Enqueue(OpenedFormula.GetAnswer());
@@ -55,18 +55,24 @@ namespace FinalVersion
                 }
 
                 AllTitles.AddRange(TempExpr.GetTitles());
+                AllSigns.AddRange(TempExpr.GetSigns());
                 AllInputTypes.AddRange(TempExpr.GetInputTypes());
             }
 
             // Preparing Expressions Area
-            PrepareExpresionsArea(AllTitles.ToArray(), AllInputTypes.ToArray());
+            PrepareExpresionsArea(AllSigns.ToArray(), AllTitles.ToArray(), AllInputTypes.ToArray());
 
             // Creating Compute button
             // Real green: UIColor.FromRGBA(94, 191, 19, 255).
             var btnCompute = UIButton.FromType(UIButtonType.System);
-            btnCompute.Frame = new CGRect(Graphs[0].Item2.Bounds.Right - positionX * 2, positionY, 150, 45);
+            CGRect frame = btnCompute.Frame;
+            frame.Size = new CGSize(150, elementsHeigh);
+
+            frame.Location = new CGPoint(Graphs[0].Item2.Bounds.Right - frame.Width * 0.5, positionY);
+            btnCompute.Frame = frame;
+
             btnCompute.SetTitle("Compute", UIControlState.Normal);
-            btnCompute.SetTitleColor(UIColor.FromRGBA(66, 32, 168, 255), UIControlState.Normal);  
+            btnCompute.SetTitleColor(UIColor.FromRGBA(66, 32, 168, 255), UIControlState.Normal);
             btnCompute.BackgroundColor = UIColor.FromRGBA(240, 240, 240, 255);
             btnCompute.Layer.CornerRadius = 5f;
 
@@ -80,37 +86,37 @@ namespace FinalVersion
 
             btnCompute.TouchUpInside += (sender, e) =>
             {
-                    // for (int i = 0; i < Graphs.Length; i++)
-                    //{
-                    //UITextField txt = Graphs[i].Item2;
-                    tempArray[0] = int.Parse(Graphs[1].Item2.Text);
+                // for (int i = 0; i < Graphs.Length; i++)
+                //{
+                //UITextField txt = Graphs[i].Item2;
+                tempArray[0] = int.Parse(Graphs[1].Item2.Text);
                 tempArray[1] = double.Parse(Graphs[2].Item2.Text);
                 tempArray[2] = int.Parse(Graphs[3].Item2.Text);
 
                 Binomial_RV brv = new Binomial_RV();
                 brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2]);
 
-                    // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
-                    //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
-                    //MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
-                    //OpenedFormula.GetAnswer().GetType().GetMethods("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[2] { brv, (int)tempArray[0] });
+                // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
+                //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
+                //MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
+                //OpenedFormula.GetAnswer().GetType().GetMethods("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[2] { brv, (int)tempArray[0] });
 
-                    // OpenedFormula.GetAnswer().GetType().GetMethod()
+                // OpenedFormula.GetAnswer().GetType().GetMethod()
 
-                    // ((pmf)OpenedFormula.GetAnswer()).CalculateValues((int)tempArray[0], brv);
+                // ((pmf)OpenedFormula.GetAnswer()).CalculateValues((int)tempArray[0], brv);
 
-                    OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
-                    //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
+                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
 
 
-                    //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
-                    //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
+                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
 
-                    // Change it to the proper output area.
-                    Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                // Change it to the proper output area.
+                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
 
-                    //}
-                };
+                //}
+            };
 
             View.BackgroundColor = UIColor.White;
         }
@@ -127,7 +133,7 @@ namespace FinalVersion
             View.AddSubview(lb);
         }
 
-        private void PrepareExpresionsArea(string[] LabelsNames, string[] InputFormat)
+        private void PrepareExpresionsArea(string[] LabelsNames, string[] Placeholders, string[] InputFormat)
         {
             //UITableView table = new UITableView(View.Bounds); // defaults to Plain style
             //string[] tableItems = LabelsNames;
@@ -139,7 +145,7 @@ namespace FinalVersion
 
             for (int i = 0; i < LabelsNames.Length; i++)
             {
-                Graphs[i] = AddGraph((LabelsNames[i] + ":"), InputFormat[i]);
+                Graphs[i] = AddGraph((LabelsNames[i] + ":"), Placeholders[i], InputFormat[i]);
                 Graphs[i].Item1.Frame = new CGRect(positionX, positionY, Graphs[i].Item1.Frame.Width, Graphs[i].Item1.Frame.Height);
                 Graphs[i].Item2.Frame = new CGRect((positionX + Graphs[i].Item1.Frame.Right), positionY, Graphs[i].Item2.Frame.Width, Graphs[i].Item1.Frame.Height);
                 positionY = (int)Graphs[i].Item2.Frame.Bottom + positionX;
@@ -177,7 +183,7 @@ namespace FinalVersion
                 // If different background, change:
                 lb.TextColor = UIColor.Black;
 
-                frame.Size = new CGSize(100, elementsHeigh);
+                frame.Size = new CGSize(50, elementsHeigh);
                 lb.Frame = frame;
             }
             else if (style == "description")
@@ -192,7 +198,7 @@ namespace FinalVersion
             return lb;
         }
 
-        private Tuple<UILabel, UITextField> AddGraph(string label, string type)
+        private Tuple<UILabel, UITextField> AddGraph(string label, string placeholder, string type)
         {
             UILabel lb = AddLabel(label, "normal");
 
@@ -201,6 +207,7 @@ namespace FinalVersion
                 var txtField = new UITextField();
                 txtField.BorderStyle = UITextBorderStyle.RoundedRect;
                 txtField.BackgroundColor = UIColor.White;
+                txtField.Placeholder = placeholder;
 
                 CGRect frame = txtField.Frame;
                 frame.Size = new CGSize(View.Bounds.Right - positionX * 3 - lb.Frame.Width, elementsHeigh);
