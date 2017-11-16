@@ -119,6 +119,10 @@
     <Compile Include="pmf.cs" />
     <Compile Include="ExpressionConnected.cs" />
     <Compile Include="FindValuePickerModel.cs" />
+    <Compile Include="FormulaAddView.cs" />
+    <Compile Include="FormulaAddView.designer.cs">
+      <DependentUpon>FormulaAddView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />

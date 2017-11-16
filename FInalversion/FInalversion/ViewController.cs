@@ -30,8 +30,22 @@ namespace FinalVersion
 
             this.SetToolbarItems(new UIBarButtonItem[] {
                 spacer,
-                new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {    }), btnLabel,spacer
+                new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {  
+                    FormulaAddView AddFormula = new FormulaAddView();
+                // To-Do: change the index accordingly to which Formula was selected
+
+                    this.NavigationController.PushViewController(AddFormula, true);
+                
+                }), btnLabel, spacer
             }, true);
+
+            btnLabel.Clicked += (sender, e) =>
+            {
+                FormulaAddView AddFormula = new FormulaAddView();
+                // To-Do: change the index accordingly to which Formula was selected
+
+                this.NavigationController.PushViewController(AddFormula, true);
+            };
 
             this.NavigationController.ToolbarHidden = false;
 
@@ -52,10 +66,6 @@ namespace FinalVersion
             pmf pmFunc = new pmf();
             TestF[0].SetAnswer(pmFunc);
             //
-
-
-            // Should really be a part of another view.
-            PreparePicker();
 
             var btn1 = UIButton.FromType(UIButtonType.System);
             btn1.Frame = new CGRect(20, 200, 280, 44);
@@ -88,27 +98,6 @@ namespace FinalVersion
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
-        }
-
-        private void PreparePicker()
-        {
-            // Dynamically get a list of objects which are of type ExpressionConnected
-            // Reference: https://stackoverflow.com/questions/981330/instantiate-an-object-with-a-runtime-determined-type
-            var types = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace.StartsWith("FinalVersion", StringComparison.Ordinal));
-
-            List<Expression> StatExpressions = new List<Expression>();
-            foreach (var t in types)
-            {
-                if (t.IsSubclassOf(typeof(ExpressionConnected)))
-                {
-                    ExpressionConnected obj = (ExpressionConnected)Activator.CreateInstance(t);
-                    StatExpressions.Add(obj);
-                }
-            }
-            FindValuePickerModel findpicker = new FindValuePickerModel(StatExpressions);
-
-            FindValuePicker.Model = findpicker;
-        
         }
     }
 }
