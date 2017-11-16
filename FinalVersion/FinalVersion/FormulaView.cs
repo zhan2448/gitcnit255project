@@ -67,16 +67,27 @@ namespace FinalVersion
             var btnCompute = UIButton.FromType(UIButtonType.System);
             CGRect frame = btnCompute.Frame;
             frame.Size = new CGSize(150, elementsHeigh);
-
             frame.Location = new CGPoint(Graphs[0].Item2.Bounds.Right - frame.Width * 0.5, positionY);
             btnCompute.Frame = frame;
-
             btnCompute.SetTitle("Compute", UIControlState.Normal);
             btnCompute.SetTitleColor(UIColor.FromRGBA(66, 32, 168, 255), UIControlState.Normal);
             btnCompute.BackgroundColor = UIColor.FromRGBA(240, 240, 240, 255);
             btnCompute.Layer.CornerRadius = 5f;
-
             View.AddSubview(btnCompute);
+
+            // TEST SEGMENT
+            // Reference: https://developer.xamarin.com/recipes/ios/standard_controls/segmented_button_control/configure_segments_(uisegmentedcontrol)/
+            var segmentControl = new UISegmentedControl();
+            segmentControl.Frame = new CGRect(positionX, btnCompute.Frame.Bottom + positionX, Graphs[1].Item2.Frame.Right - positionX, 28);
+            segmentControl.InsertSegment("T Value", 0, false);
+            segmentControl.InsertSegment("Z Value", 1, false);
+            segmentControl.SelectedSegment = 0;
+            segmentControl.ValueChanged += (sender, e) => {
+                var selectedSegmentId = (sender as UISegmentedControl).SelectedSegment;
+                // do something with selectedSegmentId
+            };
+            View.AddSubview(segmentControl);
+            //
 
             // TEST AREA (danger, it's hardcoded)
             object[] tempArray = new object[3];
@@ -86,9 +97,6 @@ namespace FinalVersion
 
             btnCompute.TouchUpInside += (sender, e) =>
             {
-                // for (int i = 0; i < Graphs.Length; i++)
-                //{
-                //UITextField txt = Graphs[i].Item2;
                 tempArray[0] = int.Parse(Graphs[1].Item2.Text);
                 tempArray[1] = double.Parse(Graphs[2].Item2.Text);
                 tempArray[2] = int.Parse(Graphs[3].Item2.Text);
@@ -96,30 +104,16 @@ namespace FinalVersion
                 Binomial_RV brv = new Binomial_RV();
                 brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2]);
 
-                // answer.GetType().GetMethod("CalculateValues", new Type[] { Binomial_RV, int });
-                //MethodInfo[] AnswerMethods = OpenedFormula.GetAnswer().GetType().GetMethods();
-                //MethodInfo Answer = AnswerMethods.FirstOrDefault(mi => mi.Name == "CalculateValues" && mi.GetParameters().Count() == Graphs.Length);
-                //OpenedFormula.GetAnswer().GetType().GetMethods("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[2] { brv, (int)tempArray[0] });
-
-                // OpenedFormula.GetAnswer().GetType().GetMethod()
-
-                // ((pmf)OpenedFormula.GetAnswer()).CalculateValues((int)tempArray[0], brv);
-
                 OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
-                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
-
-
-                //Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
-                //OpenedFormula.GetAnswer().CalculateValues(brv, (int)tempArray[0]);
 
                 // Change it to the proper output area.
                 Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
-
-                //}
             };
 
             View.BackgroundColor = UIColor.White;
         }
+
+        public void SetFormula(Formula xFormula) { OpenedFormula = xFormula; }
 
 
         // Functional Methods:
@@ -155,17 +149,8 @@ namespace FinalVersion
             }
         }
 
-
         // To-Do: Write PrepareAnswerArea() method
         //
-
-        public void SetFormula(Formula xFormula) { OpenedFormula = xFormula; }
-
-
-
-        //  private string[,] FetchLabels(object[] xExpressions) {
-        //      Expression test = (Expression)Attribute.GetCustomAttribute((MemberInfo)xExpressions[0], typeof(Expression));
-        //  }
 
         // UI Generating Methods
         private UILabel AddLabel(string label, string style)
