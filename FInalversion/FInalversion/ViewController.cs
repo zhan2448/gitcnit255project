@@ -33,7 +33,7 @@ namespace FinalVersion
                 new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {  
                     FormulaAddView AddFormula = new FormulaAddView();
                 // To-Do: change the index accordingly to which Formula was selected
-
+                   
                     this.NavigationController.PushViewController(AddFormula, true);
                 
                 }), btnLabel, spacer

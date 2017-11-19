@@ -39,8 +39,15 @@ namespace FinalVersion
             }
 
 
-
-
+            var picker = new UIPickerView
+            {
+                Frame =new CGRect(10,10,350,
+                        300),
+            };
+            picker.Model = new FindValuePickerModel(StatExpressions);
+            picker.ShowSelectionIndicator = true;
+            this.View.AddSubview(picker);
+            
         }
     }
 }
