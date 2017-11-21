@@ -18,9 +18,11 @@ namespace FinalVersion
         {
             base.ViewDidLoad();
             View.BackgroundColor = UIColor.White;
-
+          
             PreparePicker();
+           
         }
+        Expression SelectedExpression;
 
         private void PreparePicker()
         {
@@ -44,10 +46,51 @@ namespace FinalVersion
                 Frame =new CGRect(10,10,350,
                         300),
             };
-            picker.Model = new FindValuePickerModel(StatExpressions);
+            var findValuePickerModel = new FindValuePickerModel(StatExpressions);
+            findValuePickerModel.GetSelectedExpression += (sender, e) =>
+            {
+
+                SelectedExpression = findValuePickerModel.Ex1;
+                PrepareInPUtPicker();
+
+            };
+            picker.Model = findValuePickerModel;
+
             picker.ShowSelectionIndicator = true;
             this.View.AddSubview(picker);
-            
+           
         }
+        public UIPickerView picker2 = new UIPickerView
+        {
+            Frame = new CGRect(10, 400, 350,
+                      300),
+        };
+        public void PrepareInPUtPicker(){
+
+            List<Expression> StatExpressions = new List<Expression>();
+            var b = SelectedExpression;
+
+            if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
+            {
+                ExpressionConnected temp = (FinalVersion.ExpressionConnected)b;
+                var intArray = temp.GetSubExressions();
+                StatExpressions = intArray.ToList<Expression>();
+
+
+            }
+            else b.GetValues();
+
+          
+            var findValuePickerModel = new FindValuePickerModel(StatExpressions);
+           
+            picker2.Model = findValuePickerModel;
+
+            picker2.ShowSelectionIndicator = true;
+          
+            this.View.AddSubview(picker2);
+          
+        }
+
+
     }
 }

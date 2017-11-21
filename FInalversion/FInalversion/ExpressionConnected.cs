@@ -25,5 +25,6 @@ namespace FinalVersion
         public int GetSegmentSelected() { return SegmentSelected; }
         public void SetSegments(string[] xSegments) { Segments = xSegments; }
         public string[] GetSegments() { return Segments; }
+        public Expression[] GetExpression() { return SubExpressions; }
     }
 }

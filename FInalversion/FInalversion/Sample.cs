@@ -40,7 +40,6 @@ namespace FinalVersion
         public void CalculateValues(double[] xDataSet)
         {
             SetSample_Values(xDataSet);
-
             SetSample_Mean(CalculateSample_Mean(xDataSet));
             SetSample_SD(CalculateSD(xDataSet));
             SetSample_Size(CalculateSample_Size(xDataSet));
