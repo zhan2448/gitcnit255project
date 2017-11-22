@@ -50,7 +50,7 @@ namespace FinalVersion
             {
 
                 SelectedExpression = findValuePickerModel.Ex1;
-                PrepareInPUtPicker();
+                PrepareInPutPicker();
 
             };
             picker.Model = findValuePickerModel;
@@ -65,7 +65,7 @@ namespace FinalVersion
                       300),
         };
         UIButton btn = new UIButton(UIButtonType.RoundedRect);
-        public void PrepareInPUtPicker(){
+        public void PrepareInPutPicker(){
 
             List<Expression> StatExpressions = new List<Expression>();
             List<Expression> FixStatExpressions = new List<Expression>();
@@ -93,16 +93,10 @@ namespace FinalVersion
 
 
 
-            btn.SetTitle (FixStatExpressions[0].GetAllTitle(), UIControlState.Normal);             btn.Frame = new RectangleF (10, 400, 300, 300);             this.View.AddSubview (btn);  
-
-
-
+            btn.SetTitle (FixStatExpressions[0].GetAllTitle(), UIControlState.Normal);             btn.Frame = new RectangleF (10, 400, 300, 300);             this.View.AddSubview (btn);
             var findValuePickerModel = new FindValuePickerModel(StatExpressions);
-           
             picker2.Model = findValuePickerModel;
-
             picker2.ShowSelectionIndicator = true;
-          
             this.View.AddSubview(picker2);
           
         }
