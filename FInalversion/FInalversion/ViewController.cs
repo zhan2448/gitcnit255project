@@ -32,6 +32,7 @@ namespace FinalVersion
                 spacer,
                 new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {  
                     FormulaAddView AddFormula = new FormulaAddView();
+                  
                 // To-Do: change the index accordingly to which Formula was selected
                    
                     this.NavigationController.PushViewController(AddFormula, true);
@@ -41,6 +42,7 @@ namespace FinalVersion
 
             btnLabel.Clicked += (sender, e) =>
             {
+                
                 FormulaAddView AddFormula = new FormulaAddView();
                 // To-Do: change the index accordingly to which Formula was selected
 
@@ -74,6 +76,7 @@ namespace FinalVersion
 
             btn1.TouchUpInside += (sender, e) =>
             {
+                
                 FormulaView VFormula = new FormulaView();
                 // To-Do: change the index accordingly to which Formula was selected
                 VFormula.SetFormula(TestF[0]);

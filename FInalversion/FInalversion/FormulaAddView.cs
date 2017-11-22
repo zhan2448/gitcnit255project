@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UIKit;
 using System.Linq;
 using Foundation;
+using System.Drawing;
 
 namespace FinalVersion
 {
@@ -14,6 +15,7 @@ namespace FinalVersion
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+           
             View.BackgroundColor = UIColor.White;
           
             PreparePicker();
@@ -59,9 +61,10 @@ namespace FinalVersion
         }
         public UIPickerView picker2 = new UIPickerView
         {
-            Frame = new CGRect(10, 400, 350,
+            Frame = new CGRect(10, 250, 350,
                       300),
         };
+        UIButton btn = new UIButton(UIButtonType.RoundedRect);
         public void PrepareInPUtPicker(){
 
             List<Expression> StatExpressions = new List<Expression>();
@@ -87,7 +90,13 @@ namespace FinalVersion
                 }
                
             }else b.GetValues();
-          
+
+
+
+            btn.SetTitle (FixStatExpressions[0].GetAllTitle(), UIControlState.Normal);             btn.Frame = new RectangleF (10, 400, 300, 300);             this.View.AddSubview (btn);  
+
+
+
             var findValuePickerModel = new FindValuePickerModel(StatExpressions);
            
             picker2.Model = findValuePickerModel;
