@@ -35,11 +35,8 @@ namespace FinalVersion
         public string GetAllTitle() { string temp = "";
             for (int a = 0; a < Titles.Count;a++){
                 temp = temp + Titles[a]+"+";
-
             }
             return temp;
-           
-        
         }
 
         public List<string> GetTitles() { return Titles; }

@@ -86,14 +86,7 @@ namespace FinalVersion
 
                 }
                
-
-
             }else b.GetValues();
-
-
-
-           
-
           
             var findValuePickerModel = new FindValuePickerModel(StatExpressions);
            
