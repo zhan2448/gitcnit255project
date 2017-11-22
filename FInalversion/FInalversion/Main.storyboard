@@ -70,7 +70,7 @@
                         <viewControllerLayoutGuide type="top" id="2246"/>
                         <viewControllerLayoutGuide type="bottom" id="2247"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2250" customClass="FormulaAddView">
+                    <view key="view" contentMode="scaleToFill" id="2250">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +81,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" id="2030" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                        <rect key="frame" x="20" y="20" width="414" height="162"/>
+                                        <rect key="frame" x="20" y="-9" width="414" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
                                 </subviews>
@@ -92,7 +92,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" id="2790" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                        <rect key="frame" x="20" y="20" width="320" height="162"/>
+                                        <rect key="frame" x="38" y="0.0" width="320" height="162"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     </pickerView>
                                 </subviews>
@@ -100,8 +100,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="InputPicker" destination="2030" id="name-outlet-2030"/>
                         <outlet property="FindValuePicker" destination="2790" id="name-outlet-2790"/>
+                        <outlet property="InputPicker" destination="2030" id="name-outlet-2030"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2251" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,7 +115,8 @@
         <image name="资源 2.png" width="749" height="680"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedScreenMetrics key="destination" type="retina5_5.fullscreen"/>
+        <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
 </document>

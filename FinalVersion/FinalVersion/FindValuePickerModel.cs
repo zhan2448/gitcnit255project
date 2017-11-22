@@ -29,7 +29,7 @@ namespace FinalVersion
         }
         public override string GetTitle(UIPickerView pickerView, System.nint row, System.nint component)
         {
-            return statExpressions[(int)row].GetTitles()[0];
+            return statExpressions[(int)row].GetAllTitle();
         }
 
         public override nfloat GetRowHeight(UIPickerView pickerView, nint component)

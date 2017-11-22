@@ -10,10 +10,7 @@ namespace FinalVersion
 {
     public partial class FormulaAddView : UIViewController
     {
-        public FormulaAddView()
-        {
-        }
-
+      
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -68,17 +65,34 @@ namespace FinalVersion
         public void PrepareInPUtPicker(){
 
             List<Expression> StatExpressions = new List<Expression>();
+            List<Expression> FixStatExpressions = new List<Expression>();
+
             var b = SelectedExpression;
 
             if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
             {
                 ExpressionConnected temp = (FinalVersion.ExpressionConnected)b;
                 var intArray = temp.GetSubExressions();
-                StatExpressions = intArray.ToList<Expression>();
+                for (int q = 0; q < intArray.Length;q++){
+
+                    if(intArray[q].GetType().IsSubclassOf(typeof(ExpressionConnected))){
+                        StatExpressions.Add(intArray[q]);
+
+                    }else if(intArray[q].GetType().IsSubclassOf(typeof(Expression))){
+
+                        FixStatExpressions.Add(intArray[q]);
+
+                    }
+
+                }
+               
 
 
-            }
-            else b.GetValues();
+            }else b.GetValues();
+
+
+
+           
 
           
             var findValuePickerModel = new FindValuePickerModel(StatExpressions);
