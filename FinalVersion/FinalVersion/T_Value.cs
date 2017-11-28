@@ -13,13 +13,10 @@ namespace FinalVersion
             InputTypes.Add("s");
 
            
-
-
             // Associated Data
             // SubExpressions[0] – (PopulationMean).
             // SubExpressions[1] – (Sample).
             SubExpressions = new Expression[2];
-
             SubExpressions[0] = new PopulationMean();
             SubExpressions[1] = new Sample();
             //SubExpressions[1].selectedvalue(0,1);
@@ -34,7 +31,6 @@ namespace FinalVersion
             double h_mean = (double)xPop_Mean.GetValues()[0];
             double sd = xDataSet.GetSample_SD();
             double sampleN = xDataSet.GetSample_Size();
-
             {
 
                 double temp = Mean - h_mean;
