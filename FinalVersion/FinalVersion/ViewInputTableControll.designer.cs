@@ -16,10 +16,6 @@ namespace FinalVersion
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btncal { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton Btncancel { get; set; }
 
         [Outlet]
@@ -34,10 +30,6 @@ namespace FinalVersion
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel LbInput { get; set; }
 
-        [Action ("Btncal_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void Btncal_TouchUpInside (UIKit.UIButton sender);
-
         [Action ("Btncancel_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void Btncancel_TouchUpInside (UIKit.UIButton sender);
@@ -48,11 +40,6 @@ namespace FinalVersion
 
         void ReleaseDesignerOutlets ()
         {
-            if (btncal != null) {
-                btncal.Dispose ();
-                btncal = null;
-            }
-
             if (Btncancel != null) {
                 Btncancel.Dispose ();
                 Btncancel = null;
