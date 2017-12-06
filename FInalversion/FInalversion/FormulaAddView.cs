@@ -42,6 +42,7 @@ namespace FinalVersion
                 {
                     ExpressionConnected obj = (ExpressionConnected)Activator.CreateInstance(t);
                     StatExpressions.Add(obj);
+
                 }
             }
 
@@ -49,7 +50,10 @@ namespace FinalVersion
             FormulaTable.SelectExpression += (sender, e) =>
             {
                 SelectedExpression = FormulaTable.temp;
-                PrepareInPutPicker(SelectedExpression);
+              //  PrepareInPutPicker(SelectedExpression);
+                ViewInputTableControll inputview = this.Storyboard.InstantiateViewController("ViewInputTableControll") as ViewInputTableControll;
+                inputview.seletedexpression = SelectedExpression;
+                this.NavigationController.PushViewController(inputview,true);
             };
             ViewFormulaTable.Source = FormulaTable;
             //var picker = new UIPickerView
@@ -71,6 +75,7 @@ namespace FinalVersion
             //this.View.AddSubview(picker);
 
         }
+       
         public UIPickerView picker2 = new UIPickerView
         {
             Frame = new CGRect(10, 250, 350,

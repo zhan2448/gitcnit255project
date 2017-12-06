@@ -148,7 +148,7 @@
         </scene>
         <scene sceneID="10545">
             <objects>
-                <viewController id="10546" sceneMemberID="viewController">
+                <viewController id="10546" sceneMemberID="viewController" customClass="ViewInputTableControll" storyboardIdentifier="ViewInputTableControll">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="10543"/>
                         <viewControllerLayoutGuide type="bottom" id="10544"/>
@@ -157,7 +157,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="13589" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="99" y="233" width="205" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="Testlb" destination="13589" id="name-outlet-13589"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10548" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
