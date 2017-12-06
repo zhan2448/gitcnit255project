@@ -14,16 +14,8 @@ namespace FinalVersion
     [Register ("ViewInputTableControll")]
     partial class ViewInputTableControll
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel Testlb { get; set; }
-
         void ReleaseDesignerOutlets ()
         {
-            if (Testlb != null) {
-                Testlb.Dispose ();
-                Testlb = null;
-            }
         }
     }
 }
