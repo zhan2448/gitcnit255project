@@ -58,32 +58,13 @@ namespace FinalVersion
 
         }
         Expression sele;
-        partial void Btncal_TouchUpInside(UIButton sender)
-        {
-            Formula[] TestF = new Formula[1];
-            TestF[0] = new Formula();
-            //[0].SetTitle("Calculate P(X), X~Binomial");
-            TestF[0].SetTitle(sele.GetAllTitle());
-            TestF[0].SetDescription("Big numbers break the system.");
-
-   
-                TestF[0].SetAnswer(sele);
-            //
-
-                FormulaView VFormula = new FormulaView();
-                // To-Do: change the index accordingly to which Formula was selected
-                VFormula.SetFormula(TestF[0]);
-
-                this.NavigationController.PushViewController(VFormula, true);
-
-        }
        
         public void preparetable(){
             var FormulaTable = new FormulaTable(temp);
             FormulaTable.SelectExpression += (sender, e) =>
             {
                 LbInput.Text = "Success";
-                btncal.Hidden = false;
+              
                 Btnroot.Hidden = false;
                 sele = FormulaTable.temp;
             };

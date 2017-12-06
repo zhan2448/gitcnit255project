@@ -213,7 +213,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="30050" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
-                                <rect key="frame" x="1" y="623" width="187" height="44"/>
+                                <rect key="frame" x="94" y="588" width="187" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
                                 <state key="normal" title="Back">
@@ -224,18 +224,6 @@
                                     <action selector="Btnroot_TouchUpInside:" destination="26628" id="30495" eventType="touchUpInside"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="30494" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
-                                <rect key="frame" x="189" y="623" width="186" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0" blue="1" alpha="1"/>
-                                <state key="normal" title="Formula">
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="Btncal_TouchUpInside:" destination="26628" id="30496" eventType="touchUpInside"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -243,7 +231,6 @@
                         <outlet property="LbInput" destination="27297" id="name-outlet-27297"/>
                         <outlet property="Btncancel" destination="27523" id="name-outlet-27523"/>
                         <outlet property="Btnroot" destination="30050" id="name-outlet-30050"/>
-                        <outlet property="btncal" destination="30494" id="name-outlet-30494"/>
                         <segue id="31053" destination="254" kind="push"/>
                     </connections>
                 </viewController>
