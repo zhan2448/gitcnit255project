@@ -5,12 +5,50 @@ using System.Collections.Generic;
 using UIKit;
 using System.Linq;
 using Foundation;
-
+using Xamarin.Auth;
+using Newtonsoft.Json;
 namespace FinalVersion
 {
     public partial class ViewController : UIViewController
     {
-       
+        partial void UIButton17067_TouchUpInside(UIButton sender)
+        {
+            var auth = new OAuth1Authenticator(
+
+                consumerKey: "Iyn7ZJDVUpokTSPQDD6l2qkhq",
+                consumerSecret: "0kc6KQrXzdjyfnjno2ubBct3exc8loYJs6wgwHkf46ntx74TE9",
+                    requestTokenUrl: new Uri("https://api.twitter.com/oauth/request_token"),
+                    authorizeUrl: new Uri("https://api.twitter.com/oauth/authorize"),
+                    accessTokenUrl: new Uri("https://api.twitter.com/oauth/access_token"),
+                callbackUrl: new Uri("http://www.website.com"));
+        
+
+          
+            var ui = auth.GetUI();
+            auth.Completed += TwitterAuth_Completed;
+
+            PresentViewController(ui, true, null);
+
+        }
+
+        async void TwitterAuth_Completed(object sender, AuthenticatorCompletedEventArgs e){
+            DismissViewController(true, null);
+
+            if (e.IsAuthenticated){
+
+                var request = new OAuth1Request("GET",
+                               new Uri("https://api.twitter.com/1.1/account/verify_credentials.json"),
+                               null,
+                               e.Account);
+
+                var response = await request.GetResponseAsync();
+
+                var json = response.GetResponseText();
+
+                var twitterUser = JsonConvert.DeserializeObject<TwitterUser>(json);
+
+            }
+        }
 
         protected ViewController(IntPtr handle) : base(handle)
         {
