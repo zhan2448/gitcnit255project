@@ -11,7 +11,7 @@ namespace FinalVersion
         protected List<string> Titles;
         protected List<string> Signs;
         protected List<string> InputTypes;
-
+       
         public Expression()
         {
             Titles = new List<string>();
@@ -25,8 +25,11 @@ namespace FinalVersion
                 Titles.RemoveAt(xIndex[i]);
             }
         }
+     
+        public void settempTitle (string a ){
 
-       
+            Titles.Add((a));
+        }
 
         public void SetValues(object[] xValues) { Values = xValues; }
 
@@ -36,6 +39,7 @@ namespace FinalVersion
             for (int a = 0; a < Titles.Count;a++){
                 temp = temp + Titles[a]+"+";
             }
+            temp = temp.Substring(0, temp.Length - 1);
             return temp;
         }
 

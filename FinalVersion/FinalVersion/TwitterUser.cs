@@ -10,7 +10,7 @@ namespace FinalVersion
 
 {
     
-    
+    //reference https://github.com/HoussemDellai/Xamarin.Auth/tree/master/XamarinAuthSample.iOS;
         public class Url2
     {
         public string url { get; set; }

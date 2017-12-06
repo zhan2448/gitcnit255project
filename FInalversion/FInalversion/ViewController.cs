@@ -23,12 +23,9 @@ namespace FinalVersion
                 callbackUrl: new Uri("http://www.website.com"));
         
 
-          
             var ui = auth.GetUI();
             auth.Completed += TwitterAuth_Completed;
-
             PresentViewController(ui, true, null);
-
         }
 
         async void TwitterAuth_Completed(object sender, AuthenticatorCompletedEventArgs e){

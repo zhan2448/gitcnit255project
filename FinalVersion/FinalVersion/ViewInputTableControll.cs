@@ -8,113 +8,93 @@ namespace FinalVersion
 {
     public partial class ViewInputTableControll : UIViewController
     {
+
+
+        partial void Btnroot_TouchUpInside(UIButton sender)
+        {
+            NavigationController.PopToRootViewController(true);
+        }
+
+        partial void Btncancel_TouchUpInside(UIButton sender)
+        {
+           
+            NavigationController.PopViewController(true);
+            this.NavigationController.SetNavigationBarHidden(false, false);
+        }
+
+      
+
         public Expression seletedexpression;
-        public ViewInputTableControll (IntPtr handle) : base (handle)
+        public List<Expression> temp = new List <Expression>();
+
+        public ViewInputTableControll(IntPtr handle) : base(handle)
         {
         }
+      
         public override void ViewDidLoad()
         {
+            this.NavigationController.SetNavigationBarHidden(true, false);
             base.ViewDidLoad();
             NavigationItem.Title = seletedexpression.GetAllTitle();
+            if(seletedexpression.GetAllTitle()=="T_Value"){
+                Sample sp = new Sample();
+                sp.settempTitle("population mean");
+                DataSet ds = new DataSet();
+                ds.settempTitle("population mean");
+                temp.Add(sp);
+                temp.Add(ds);
+            }else if(seletedexpression.GetAllTitle() == "PMF Value"){
+                Binomial_RV rv =  new Binomial_RV();
+                temp.Add(rv);
+
+            }else if(seletedexpression.GetAllTitle()=="Sample Mean+Sample S.D.+Sample Size"){
+                DataSet sd = new DataSet();
+                temp.Add(sd);
+            }
+
+
+            preparetable();
+           
+
         }
+        Expression sele;
+        partial void Btncal_TouchUpInside(UIButton sender)
+        {
+            Formula[] TestF = new Formula[1];
+            TestF[0] = new Formula();
+            //[0].SetTitle("Calculate P(X), X~Binomial");
+            TestF[0].SetTitle(sele.GetAllTitle());
+            TestF[0].SetDescription("Big numbers break the system.");
 
+   
+                TestF[0].SetAnswer(sele);
+            //
 
+                FormulaView VFormula = new FormulaView();
+                // To-Do: change the index accordingly to which Formula was selected
+                VFormula.SetFormula(TestF[0]);
 
+                this.NavigationController.PushViewController(VFormula, true);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //public UIPickerView picker2 = new UIPickerView
-        //{
-        //    Frame = new CGRect(10, 250, 350,
-        //             300),
-        //};
+        }
        
-        //public void PrepareInPutPicker(Expression xseletedexpression)
-        //{
+        public void preparetable(){
+            var FormulaTable = new FormulaTable(temp);
+            FormulaTable.SelectExpression += (sender, e) =>
+            {
+                LbInput.Text = "Success";
+                btncal.Hidden = false;
+                Btnroot.Hidden = false;
+                sele = FormulaTable.temp;
+            };
 
-            //List<Expression> StatExpressions = new List<Expression>();
-            //List<Expression> FixStatExpressions = new List<Expression>();
 
-            //var b = xseletedexpression;
 
-            //if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
-            //{
-            //    ExpressionConnected temp = (FinalVersion.ExpressionConnected)b;
-            //    var tempsub = temp.GetSubExressions();
-            //    for (int q = 0; q < tempsub.Length; q++)
-            //    {
+            InPutTable.Source = FormulaTable;
 
-            //        if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)))
-            //        {
-            //            ExpressionConnected temp2 = (FinalVersion.ExpressionConnected)tempsub[q];
-            //            if (temp2.GetSegments() == null)
-            //            {
-            //                StatExpressions.Add(temp2);
-            //            }
-            //            else if (temp2.GetSegments() != null)
-            //            {
-            //                if (temp2.GetSubExressions().Length == 1)
-            //                {
-            //                    StatExpressions.Add(temp2);
-            //                    StatExpressions.Add(temp2.GetSubExressions()[0]);
-            //                }
-            //                else if (temp2.GetSubExressions().Length > 1)
-            //                {
-            //                    for (int i = 0; i < temp2.GetSubExressions().Length; i++)
-            //                    {
-            //                        if (temp2.GetSubExressions()[i].GetType().IsSubclassOf(typeof(ExpressionConnected)))
-            //                        {
-            //                            ExpressionConnected temp3 = (ExpressionConnected)temp2.GetSubExressions()[i];
-            //                            if (temp3.GetSegments() == null)
-            //                            {
-            //                                StatExpressions.Add(temp3);
-            //                            }
-            //                            else if (temp2.GetSegments() != null)
-            //                            {
-            //                                if (temp3.GetSubExressions().Length == 1)
-            //                                {
-            //                                    StatExpressions.Add(temp3);
-            //                                    StatExpressions.Add(temp3.GetSubExressions()[0]);
-            //                                }
-            //                                else return;
-            //                            }
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //        }
-            //        else if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)) == false)
-            //        {
-            //            FixStatExpressions.Add(tempsub[q]);
-            //        }
-            //    }
-            //    var findValuePickerModel = new FindValuePickerModel(StatExpressions);
-            //    picker2.Model = findValuePickerModel;
-            //    picker2.ShowSelectionIndicator = true;
-            //    this.View.AddSubview(picker2);
 
-            //}
+        }
+     
     }
+
 }
