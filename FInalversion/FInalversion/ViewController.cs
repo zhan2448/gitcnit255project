@@ -46,8 +46,11 @@ namespace FinalVersion
                 var json = response.GetResponseText();
 
                 var twitterUser = JsonConvert.DeserializeObject<TwitterUser>(json);
+                 DismissViewController(true, null);
+                lb1.Text = twitterUser.name;
 
             }
+            DismissViewController(true, null);
         }
 
         protected ViewController(IntPtr handle) : base(handle)

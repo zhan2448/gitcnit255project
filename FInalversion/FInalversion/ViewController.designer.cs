@@ -13,12 +13,20 @@ namespace FinalVersion
     [Register ("ViewController")]
     partial class ViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lb1 { get; set; }
+
         [Action ("UIButton17067_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton17067_TouchUpInside (UIKit.UIButton sender);
 
         void ReleaseDesignerOutlets ()
         {
+            if (lb1 != null) {
+                lb1.Dispose ();
+                lb1 = null;
+            }
         }
     }
 }

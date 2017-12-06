@@ -16,7 +16,7 @@ namespace FinalVersion
         public string url { get; set; }
         public string expanded_url { get; set; }
         public string display_url { get; set; }
-        public List<int> indices { get; set; }
+        public List<long> indices { get; set; }
     }
 
     public class Url
@@ -39,9 +39,9 @@ namespace FinalVersion
     {
         public string screen_name { get; set; }
         public string name { get; set; }
-        public int id { get; set; }
+        public long id { get; set; }
         public string id_str { get; set; }
-        public List<int> indices { get; set; }
+        public List<long> indices { get; set; }
     }
 
     public class Entities2
@@ -56,9 +56,9 @@ namespace FinalVersion
     {
         public string screen_name { get; set; }
         public string name { get; set; }
-        public int id { get; set; }
+        public long id { get; set; }
         public string id_str { get; set; }
-        public List<int> indices { get; set; }
+        public List<long> indices { get; set; }
     }
 
     public class Entities3
@@ -80,7 +80,7 @@ namespace FinalVersion
         public string source { get; set; }
         public object in_reply_to_status_id { get; set; }
         public object in_reply_to_status_id_str { get; set; }
-        public int in_reply_to_user_id { get; set; }
+        public long in_reply_to_user_id { get; set; }
         public string in_reply_to_user_id_str { get; set; }
         public string in_reply_to_screen_name { get; set; }
         public object geo { get; set; }
@@ -88,8 +88,8 @@ namespace FinalVersion
         public object place { get; set; }
         public object contributors { get; set; }
         public bool is_quote_status { get; set; }
-        public int retweet_count { get; set; }
-        public int favorite_count { get; set; }
+        public long retweet_count { get; set; }
+        public long favorite_count { get; set; }
         public bool favorited { get; set; }
         public bool retweeted { get; set; }
         public string lang { get; set; }
@@ -115,8 +115,8 @@ namespace FinalVersion
         public object contributors { get; set; }
         public RetweetedStatus retweeted_status { get; set; }
         public bool is_quote_status { get; set; }
-        public int retweet_count { get; set; }
-        public int favorite_count { get; set; }
+        public long retweet_count { get; set; }
+        public long favorite_count { get; set; }
         public bool favorited { get; set; }
         public bool retweeted { get; set; }
         public string lang { get; set; }
@@ -124,7 +124,7 @@ namespace FinalVersion
 
     public class TwitterUser
     {
-        public int id { get; set; }
+        public long id { get; set; }
         public string id_str { get; set; }
         public string name { get; set; }
         public string screen_name { get; set; }
@@ -133,16 +133,16 @@ namespace FinalVersion
         public string url { get; set; }
         public Entities entities { get; set; }
         public bool @protected { get; set; }
-        public int followers_count { get; set; }
-        public int friends_count { get; set; }
-        public int listed_count { get; set; }
+        public long followers_count { get; set; }
+        public long friends_count { get; set; }
+        public long listed_count { get; set; }
         public string created_at { get; set; }
-        public int favourites_count { get; set; }
-        public int utc_offset { get; set; }
+        public long favourites_count { get; set; }
+       
         public string time_zone { get; set; }
         public bool geo_enabled { get; set; }
         public bool verified { get; set; }
-        public int statuses_count { get; set; }
+        public long statuses_count { get; set; }
         public string lang { get; set; }
         public Status status { get; set; }
         public bool contributors_enabled { get; set; }
