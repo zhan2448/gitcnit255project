@@ -7,7 +7,9 @@ namespace FinalVersion
     public class FormulaTable : UITableViewSource
     {
         List<Expression> StatExpressions;
+        public Expression temp { get;  private set;}
         public FormulaTable() { }
+        public EventHandler SelectExpression;
         public FormulaTable(List<Expression> xStatExpressions)
         {
             StatExpressions = xStatExpressions;
@@ -27,6 +29,8 @@ namespace FinalVersion
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             var selectedexpression = StatExpressions[indexPath.Row];
+            temp = selectedexpression;
+            SelectExpression?.Invoke(null,null);
         }
        
     }

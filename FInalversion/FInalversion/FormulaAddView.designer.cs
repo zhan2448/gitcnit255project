@@ -20,7 +20,7 @@ namespace FinalVersion
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView ViewFormula { get; set; }
+        UIKit.UITableView ViewFormulaTable { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
@@ -29,9 +29,9 @@ namespace FinalVersion
                 searchDisplayController = null;
             }
 
-            if (ViewFormula != null) {
-                ViewFormula.Dispose ();
-                ViewFormula = null;
+            if (ViewFormulaTable != null) {
+                ViewFormulaTable.Dispose ();
+                ViewFormulaTable = null;
             }
         }
     }
