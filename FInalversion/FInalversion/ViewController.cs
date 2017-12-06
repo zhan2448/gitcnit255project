@@ -10,6 +10,8 @@ namespace FinalVersion
 {
     public partial class ViewController : UIViewController
     {
+       
+
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -25,31 +27,31 @@ namespace FinalVersion
             //}), true);
 
             // Reference: https://developer.xamarin.com/recipes/ios/content_controls/navigation_controller/add_a_nav_bar_bottom_toolbar/
-            var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
-            var btnLabel = new UIBarButtonItem("Add a Formula", UIBarButtonItemStyle.Plain, target: this, action: new ObjCRuntime.Selector(""));
+            //var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
+            //var btnLabel = new UIBarButtonItem("Add a Formula", UIBarButtonItemStyle.Plain, target: this, action: new ObjCRuntime.Selector(""));
 
-            this.SetToolbarItems(new UIBarButtonItem[] {
-                spacer,
-                new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {  
-                    FormulaAddView AddFormula = new FormulaAddView();
+            //this.SetToolbarItems(new UIBarButtonItem[] {
+            //    spacer,
+            //    new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {  
+            //        FormulaAddView AddFormula = new FormulaAddView();
                   
-                // To-Do: change the index accordingly to which Formula was selected
+            //    // To-Do: change the index accordingly to which Formula was selected
                    
-                    this.NavigationController.PushViewController(AddFormula, true);
+            //        this.NavigationController.PushViewController(AddFormula, true);
                 
-                }), btnLabel, spacer
-            }, true);
+            //    }), btnLabel, spacer
+            //}, true);
 
-            btnLabel.Clicked += (sender, e) =>
-            {
+            //btnLabel.Clicked += (sender, e) =>
+            //{
                 
-                FormulaAddView AddFormula = new FormulaAddView();
-                // To-Do: change the index accordingly to which Formula was selected
+            //    FormulaAddView AddFormula = new FormulaAddView();
+            //    // To-Do: change the index accordingly to which Formula was selected
 
-                this.NavigationController.PushViewController(AddFormula, true);
-            };
+            //    this.NavigationController.PushViewController(AddFormula, true);
+            //};
 
-            this.NavigationController.ToolbarHidden = false;
+            //this.NavigationController.ToolbarHidden = false;
 
             // Test Data
             //Formula[] TestF = new Formula[1];

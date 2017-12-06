@@ -11,6 +11,11 @@ namespace FinalVersion
 {
     public partial class FormulaAddView : UIViewController
     {
+        protected FormulaAddView(IntPtr handle) : base(handle)
+        {
+            // Note: this .ctor should not contain any initialization logic.
+        }
+
 
         public override void ViewDidLoad()
         {
@@ -39,24 +44,25 @@ namespace FinalVersion
                 }
             }
 
+            ViewFormula.Source = new FormulaTable(StatExpressions);
 
-            var picker = new UIPickerView
-            {
-                Frame = new CGRect(10, 10, 350,
-                        300),
-            };
-            var findValuePickerModel = new FindValuePickerModel(StatExpressions);
-            findValuePickerModel.GetSelectedExpression += (sender, e) =>
-            {
+            //var picker = new UIPickerView
+            //{
+            //    Frame = new CGRect(10, 10, 350,
+            //            300),
+            //};
+            ////var findValuePickerModel = new FindValuePickerModel(StatExpressions);
+            //findValuePickerModel.GetSelectedExpression += (sender, e) =>
+            //{
 
-                SelectedExpression = findValuePickerModel.Ex1;
-                PrepareInPutPicker();
+            //    SelectedExpression = findValuePickerModel.Ex1;
+            //    PrepareInPutPicker();
 
-            };
-            picker.Model = findValuePickerModel;
+            //};
+            //picker.Model = findValuePickerModel;
 
-            picker.ShowSelectionIndicator = true;
-            this.View.AddSubview(picker);
+            //picker.ShowSelectionIndicator = true;
+            //this.View.AddSubview(picker);
 
         }
         public UIPickerView picker2 = new UIPickerView
@@ -64,82 +70,82 @@ namespace FinalVersion
             Frame = new CGRect(10, 250, 350,
                       300),
         };
-        UIButton btn = new UIButton(UIButtonType.RoundedRect);
+        //UIButton btn = new UIButton(UIButtonType.RoundedRect);
 
 
 
-        public void PrepareInPutPicker()
-        {
+        //public void PrepareInPutPicker()
+        //{
 
-            List<Expression> StatExpressions = new List<Expression>();
-            List<Expression> FixStatExpressions = new List<Expression>();
+        //    List<Expression> StatExpressions = new List<Expression>();
+        //    List<Expression> FixStatExpressions = new List<Expression>();
 
-            var b = SelectedExpression;
+        //    var b = SelectedExpression;
 
-            if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
-            {
-                ExpressionConnected temp = (FinalVersion.ExpressionConnected)b;
-                var tempsub = temp.GetSubExressions();
-                for (int q = 0; q < tempsub.Length; q++)
-                {
+        //    if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
+        //    {
+        //        ExpressionConnected temp = (FinalVersion.ExpressionConnected)b;
+        //        var tempsub = temp.GetSubExressions();
+        //        for (int q = 0; q < tempsub.Length; q++)
+        //        {
 
-                    if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)))
-                    {
-                        ExpressionConnected temp2 = (FinalVersion.ExpressionConnected)tempsub[q];
-                        if (temp2.GetSegments() == null)
-                        {
-                            StatExpressions.Add(temp2);
-                        }
-                        else if (temp2.GetSegments() != null)
-                        {
-                            if (temp2.GetSubExressions().Length == 1)
-                            {
-                                StatExpressions.Add(temp2);
-                                StatExpressions.Add(temp2.GetSubExressions()[0]);
-                            }
-                            else if (temp2.GetSubExressions().Length > 1)
-                            {
-                                for (int i = 0; i < temp2.GetSubExressions().Length; i++)
-                                {
-                                    if (temp2.GetSubExressions()[i].GetType().IsSubclassOf(typeof(ExpressionConnected)))
-                                    {
-                                        ExpressionConnected temp3 = (ExpressionConnected)temp2.GetSubExressions()[i];
-                                        if (temp3.GetSegments() == null)
-                                        {
-                                            StatExpressions.Add(temp3);
-                                        }
-                                        else if (temp2.GetSegments() != null)
-                                        {
-                                            if (temp3.GetSubExressions().Length == 1)
-                                            {
-                                                StatExpressions.Add(temp3);
-                                                StatExpressions.Add(temp3.GetSubExressions()[0]);
-                                            }
-                                            else return;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)) == false)
-                    {
-                        FixStatExpressions.Add(tempsub[q]);
-                    }
-                }
-
-
-                btn.SetTitle(FixStatExpressions[0].GetAllTitle(), UIControlState.Normal);
-                btn.Frame = new RectangleF(10, 400, 300, 300);
-                this.View.AddSubview(btn);
-                var findValuePickerModel = new FindValuePickerModel(StatExpressions);
-                picker2.Model = findValuePickerModel;
-                picker2.ShowSelectionIndicator = true;
-                this.View.AddSubview(picker2);
-
-            }
+        //            if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)))
+        //            {
+        //                ExpressionConnected temp2 = (FinalVersion.ExpressionConnected)tempsub[q];
+        //                if (temp2.GetSegments() == null)
+        //                {
+        //                    StatExpressions.Add(temp2);
+        //                }
+        //                else if (temp2.GetSegments() != null)
+        //                {
+        //                    if (temp2.GetSubExressions().Length == 1)
+        //                    {
+        //                        StatExpressions.Add(temp2);
+        //                        StatExpressions.Add(temp2.GetSubExressions()[0]);
+        //                    }
+        //                    else if (temp2.GetSubExressions().Length > 1)
+        //                    {
+        //                        for (int i = 0; i < temp2.GetSubExressions().Length; i++)
+        //                        {
+        //                            if (temp2.GetSubExressions()[i].GetType().IsSubclassOf(typeof(ExpressionConnected)))
+        //                            {
+        //                                ExpressionConnected temp3 = (ExpressionConnected)temp2.GetSubExressions()[i];
+        //                                if (temp3.GetSegments() == null)
+        //                                {
+        //                                    StatExpressions.Add(temp3);
+        //                                }
+        //                                else if (temp2.GetSegments() != null)
+        //                                {
+        //                                    if (temp3.GetSubExressions().Length == 1)
+        //                                    {
+        //                                        StatExpressions.Add(temp3);
+        //                                        StatExpressions.Add(temp3.GetSubExressions()[0]);
+        //                                    }
+        //                                    else return;
+        //                                }
+        //                            }
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //            else if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)) == false)
+        //            {
+        //                FixStatExpressions.Add(tempsub[q]);
+        //            }
+        //        }
 
 
-        }
+        //        btn.SetTitle(FixStatExpressions[0].GetAllTitle(), UIControlState.Normal);
+        //        btn.Frame = new RectangleF(10, 400, 300, 300);
+        //        this.View.AddSubview(btn);
+        //        var findValuePickerModel = new FindValuePickerModel(StatExpressions);
+        //        picker2.Model = findValuePickerModel;
+        //        picker2.ShowSelectionIndicator = true;
+        //        this.View.AddSubview(picker2);
+
+        //    }
+
+
+        //}
     }
 }

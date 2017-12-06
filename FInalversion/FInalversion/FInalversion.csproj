@@ -123,6 +123,7 @@
     <Compile Include="FormulaAddView.designer.cs">
       <DependentUpon>FormulaAddView.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormulaTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
