@@ -72,6 +72,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1422"/>
+                        <segue id="32402" destination="254" kind="push"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="216" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -152,6 +153,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="8831" id="8830"/>
                         <outlet property="ViewFormulaTable" destination="9069" id="name-outlet-9069"/>
+                        <segue id="32356" destination="26628" kind="push"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2251" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +233,6 @@
                         <outlet property="LbInput" destination="27297" id="name-outlet-27297"/>
                         <outlet property="Btncancel" destination="27523" id="name-outlet-27523"/>
                         <outlet property="Btnroot" destination="30050" id="name-outlet-30050"/>
-                        <segue id="31053" destination="254" kind="push"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26630" userLabel="First Responder" sceneMemberID="firstResponder"/>

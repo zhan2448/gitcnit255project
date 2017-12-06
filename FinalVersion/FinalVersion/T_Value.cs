@@ -9,7 +9,7 @@ namespace FinalVersion
             // Values[0] – (double)T_Value.
             Values = new object[1];
 
-            Titles.Add("T_Value");
+            Titles.Add("T_Values");
             InputTypes.Add("s");
 
            
