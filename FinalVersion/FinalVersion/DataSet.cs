@@ -8,7 +8,7 @@ namespace FinalVersion
 
         public DataSet()
         {
-            Titles.Add("Values");
+            Titles.Add("Dataset");
             InputTypes.Add("m");
         }
 

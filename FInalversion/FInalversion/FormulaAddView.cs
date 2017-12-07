@@ -30,12 +30,12 @@ namespace FinalVersion
       
         private void PreparePicker()
         {
-            Expression SelectedExpression;
+            ExpressionConnected SelectedExpression;
             // Dynamically get a list of objects which are of type ExpressionConnected
             // Reference: https://stackoverflow.com/questions/981330/instantiate-an-object-with-a-runtime-determined-type
             var types = Assembly.GetExecutingAssembly().GetTypes().Where(t => t.Namespace.StartsWith("FinalVersion", StringComparison.Ordinal));
 
-            List<Expression> StatExpressions = new List<Expression>();
+            List<ExpressionConnected> StatExpressions = new List<ExpressionConnected>();
             foreach (var t in types)
             {
                 if (t.IsSubclassOf(typeof(ExpressionConnected)))

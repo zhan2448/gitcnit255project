@@ -4,13 +4,13 @@ using Foundation;
 using UIKit;
 namespace FinalVersion
 {
-    public class FormulaTable : UITableViewSource
+    public class FormulaInPutTable : UITableViewSource
     {
-        List<ExpressionConnected> StatExpressions;
-        public ExpressionConnected temp { get;  private set;}
-        public FormulaTable() { }
+        List<Expression> StatExpressions;
+        public Expression temp { get; private set; }
+        public FormulaInPutTable() { }
         public EventHandler SelectExpression;
-        public FormulaTable(List<ExpressionConnected> xStatExpressions)
+        public FormulaInPutTable(List<Expression> xStatExpressions)
         {
             StatExpressions = xStatExpressions;
         }
@@ -19,7 +19,7 @@ namespace FinalVersion
         {
             var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
             cell.TextLabel.Text = StatExpressions[indexPath.Row].GetAllTitle();
-            cell.TextLabel.TextAlignment= UITextAlignment.Center;
+            cell.TextLabel.TextAlignment = UITextAlignment.Center;
             return cell;
         }
 
@@ -31,8 +31,8 @@ namespace FinalVersion
         {
             var selectedexpression = StatExpressions[indexPath.Row];
             temp = selectedexpression;
-            SelectExpression?.Invoke(null,null);
+            SelectExpression?.Invoke(null, null);
         }
-       
+
     }
 }

@@ -59,7 +59,11 @@ namespace FinalVersion
         {
             base.ViewDidLoad();
             this.ViewDidAppear();
-            btnadd.Enabled = false;
+          //  btnadd.Enabled = false;
+
+
+
+
             //this.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, args) =>  
             //{
             //}), true);
@@ -123,7 +127,16 @@ namespace FinalVersion
                 VFormula.SetFormula(TestF[0]);
 
                 this.NavigationController.PushViewController(VFormula, true);
+
+
+
             };
+        }
+        private List<Expression> Pickedtexpression;
+        private Expression answerexpression;
+        public void setPickedtexpression(List<Expression> Pickedtexpression,Expression answerexpression) {
+            this.Pickedtexpression = Pickedtexpression;
+            this.answerexpression = answerexpression;
         }
 
         private void ViewDidAppear()

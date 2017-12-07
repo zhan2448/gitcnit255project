@@ -28,7 +28,15 @@ namespace FinalVersion
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView InPutTable2 { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel LbInput { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel LbInput2 { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -59,9 +67,19 @@ namespace FinalVersion
                 InPutTable = null;
             }
 
+            if (InPutTable2 != null) {
+                InPutTable2.Dispose ();
+                InPutTable2 = null;
+            }
+
             if (LbInput != null) {
                 LbInput.Dispose ();
                 LbInput = null;
+            }
+
+            if (LbInput2 != null) {
+                LbInput2.Dispose ();
+                LbInput2 = null;
             }
 
             if (searchDisplayController != null) {
