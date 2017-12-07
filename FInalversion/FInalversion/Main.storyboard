@@ -26,7 +26,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue id="6984" destination="2249" kind="push"/>
+                                    <segue id="33403" destination="2249" kind="push"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="20888" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
@@ -56,6 +56,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="lb1" destination="20888" id="name-outlet-20888"/>
+                        <outlet property="BtnAdd" destination="5877" id="name-outlet-5877"/>
+                        <segue id="40322" destination="254" kind="push"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -72,7 +74,6 @@
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1422"/>
-                        <segue id="32402" destination="254" kind="push"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="216" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,7 +83,7 @@
         <!--View Controller-->
         <scene sceneID="253">
             <objects>
-                <viewController id="254" sceneMemberID="viewController" storyboardIdentifier="FormulaView" customClass="FormulaView">
+                <viewController id="254" sceneMemberID="viewController" customClass="FormulaView">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="251"/>
                         <viewControllerLayoutGuide type="bottom" id="252"/>
@@ -133,16 +134,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9069" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" estimatedRowHeight="-1">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9069" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" estimatedRowHeight="-1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="9070">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9070" id="9071">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -153,7 +154,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="8831" id="8830"/>
                         <outlet property="ViewFormulaTable" destination="9069" id="name-outlet-9069"/>
-                        <segue id="32356" destination="26628" kind="push"/>
+                        <segue id="40395" destination="39487" kind="push"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2251" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -169,75 +170,60 @@
             </objects>
             <point key="canvasLocation" x="519" y="2"/>
         </scene>
-        <scene sceneID="26627">
+        <scene sceneID="39486">
             <objects>
-                <viewController id="26628" sceneMemberID="viewController" customClass="ViewInputTableControll" storyboardIdentifier="ViewInputTableControll">
+                <viewController id="39487" sceneMemberID="viewController" customClass="ViewInputTableControll" storyboardIdentifier="ViewInputTableControll">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="26625"/>
-                        <viewControllerLayoutGuide type="bottom" id="26626"/>
+                        <viewControllerLayoutGuide type="top" id="39500"/>
+                        <viewControllerLayoutGuide type="bottom" id="39501"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="26629">
+                    <view key="view" contentMode="scaleAspectFill" id="39492">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="26632" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" customModule="InPutTable">
-                                <rect key="frame" x="0.0" y="123" width="375" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="39493" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="189" y="246" width="240" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="39493" id="39494">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="39491" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" estimatedRowHeight="-1">
+                                <rect key="frame" x="0.0" y="195" width="375" height="266"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" selectionStyle="default" indentationWidth="10" id="26633" rowHeight="150">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="39498">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="26633" id="26634">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="39498" id="39499">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <accessibility key="accessibilityConfiguration" label="A"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Pick One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="27297" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="100" y="56" width="176" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21" weight="black"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="27523" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="321" y="40" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="cancel">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Btncancel_TouchUpInside:" destination="26628" id="28042" eventType="touchUpInside"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="30050" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" hidden="YES">
-                                <rect key="frame" x="94" y="588" width="187" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" colorSpace="calibratedWhite" white="0.666666666666667" alpha="1"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="Btnroot_TouchUpInside:" destination="26628" id="30495" eventType="touchUpInside"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="InPutTable" destination="26632" id="name-outlet-26632"/>
-                        <outlet property="LbInput" destination="27297" id="name-outlet-27297"/>
-                        <outlet property="Btncancel" destination="27523" id="name-outlet-27523"/>
-                        <outlet property="Btnroot" destination="30050" id="name-outlet-30050"/>
+                        <outlet property="searchDisplayController" destination="39489" id="39488"/>
+                        <outlet property="InPutTable" destination="39491" id="name-outlet-39491"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="26630" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="39502" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="39489">
+                    <connections>
+                        <outlet property="delegate" destination="39487" id="39503"/>
+                        <outlet property="searchBar" destination="39505" id="39504"/>
+                        <outlet property="searchContentsController" destination="39487" id="39506"/>
+                        <outlet property="searchResultsDataSource" destination="39487" id="39507"/>
+                        <outlet property="searchResultsDelegate" destination="39487" id="39508"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="543" y="802"/>
+            <point key="canvasLocation" x="830" y="856"/>
         </scene>
     </scenes>
     <resources>

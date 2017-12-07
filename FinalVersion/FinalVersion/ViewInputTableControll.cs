@@ -36,7 +36,7 @@ namespace FinalVersion
             this.NavigationController.SetNavigationBarHidden(true, false);
             base.ViewDidLoad();
             NavigationItem.Title = seletedexpression.GetAllTitle();
-            if(seletedexpression.GetAllTitle()=="T_Value"){
+            if(seletedexpression.GetAllTitle()== "T_Values"){
                 Sample sp = new Sample();
                 sp.settempTitle("population mean");
                 DataSet ds = new DataSet();
@@ -69,13 +69,72 @@ namespace FinalVersion
                 sele = FormulaTable.temp;
             };
 
-
-
             InPutTable.Source = FormulaTable;
 
 
         }
-     
-    }
+
+        public void SortExpression()
+        {
+
+
+
+            List<Expression> StatExpressions = new List<Expression>();
+            List<Expression> FixStatExpressions = new List<Expression>();
+
+            var b = sele;
+            if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
+            {
+                ExpressionConnected temp = (FinalVersion.ExpressionConnected)b; var tempsub = temp.GetSubExressions();
+                for (int q = 0; q < tempsub.Length; q++)
+                {
+                    if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)))
+                    {
+                        ExpressionConnected temp2 = (FinalVersion.ExpressionConnected)tempsub[q];
+                        if (temp2.GetSegments() == null)
+                        {
+                            StatExpressions.Add(temp2);
+                        }
+                        else if (temp2.GetSegments() != null)
+                        {
+                            if (temp2.GetSubExressions().Length == 1)
+                            {
+                                StatExpressions.Add(temp2);
+                                StatExpressions.Add(temp2.GetSubExressions()[0]);
+                            }
+                            else if (temp2.GetSubExressions().Length > 1)
+                            {
+                                for (int i = 0; i < temp2.GetSubExressions().Length; i++)
+                                {
+                                    if (temp2.GetSubExressions()[i].GetType().IsSubclassOf(typeof(ExpressionConnected)))
+                                    {
+                                        ExpressionConnected temp3 = (ExpressionConnected)temp2.GetSubExressions()[i];
+                                        if (temp3.GetSegments() == null)
+                                        {
+                                            StatExpressions.Add(temp3);
+                                        }
+                                        else if (temp2.GetSegments() != null)
+                                        {
+                                            if (temp3.GetSubExressions().Length == 1)
+                                            {
+                                                StatExpressions.Add(temp3);
+                                                StatExpressions.Add(temp3.GetSubExressions()[0]);
+                                            }
+                                            else return;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)) == false)
+                    {
+                        FixStatExpressions.Add(tempsub[q]);
+                    }
+                }
+
+            }
+
+        }}
 
 }
