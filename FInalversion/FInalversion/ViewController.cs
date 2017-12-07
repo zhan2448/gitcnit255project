@@ -11,6 +11,14 @@ namespace FinalVersion
 {
     public partial class ViewController : UIViewController
     {
+
+        private List<Expression> Pickedtexpression;
+        private Expression answerexpression;
+        public void setPickedtexpression(List<Expression> Pickedtexpression, Expression answerexpression)
+        {
+            this.Pickedtexpression = Pickedtexpression;
+            this.answerexpression = answerexpression;
+        }
         partial void UIButton17067_TouchUpInside(UIButton sender)
         {
             var auth = new OAuth1Authenticator(
@@ -104,40 +112,48 @@ namespace FinalVersion
             //T_Value t = new T_Value();
             //TestF[0].SetAnswer(t);
 
-            Formula[] TestF = new Formula[1];
+            List<Formula> TestF = new List<Formula>();
+            TestF.Add(new Formula());
             TestF[0] = new Formula();
             TestF[0].SetTitle("Calculate P(X), X~Binomial");
             TestF[0].SetDescription("Big numbers break the system.");
-
             pmf pmFunc = new pmf();
             TestF[0].SetAnswer(pmFunc);
             //
 
-            var btn1 = UIButton.FromType(UIButtonType.System);
 
-            btn1.Frame = new CGRect(20, 200, 280, 44);
-            btn1.SetTitle(TestF[0].GetTitle(), UIControlState.Normal);
-            View.AddSubview(btn1);
-
-            btn1.TouchUpInside += (sender, e) =>
+            var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
+            ViewControllFormulaTable.Selectformula += (sender, e) =>
             {
-                
                 FormulaView VFormula = new FormulaView();
                 // To-Do: change the index accordingly to which Formula was selected
-                VFormula.SetFormula(TestF[0]);
+                VFormula.SetFormula(ViewControllFormulaTable.temp);
 
                 this.NavigationController.PushViewController(VFormula, true);
-
-
-
             };
+            FormulaTable.Source = ViewControllFormulaTable;
+
+
+            //var btn1 = UIButton.FromType(UIButtonType.System);
+
+            //btn1.Frame = new CGRect(20, 200, 280, 44);
+            //btn1.SetTitle(TestF[0].GetTitle(), UIControlState.Normal);
+            //View.AddSubview(btn1);
+
+            //btn1.TouchUpInside += (sender, e) =>
+            //{
+                
+            //    FormulaView VFormula = new FormulaView();
+            //    // To-Do: change the index accordingly to which Formula was selected
+            //    VFormula.SetFormula(TestF[0]);
+
+            //    this.NavigationController.PushViewController(VFormula, true);
+
+
+
+            //};
         }
-        private List<Expression> Pickedtexpression;
-        private Expression answerexpression;
-        public void setPickedtexpression(List<Expression> Pickedtexpression,Expression answerexpression) {
-            this.Pickedtexpression = Pickedtexpression;
-            this.answerexpression = answerexpression;
-        }
+       
 
         private void ViewDidAppear()
         {

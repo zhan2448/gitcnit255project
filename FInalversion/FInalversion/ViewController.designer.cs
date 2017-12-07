@@ -19,6 +19,10 @@ namespace FinalVersion
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView FormulaTable { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lb1 { get; set; }
 
         [Action ("UIButton17067_TouchUpInside:")]
@@ -30,6 +34,11 @@ namespace FinalVersion
             if (btnadd != null) {
                 btnadd.Dispose ();
                 btnadd = null;
+            }
+
+            if (FormulaTable != null) {
+                FormulaTable.Dispose ();
+                FormulaTable = null;
             }
 
             if (lb1 != null) {

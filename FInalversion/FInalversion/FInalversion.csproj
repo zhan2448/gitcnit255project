@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="TwitterUser.cs" />
     <Compile Include="FormulaInPutTable.cs" />
+    <Compile Include="ViewControllFormulaTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
