@@ -15,6 +15,10 @@ namespace FinalVersion
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnadd { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lb1 { get; set; }
 
         [Action ("UIButton17067_TouchUpInside:")]
@@ -23,6 +27,11 @@ namespace FinalVersion
 
         void ReleaseDesignerOutlets ()
         {
+            if (btnadd != null) {
+                btnadd.Dispose ();
+                btnadd = null;
+            }
+
             if (lb1 != null) {
                 lb1.Dispose ();
                 lb1 = null;

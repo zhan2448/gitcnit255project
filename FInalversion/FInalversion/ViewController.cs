@@ -44,8 +44,8 @@ namespace FinalVersion
 
                 var twitterUser = JsonConvert.DeserializeObject<TwitterUser>(json);
                  DismissViewController(true, null);
-                lb1.Text = twitterUser.name;
-
+                lb1.Text = "Hi: "+twitterUser.name;
+                btnadd.Enabled = true;
             }
             DismissViewController(true, null);
         }
@@ -59,7 +59,7 @@ namespace FinalVersion
         {
             base.ViewDidLoad();
             this.ViewDidAppear();
-
+            btnadd.Enabled = false;
             //this.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, args) =>  
             //{
             //}), true);
@@ -110,6 +110,7 @@ namespace FinalVersion
             //
 
             var btn1 = UIButton.FromType(UIButtonType.System);
+
             btn1.Frame = new CGRect(20, 200, 280, 44);
             btn1.SetTitle(TestF[0].GetTitle(), UIControlState.Normal);
             View.AddSubview(btn1);

@@ -8,21 +8,22 @@ namespace FinalVersion
 {
     public partial class ViewInputTableControll : UIViewController
     {
-
-
         partial void Btnroot_TouchUpInside(UIButton sender)
         {
+            this.NavigationController.SetNavigationBarHidden(false, false);
             NavigationController.PopToRootViewController(true);
         }
 
+
         partial void Btncancel_TouchUpInside(UIButton sender)
         {
-           
-            NavigationController.PopViewController(true);
             this.NavigationController.SetNavigationBarHidden(false, false);
+                NavigationController.PopViewController(true);
+           
+        
         }
 
-      
+
 
         public Expression seletedexpression;
         public List<Expression> temp = new List <Expression>();
@@ -63,8 +64,8 @@ namespace FinalVersion
             var FormulaTable = new FormulaTable(temp);
             FormulaTable.SelectExpression += (sender, e) =>
             {
+                LbInput.TextColor = UIColor.Green;
                 LbInput.Text = "Success";
-              
                 Btnroot.Hidden = false;
                 sele = FormulaTable.temp;
             };
@@ -85,7 +86,8 @@ namespace FinalVersion
             var b = sele;
             if (b.GetType().IsSubclassOf(typeof(ExpressionConnected)))
             {
-                ExpressionConnected temp = (FinalVersion.ExpressionConnected)b; var tempsub = temp.GetSubExressions();
+                ExpressionConnected temp1 = (FinalVersion.ExpressionConnected)b;
+                var tempsub = temp1.GetSubExressions();
                 for (int q = 0; q < tempsub.Length; q++)
                 {
                     if (tempsub[q].GetType().IsSubclassOf(typeof(ExpressionConnected)))

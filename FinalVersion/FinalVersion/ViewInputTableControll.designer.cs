@@ -30,6 +30,10 @@ namespace FinalVersion
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel LbInput { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UISearchDisplayController searchDisplayController { get; set; }
+
         [Action ("Btncancel_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void Btncancel_TouchUpInside (UIKit.UIButton sender);
@@ -58,6 +62,11 @@ namespace FinalVersion
             if (LbInput != null) {
                 LbInput.Dispose ();
                 LbInput = null;
+            }
+
+            if (searchDisplayController != null) {
+                searchDisplayController.Dispose ();
+                searchDisplayController = null;
             }
         }
     }
