@@ -30,6 +30,7 @@ namespace FinalVersion
       
         private void PreparePicker()
         {
+            this.NavigationItem.Title = "Add Expression";
             ExpressionConnected SelectedExpression;
             // Dynamically get a list of objects which are of type ExpressionConnected
             // Reference: https://stackoverflow.com/questions/981330/instantiate-an-object-with-a-runtime-determined-type

@@ -27,7 +27,7 @@ namespace FinalVersion
             this.NavigationController.SetNavigationBarHidden(false, false);
             ViewController ViewController = this.Storyboard.InstantiateViewController("ViewController") as ViewController;
             ViewController.setPickedtexpression(returnExpression,seletedexpression);
-            NavigationController.PopToRootViewController(true);
+            NavigationController.PushViewController(ViewController,true);
 
         }
         partial void Btncancel_TouchUpInside(UIButton sender)

@@ -25,6 +25,10 @@ namespace FinalVersion
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lb1 { get; set; }
 
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UILabel lb2 { get; set; }
+
         [Action ("UIButton17067_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void UIButton17067_TouchUpInside (UIKit.UIButton sender);
@@ -44,6 +48,11 @@ namespace FinalVersion
             if (lb1 != null) {
                 lb1.Dispose ();
                 lb1 = null;
+            }
+
+            if (lb2 != null) {
+                lb2.Dispose ();
+                lb2 = null;
             }
         }
     }

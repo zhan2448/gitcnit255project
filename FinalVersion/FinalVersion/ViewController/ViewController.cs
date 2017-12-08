@@ -122,6 +122,15 @@ namespace FinalVersion
             //
 
 
+            if (answerexpression != null)
+            {
+                TestF.Add(new Formula());
+                TestF[2] = new Formula();
+                TestF[2].SetTitle("Calculate P(X), X~Binomial");
+                TestF[2].SetDescription("Big numbers break the system.");
+                Expression temp = answerexpression;
+                TestF[2].SetAnswer(temp);
+            }
             var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
             ViewControllFormulaTable.Selectformula += (sender, e) =>
             {
