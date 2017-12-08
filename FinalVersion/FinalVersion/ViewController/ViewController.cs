@@ -114,11 +114,11 @@ namespace FinalVersion
 
 
             TestF.Add(new Formula());
-            TestF[0] = new Formula();
-            TestF[0].SetTitle("Calculate P(X), X~Binomial");
-            TestF[0].SetDescription("Big numbers break the system.");
+            TestF[1] = new Formula();
+            TestF[1].SetTitle("Calculate P(X), X~Binomial");
+            TestF[1].SetDescription("Big numbers break the system.");
             pmf pmFunc = new pmf();
-            TestF[0].SetAnswer(pmFunc);
+            TestF[1].SetAnswer(pmFunc);
             //
 
 
