@@ -103,16 +103,16 @@ namespace FinalVersion
 
             //this.NavigationController.ToolbarHidden = false;
 
-            // Test Data
-            //Formula[] TestF = new Formula[1];
-            //TestF[0] = new Formula();
-            //TestF[0].SetTitle("T Values from Values");
-            //TestF[0].SetDescription("Calculate T_Value from primitive values.");
-
-            //T_Value t = new T_Value();
-            //TestF[0].SetAnswer(t);
-
+            //Test Data
             List<Formula> TestF = new List<Formula>();
+            TestF.Add(new Formula());
+            TestF[0] = new Formula();
+            TestF[0].SetTitle("T Values from Values");
+            TestF[0].SetDescription("Calculate T_Value from primitive values.");
+             T_Value t = new T_Value();
+            TestF[0].SetAnswer(t);
+
+
             TestF.Add(new Formula());
             TestF[0] = new Formula();
             TestF[0].SetTitle("Calculate P(X), X~Binomial");

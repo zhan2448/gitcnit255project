@@ -77,16 +77,16 @@ namespace FinalVersion
 
             // TEST SEGMENT
             // Reference: https://developer.xamarin.com/recipes/ios/standard_controls/segmented_button_control/configure_segments_(uisegmentedcontrol)/
-            var segmentControl = new UISegmentedControl();
-            segmentControl.Frame = new CGRect(positionX, btnCompute.Frame.Bottom + positionX, Graphs[1].Item2.Frame.Right - positionX, 28);
-            segmentControl.InsertSegment("T Value", 0, false);
-            segmentControl.InsertSegment("Z Value", 1, false);
-            segmentControl.SelectedSegment = 0;
-            segmentControl.ValueChanged += (sender, e) => {
-                var selectedSegmentId = (sender as UISegmentedControl).SelectedSegment;
-                // do something with selectedSegmentId
-            };
-            View.AddSubview(segmentControl);
+            //var segmentControl = new UISegmentedControl();
+            //segmentControl.Frame = new CGRect(positionX, btnCompute.Frame.Bottom + positionX, Graphs[1].Item2.Frame.Right - positionX, 28);
+            //segmentControl.InsertSegment("T Value", 0, false);
+            //segmentControl.InsertSegment("Z Value", 1, false);
+            //segmentControl.SelectedSegment = 0;
+            //segmentControl.ValueChanged += (sender, e) => {
+            //    var selectedSegmentId = (sender as UISegmentedControl).SelectedSegment;
+            //    // do something with selectedSegmentId
+            //};
+            //View.AddSubview(segmentControl);
             //
 
             // TEST AREA (danger, it's hardcoded)

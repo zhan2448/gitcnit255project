@@ -126,6 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="ViewController\" />
+    <Folder Include="Expression\" />
+    <Folder Include="Tables\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -138,36 +141,35 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="ViewController.cs" />
-    <Compile Include="ViewController.designer.cs">
-      <DependentUpon>ViewController.cs</DependentUpon>
-    </Compile>
-    <Compile Include="T_Value.cs" />
-    <Compile Include="DataSet.cs" />
-    <Compile Include="FormulaView.cs" />
-    <Compile Include="FormulaView.designer.cs">
-      <DependentUpon>FormulaView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formula.cs" />
-    <Compile Include="Expression.cs" />
-    <Compile Include="Sample.cs" />
-    <Compile Include="PopulationMean.cs" />
-    <Compile Include="Binomial RV.cs" />
-    <Compile Include="pmf.cs" />
-    <Compile Include="ExpressionConnected.cs" />
-    <Compile Include="FindValuePickerModel.cs" />
-    <Compile Include="FormulaAddView.cs" />
-    <Compile Include="FormulaAddView.designer.cs">
+    <Compile Include="TwitterUser.cs" />
+    <Compile Include="ViewController\FormulaAddView.cs" />
+    <Compile Include="ViewController\FormulaAddView.designer.cs">
       <DependentUpon>FormulaAddView.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulaTable.cs" />
-    <Compile Include="ViewInputTableControll.cs" />
-    <Compile Include="ViewInputTableControll.designer.cs">
+    <Compile Include="ViewController\FormulaView.cs" />
+    <Compile Include="ViewController\FormulaView.designer.cs">
+      <DependentUpon>FormulaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController\ViewController.cs" />
+    <Compile Include="ViewController\ViewController.designer.cs">
+      <DependentUpon>ViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewController\ViewInputTableControll.cs" />
+    <Compile Include="ViewController\ViewInputTableControll.designer.cs">
       <DependentUpon>ViewInputTableControll.cs</DependentUpon>
     </Compile>
-    <Compile Include="TwitterUser.cs" />
-    <Compile Include="FormulaInPutTable.cs" />
-    <Compile Include="ViewControllFormulaTable.cs" />
+    <Compile Include="Expression\Binomial RV.cs" />
+    <Compile Include="Expression\DataSet.cs" />
+    <Compile Include="Expression\pmf.cs" />
+    <Compile Include="Expression\PopulationMean.cs" />
+    <Compile Include="Expression\Sample.cs" />
+    <Compile Include="Expression\T_Value.cs" />
+    <Compile Include="Tables\FormulaInPutTable.cs" />
+    <Compile Include="Tables\FormulaTable.cs" />
+    <Compile Include="Tables\ViewControllFormulaTable.cs" />
+    <Compile Include="Expression\Expression.cs" />
+    <Compile Include="Expression\ExpressionConnected.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
