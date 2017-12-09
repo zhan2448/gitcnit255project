@@ -170,6 +170,11 @@
     <Compile Include="Tables\ViewControllFormulaTable.cs" />
     <Compile Include="Expression\Expression.cs" />
     <Compile Include="Expression\ExpressionConnected.cs" />
+    <Compile Include="FormulaViewController.cs" />
+    <Compile Include="FormulaViewController.designer.cs">
+      <DependentUpon>FormulaViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tables\CalculationTableControl.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
