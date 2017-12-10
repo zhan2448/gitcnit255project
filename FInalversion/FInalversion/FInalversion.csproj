@@ -175,6 +175,10 @@
       <DependentUpon>FormulaViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Tables\CalculationTable.cs" />
+    <Compile Include="Calculationcell.cs" />
+    <Compile Include="Calculationcell.designer.cs">
+      <DependentUpon>Calculationcell.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />

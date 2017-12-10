@@ -120,7 +120,12 @@ namespace FinalVersion
             TestF[0].SetDescription("Calculate T_Value from primitive values.");
              T_Value t = new T_Value();
             TestF[0].SetAnswer(t);
+            Sample a = new Sample();
+            PopulationMean b = new PopulationMean();
 
+            Pickedtexpression.Add(a);
+         
+            TestF[0].SetInPutExpression(Pickedtexpression);
 
             TestF.Add(new Formula());
             TestF[1] = new Formula();
@@ -128,9 +133,7 @@ namespace FinalVersion
             TestF[1].SetDescription("Big numbers break the system.");
             pmf pmFunc = new pmf();
             TestF[1].SetAnswer(pmFunc);
-            Binomial_RV a = new Binomial_RV();
-            Pickedtexpression.Add(a);
-            TestF[1].SetInPutExpression(Pickedtexpression);
+          
             //
 
 
@@ -140,13 +143,14 @@ namespace FinalVersion
                 TestF[2] = new Formula();
                 TestF[2].SetTitle("Calculate P(X), X~Binomial");
                 TestF[2].SetDescription("Big numbers break the system.");
-                Expression temp = answerexpression;
-                TestF[2].SetAnswer(temp);
+                Expression temp2 = answerexpression;
+
+                TestF[2].SetAnswer(temp2);
                
             }
 
 
-            temp = TestF[1];
+            temp = TestF[0];
             var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
             ViewControllFormulaTable.Selectformula += (sender, e) =>
             {
