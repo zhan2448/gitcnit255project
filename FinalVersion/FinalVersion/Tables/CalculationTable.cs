@@ -6,33 +6,54 @@ namespace FinalVersion
 {
     public class CalculationTable : UITableViewSource
     {
-        List<Expression> StatExpressions;
+        Formula StatExpressions;
         public Expression temp { get; private set; }
         public CalculationTable() { }
         public EventHandler SelectExpression;
-        public CalculationTable(List<Expression> xStatExpressions)
+        public CalculationTable(Formula xStatExpressions)
         {
             StatExpressions = xStatExpressions;
         }
-
+       
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
-            cell.TextLabel.Text = StatExpressions[indexPath.Row].GetAllTitle();
-            cell.TextLabel.TextAlignment = UITextAlignment.Center;
+            cell.TextLabel.Text = StatExpressions.GetTitle();
+            cell.TextLabel.Text = StatExpressions.GetInPutExpression()[indexPath.Section].GetTitles()[indexPath.Row];
+
+            cell.TextLabel.TextAlignment = UITextAlignment.Left;
+
+          
+
+
+
+
+
+
+
+
             return cell;
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return StatExpressions.Count;
+            int s = 0;
+            for (int a = 0; a < StatExpressions.GetInPutExpression().Count;a++){
+                for (int b = 0; b < StatExpressions.GetInPutExpression()[a].GetTitles().Count;b++){
+
+                    s++;
+                }
+            }
+            return s;
         }
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            var selectedexpression = StatExpressions[indexPath.Row];
-            temp = selectedexpression;
+            
             SelectExpression?.Invoke(null, null);
         }
+
+
+
 
     }
 }

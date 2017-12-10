@@ -12,8 +12,9 @@ namespace FinalVersion
     public partial class ViewController : UIViewController
     {
 
-        private List<Expression> Pickedtexpression;
+        private List<Expression> Pickedtexpression =new List<Expression>();
         private Expression answerexpression;
+        Formula temp = new Formula();
         public void setPickedtexpression(List<Expression> Pickedtexpression, Expression answerexpression)
         {
             this.Pickedtexpression = Pickedtexpression;
@@ -62,7 +63,7 @@ namespace FinalVersion
         partial void Test_TouchUpInside(UIButton sender)
         {
             FormulaViewController inputview = this.Storyboard.InstantiateViewController("FormulaViewController") as FormulaViewController;
-            inputview.setinput(Pickedtexpression);
+            inputview.setinput(temp);
             this.NavigationController.PushViewController(inputview,true);
         }
 
@@ -127,6 +128,9 @@ namespace FinalVersion
             TestF[1].SetDescription("Big numbers break the system.");
             pmf pmFunc = new pmf();
             TestF[1].SetAnswer(pmFunc);
+            Binomial_RV a = new Binomial_RV();
+            Pickedtexpression.Add(a);
+            TestF[1].SetInPutExpression(Pickedtexpression);
             //
 
 
@@ -138,7 +142,11 @@ namespace FinalVersion
                 TestF[2].SetDescription("Big numbers break the system.");
                 Expression temp = answerexpression;
                 TestF[2].SetAnswer(temp);
+               
             }
+
+
+            temp = TestF[1];
             var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
             ViewControllFormulaTable.Selectformula += (sender, e) =>
             {

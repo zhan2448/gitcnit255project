@@ -7,6 +7,7 @@ namespace FinalVersion
     {
         // Data
         private Expression Answer;
+        private List<Expression> InPutExpression;
         private List<int> SegmentsSelected; // Dependent selected segments
         // Show Data
         private string Title;
@@ -16,7 +17,8 @@ namespace FinalVersion
         {
             SegmentsSelected = new List<int>();
         }
-
+        public void SetInPutExpression(List<Expression> InPutExpression) { this.InPutExpression=InPutExpression; }
+        public List<Expression> GetInPutExpression() { return InPutExpression; }
         public void SetTitle(string xTitle) { Title = xTitle; }
 
         public void SetDescription(string xDescription) { Description = xDescription; }
