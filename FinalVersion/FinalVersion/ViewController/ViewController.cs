@@ -19,13 +19,14 @@ namespace FinalVersion
             this.Pickedtexpression = Pickedtexpression;
             this.answerexpression = answerexpression;
         }
+       
         partial void UIButton17067_TouchUpInside(UIButton sender)
         {
             var auth = new OAuth1Authenticator(
 
                 consumerKey: "Iyn7ZJDVUpokTSPQDD6l2qkhq",
                 consumerSecret: "0kc6KQrXzdjyfnjno2ubBct3exc8loYJs6wgwHkf46ntx74TE9",
-                    requestTokenUrl: new Uri("https://api.twitter.com/oauth/request_token"),
+                requestTokenUrl: new Uri("https://api.twitter.com/oauth/request_token"),
                     authorizeUrl: new Uri("https://api.twitter.com/oauth/authorize"),
                     accessTokenUrl: new Uri("https://api.twitter.com/oauth/access_token"),
                 callbackUrl: new Uri("http://www.website.com"));
@@ -56,6 +57,13 @@ namespace FinalVersion
                 btnadd.Enabled = true;
             }
             DismissViewController(true, null);
+        }
+
+        partial void Test_TouchUpInside(UIButton sender)
+        {
+            FormulaViewController inputview = this.Storyboard.InstantiateViewController("FormulaViewController") as FormulaViewController;
+            inputview.setinput(Pickedtexpression);
+            this.NavigationController.PushViewController(inputview,true);
         }
 
         protected ViewController(IntPtr handle) : base(handle)

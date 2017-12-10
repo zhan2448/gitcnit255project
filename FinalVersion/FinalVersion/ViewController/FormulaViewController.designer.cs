@@ -14,5 +14,16 @@ namespace FinalVersion
     [Register ("FormulaViewController")]
     partial class FormulaViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView caltable { get; set; }
+
+        void ReleaseDesignerOutlets ()
+        {
+            if (caltable != null) {
+                caltable.Dispose ();
+                caltable = null;
+            }
+        }
     }
 }

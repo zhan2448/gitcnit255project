@@ -64,7 +64,7 @@
                                 </state>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <segue id="52834" destination="254" kind="push"/>
+                                    <action selector="Test_TouchUpInside:" destination="BYZ-38-t0r" id="53530" eventType="touchUpInside"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,6 +96,8 @@
                         <outlet property="btnadd" destination="41417" id="name-outlet-41417"/>
                         <outlet property="FormulaTable" destination="43606" id="name-outlet-43606"/>
                         <outlet property="lb2" destination="51619" id="name-outlet-51619"/>
+                        <outlet property="test" destination="52147" id="name-outlet-52147"/>
+                        <segue id="53258" destination="254" kind="push"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -121,7 +123,7 @@
         <!--View Controller-->
         <scene sceneID="253">
             <objects>
-                <viewController id="254" sceneMemberID="viewController" customClass="FormulaViewController">
+                <viewController id="254" sceneMemberID="viewController" storyboardIdentifier="FormulaViewController" customClass="FormulaViewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="251"/>
                         <viewControllerLayoutGuide type="bottom" id="252"/>
@@ -131,30 +133,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="52144" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" customClass="InputTxtcontroller">
-                                <rect key="frame" x="0.0" y="102" width="375" height="36"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES" flexibleMinY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="53109" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="52145" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                        <rect key="frame" x="8" y="8" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" id="52146" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                        <rect key="frame" x="154" y="3" width="97" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="53110" rowHeight="59">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="59"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53110" id="53111">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="InputTxt" destination="52144" id="name-outlet-52144"/>
+                        <outlet property="caltable" destination="53109" id="name-outlet-53109"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="256" userLabel="First Responder" sceneMemberID="firstResponder"/>
