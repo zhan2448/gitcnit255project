@@ -5,6 +5,7 @@ namespace FinalVersion
     {
         public Sample_Mean()
         {
+            Titles.Add("Sample Mean");
         }
     }
 }

@@ -5,6 +5,9 @@ namespace FinalVersion
     {
         public Sample_Size()
         {
+            Title = "Sample Size";
+            Sign = "n";
+            InputType = "s";
         }
     }
 }
