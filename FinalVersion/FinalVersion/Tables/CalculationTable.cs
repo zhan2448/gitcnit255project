@@ -18,7 +18,22 @@ namespace FinalVersion
         {
             return 4;
         }
-      
+
+        List<string> titles=new List<string>();
+        public void settitle(){
+            for (int a = 0; a < StatExpressions.GetInPutExpression().Count;a++){
+                for (int b = 0; b < StatExpressions.GetInPutExpression()[a].GetTitles().Count;b++){
+
+                    titles.Add(StatExpressions.GetInPutExpression()[a].GetTitles()[b]);
+                }
+
+            }
+              
+
+        }
+
+
+
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
            
@@ -36,12 +51,16 @@ namespace FinalVersion
                 
                 var cell2 = (Calculationcell)tableView.DequeueReusableCell("Cal_Cell", indexPath);
 
-                string a = StatExpressions.GetInPutExpression()[0].GetTitles()[indexPath.Row];
+                settitle();
 
-                cell2.UpdateCell(a);
+                cell2.UpdateCell(titles[indexPath.Row]);
 
                 return cell2;
-            };
+            }else if (indexPath.Section == 2){
+                UIButton btn = new UIButton();
+
+
+            }
             return cell;
            
 
@@ -73,7 +92,7 @@ namespace FinalVersion
                         s++;
                     }
                 }
-                return 3;
+                return s;
             }
         }
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
