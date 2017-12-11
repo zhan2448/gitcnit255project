@@ -124,7 +124,7 @@ namespace FinalVersion
             PopulationMean b = new PopulationMean();
 
             Pickedtexpression.Add(a);
-         
+            Pickedtexpression.Add(b);
             TestF[0].SetInPutExpression(Pickedtexpression);
 
             TestF.Add(new Formula());

@@ -15,6 +15,7 @@ namespace FinalVersion
        
         internal void UpdateCell(string a){
             lbtitle.Text = a;
+
         }
 
 

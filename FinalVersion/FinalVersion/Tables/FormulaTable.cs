@@ -33,6 +33,10 @@ namespace FinalVersion
             temp = selectedexpression;
             SelectExpression?.Invoke(null,null);
         }
+        public override UISwipeActionsConfiguration GetLeadingSwipeActionsConfiguration(UITableView tableView, NSIndexPath indexPath)
+        {
+            return base.GetLeadingSwipeActionsConfiguration(tableView, indexPath);
+        }
        
     }
 }
