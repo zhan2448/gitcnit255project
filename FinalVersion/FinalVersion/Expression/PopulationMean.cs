@@ -9,8 +9,8 @@ namespace FinalVersion
             // Values[0] – (double)Population Mean.
             Values = new object[1];
 
-            Titles.Add("Population Mean");
-            InputTypes.Add("s");
+            Title="Population Mean";
+            InputType="s";
         }
 
         public void CalculateValues(double xValue) { Values[0] = (double)xValue; }
