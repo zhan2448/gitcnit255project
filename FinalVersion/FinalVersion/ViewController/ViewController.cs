@@ -152,17 +152,17 @@ namespace FinalVersion
 
             temp = TestF[0];
             var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
-            var UITableViewDelegate = new TableDelegate();
+           
             ViewControllFormulaTable.Selectformula += (sender, e) =>
             {
                 FormulaView VFormula = new FormulaView();
                 // To-Do: change the index accordingly to which Formula was selected
-                VFormula.SetFormula(ViewControllFormulaTable.temp);
+                VFormula.SetFormula((Formula)sender);
 
                 this.NavigationController.PushViewController(VFormula, true);
             };
             FormulaTable.Source = ViewControllFormulaTable;
-            FormulaTable.Delegate = UITableViewDelegate;
+            FormulaTable.Delegate =new TableDelegate(TestF);
 
             //var btn1 = UIButton.FromType(UIButtonType.System);
 

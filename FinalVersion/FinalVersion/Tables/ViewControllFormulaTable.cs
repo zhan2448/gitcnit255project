@@ -8,9 +8,11 @@ namespace FinalVersion
     public class ViewControllFormulaTable : UITableViewSource
     {
         List<Formula> formula;
-        public Formula temp { get; private set; }
+       
         public ViewControllFormulaTable() { }
+
         public EventHandler Selectformula;
+
         public ViewControllFormulaTable(List<Formula> xFormula)
         {
             formula = xFormula;
@@ -31,8 +33,8 @@ namespace FinalVersion
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             var selectedformula = formula[indexPath.Row];
-            temp = selectedformula;
-            Selectformula?.Invoke(null, null);
+       
+            Selectformula?.Invoke(selectedformula, null);
         }
 
     }
