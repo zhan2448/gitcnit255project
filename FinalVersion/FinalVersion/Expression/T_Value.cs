@@ -3,20 +3,16 @@ namespace FinalVersion
 {
     class T_Value : ExpressionConnected
     {
-        
-        public T_Value() : base() {
-            // Data
-            // Values[0] – (double)T_Value.
-            Values = new object[1];
-
-            Titles.Add("T_Values");
-            InputTypes.Add("s");
-
+        public T_Value(bool IsPrimitive) : base(IsPrimitive)
+        {
+            Title = "T_Values";
+            Sign = "t";
+            InputType = "s";
 
             // Associated Data
             SegmentsTitles = new string[2];
             SegmentsTitles[0] = "From Sample";
-            SegmentsTitles[0] = "From DataSet";
+            SegmentsTitles[1] = "From DataSet";
 
             Expression[] firstDimention = new Expression[4];
             firstDimention[0] = new PopulationMean();
@@ -35,8 +31,7 @@ namespace FinalVersion
             secondDimention[1] = new DataSet();
 
 
-            SubExpressions = new Expression[][] { firstDimention, secondDimention };
-            //SubExpressions[1].selectedvalue(0,1);
+            SubExpressions = new Expression[2][] { firstDimention, secondDimention };
         }
 
 
