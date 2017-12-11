@@ -31,32 +31,32 @@ namespace FinalVersion
         public void SetExpressions(int[] xSelectedSegments)
         {
 
-            Queue<Expression> AllExprs = new Queue<Expression>();
-            AllExprs.Enqueue(Answer);
+            //Queue<Expression> AllExprs = new Queue<Expression>();
+            //AllExprs.Enqueue(Answer);
 
-            int i = 0;
-            while (true)
-            {
-                if (0 == AllExprs.Count)
-                {
-                    break;
-                }
+            //int i = 0;
+            //while (true)
+            //{
+            //    if (0 == AllExprs.Count)
+            //    {
+            //        break;
+            //    }
 
-                Expression iExpression = AllExprs.Dequeue();
+            //    Expression iExpression = AllExprs.Dequeue();
 
-                if (iExpression is ExpressionConnected)
-                {
-                    foreach (Expression SubExpr in ((ExpressionConnected)iExpression).GetSubExressions())
-                    {
-                        AllExprs.Enqueue(SubExpr);
-                    }
-                }
+            //    if (iExpression is ExpressionConnected)
+            //    {
+            //        foreach (Expression SubExpr in ((ExpressionConnected)iExpression).GetSubExressions())
+            //        {
+            //            AllExprs.Enqueue(SubExpr);
+            //        }
+            //    }
 
 
-                SegmentsSelected.Add(xSelectedSegments[i]);
-                // AllTitles.AddRange(TempExpr.GetTitles());
-               // AllInputTypes.AddRange(TempExpr.GetInputTypes());
-            }
+            //    SegmentsSelected.Add(xSelectedSegments[i]);
+            //    // AllTitles.AddRange(TempExpr.GetTitles());
+            //   // AllInputTypes.AddRange(TempExpr.GetInputTypes());
+            //}
         }
 
 

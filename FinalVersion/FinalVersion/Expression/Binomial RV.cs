@@ -1,28 +1,20 @@
 ﻿using System;
 namespace FinalVersion
 {
-    public class Binomial_RV : Expression
+    public class Binomial_RV : ExpressionConnected
     {
         // Binomial Randon Variable
         public Binomial_RV()
         {
-            // Data
-            // Values[0] – (int)n.
-            // Values[1] – (double)p.
-            // Values[2] – (int)x.
-            Values = new object[3];
+            Expression[] firstDimention = new Expression[3];
 
-            Titles.Add("Sample Size");
-            Titles.Add("Propability");
-            Titles.Add("Specific Value");
+            firstDimention[0] = new Sample_Size();
+            ((ExpressionConnected)firstDimention[0]).SetDisableSubexpressions(false);
 
-            Signs.Add("n");
-            Signs.Add("p");
-            Signs.Add("x");
+            firstDimention[1] = new Probability();
+            firstDimention[2] = new Specific_Number();
 
-            InputTypes.Add("s");
-            InputTypes.Add("s");
-            InputTypes.Add("s");
+            SubExpressions = new Expression[1][] { firstDimention };
         }
 
         public void SetN(int xN) { Values[0] = (int)xN; }

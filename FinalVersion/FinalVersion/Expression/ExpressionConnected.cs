@@ -16,8 +16,10 @@ namespace FinalVersion
         //
 
         //
-        public ExpressionConnected()
-        {}
+        public ExpressionConnected(bool IsPrimitive = false)
+        {
+            disableSubexpressions = IsPrimitive;
+        }
         //
 
         public Expression[][] GetSubExressions()
@@ -26,7 +28,6 @@ namespace FinalVersion
         }
 
         public void SetSegmentSelected(int xSS) { SegmentSelected = xSS; }
-        public void SetDisableSubexpressions(bool xDisalble) { disableSubexpressions = xDisalble; }
 
         public int GetSegmentSelected() { return SegmentSelected; }
         public bool GetDisableSubexpressions() { return disableSubexpressions; }
