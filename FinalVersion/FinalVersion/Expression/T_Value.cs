@@ -14,24 +14,21 @@ namespace FinalVersion
             SegmentsTitles[0] = "From Sample";
             SegmentsTitles[1] = "From DataSet";
 
-            Expression[] firstDimention = new Expression[4];
-            firstDimention[0] = new PopulationMean();
-            firstDimention[1] = new Sample_Mean();
-            ((ExpressionConnected)firstDimention[1]).SetDisableSubexpressions(false);
+            Expression[] firstDimention = new Expression[1];
+            firstDimention[0] = new T_Value(false);
 
-            firstDimention[2] = new Sample_SD();
-            ((ExpressionConnected)firstDimention[2]).SetDisableSubexpressions(false);
-
-            firstDimention[3] = new Sample_Size();
-            ((ExpressionConnected)firstDimention[3]).SetDisableSubexpressions(false);
-
-
-            Expression[] secondDimention = new Expression[2];
+            Expression[] secondDimention = new Expression[4];
             secondDimention[0] = new PopulationMean();
-            secondDimention[1] = new DataSet();
+            secondDimention[1] = new Sample_Mean(false);
+            secondDimention[2] = new Sample_SD(false);
+            secondDimention[3] = new Sample_Size(false);
+
+            Expression[] thirdDimention = new Expression[2];
+            thirdDimention[0] = new PopulationMean();
+            thirdDimention[1] = new DataSet();
 
 
-            SubExpressions = new Expression[2][] { firstDimention, secondDimention };
+            SubExpressions = new Expression[3][] { firstDimention, secondDimention, thirdDimention };
         }
 
 

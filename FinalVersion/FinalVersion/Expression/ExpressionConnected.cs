@@ -8,7 +8,7 @@ namespace FinalVersion
         // DATA STRUCTURE
         //Primitives
         private int SegmentSelected = 0;
-        private bool disableSubexpressions = false;
+        private bool enabledSubexpressions = false;
 
         //Composite Data
         protected string[] SegmentsTitles;
@@ -18,7 +18,7 @@ namespace FinalVersion
         //
         public ExpressionConnected(bool IsPrimitive = false)
         {
-            disableSubexpressions = IsPrimitive;
+            enabledSubexpressions = IsPrimitive;
         }
         //
 
@@ -30,7 +30,7 @@ namespace FinalVersion
         public void SetSegmentSelected(int xSS) { SegmentSelected = xSS; }
 
         public int GetSegmentSelected() { return SegmentSelected; }
-        public bool GetDisableSubexpressions() { return disableSubexpressions; }
+        public bool GetDisableSubexpressions() { return enabledSubexpressions; }
         public string[] GetSegmentsTitles() { return SegmentsTitles; }
         public Expression[][] GetExpression() { return SubExpressions; }
     }
