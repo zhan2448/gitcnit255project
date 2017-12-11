@@ -22,7 +22,9 @@ namespace FinalVersion
         {
             var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
             cell.TextLabel.Text = formula[indexPath.Row].GetTitle();
-            cell.TextLabel.TextAlignment = UITextAlignment.Center;
+            cell.TextLabel.TextAlignment = UITextAlignment.Left;
+            cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+
             return cell;
         }
 
@@ -45,6 +47,11 @@ namespace FinalVersion
                 cell.TextLabel.Text += "_Clicked";
             });
             return new UITableViewRowAction[] { action };
+        }
+
+        public override string TitleForHeader(UITableView tableView, nint section)
+        {
+            return "Statistics Formulas";
         }
     }
 }

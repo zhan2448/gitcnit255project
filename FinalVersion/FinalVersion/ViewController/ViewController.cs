@@ -153,6 +153,7 @@ namespace FinalVersion
             temp = TestF[0];
             var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
            
+            FormulaTable.SeparatorColor = UIColor.Blue;
             ViewControllFormulaTable.Selectformula += (sender, e) =>
             {
                 FormulaView VFormula = new FormulaView();
@@ -162,25 +163,6 @@ namespace FinalVersion
                 this.NavigationController.PushViewController(VFormula, true);
             };
             FormulaTable.Source = ViewControllFormulaTable;
-
-            //var btn1 = UIButton.FromType(UIButtonType.System);
-
-            //btn1.Frame = new CGRect(20, 200, 280, 44);
-            //btn1.SetTitle(TestF[0].GetTitle(), UIControlState.Normal);
-            //View.AddSubview(btn1);
-
-            //btn1.TouchUpInside += (sender, e) =>
-            //{
-                
-            //    FormulaView VFormula = new FormulaView();
-            //    // To-Do: change the index accordingly to which Formula was selected
-            //    VFormula.SetFormula(TestF[0]);
-
-            //    this.NavigationController.PushViewController(VFormula, true);
-
-
-
-            //};
         }
        
 
