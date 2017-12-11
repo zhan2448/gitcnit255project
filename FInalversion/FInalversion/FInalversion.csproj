@@ -180,6 +180,9 @@
       <DependentUpon>Calculationcell.cs</DependentUpon>
     </Compile>
     <Compile Include="Tables\TableDelegate.cs" />
+    <Compile Include="Expression\Sample Mean.cs" />
+    <Compile Include="Expression\Sample SD.cs" />
+    <Compile Include="Expression\Sample Size.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
