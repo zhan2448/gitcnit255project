@@ -152,6 +152,7 @@ namespace FinalVersion
 
             temp = TestF[0];
             var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
+            var UITableViewDelegate = new TableDelegate();
             ViewControllFormulaTable.Selectformula += (sender, e) =>
             {
                 FormulaView VFormula = new FormulaView();
@@ -161,7 +162,7 @@ namespace FinalVersion
                 this.NavigationController.PushViewController(VFormula, true);
             };
             FormulaTable.Source = ViewControllFormulaTable;
-
+            FormulaTable.Delegate = UITableViewDelegate;
 
             //var btn1 = UIButton.FromType(UIButtonType.System);
 

@@ -179,6 +179,7 @@
     <Compile Include="Calculationcell.designer.cs">
       <DependentUpon>Calculationcell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tables\TableDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
