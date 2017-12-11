@@ -162,7 +162,6 @@ namespace FinalVersion
                 this.NavigationController.PushViewController(VFormula, true);
             };
             FormulaTable.Source = ViewControllFormulaTable;
-            FormulaTable.Delegate =new TableDelegate(TestF);
 
             //var btn1 = UIButton.FromType(UIButtonType.System);
 
