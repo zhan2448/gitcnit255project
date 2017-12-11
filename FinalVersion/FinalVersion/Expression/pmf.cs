@@ -4,7 +4,7 @@ namespace FinalVersion
     public class pmf : ExpressionConnected
     {
         // Probability Mass Function
-        public pmf()
+        public pmf(bool isprimtive):base(isprimtive) 
         {
             // Data
             // Values[0] – (int)x.

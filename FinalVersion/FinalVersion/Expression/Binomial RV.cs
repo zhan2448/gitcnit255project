@@ -4,7 +4,7 @@ namespace FinalVersion
     public class Binomial_RV : ExpressionConnected
     {
         // Binomial Randon Variable
-        public Binomial_RV()
+        public Binomial_RV(bool isprimtive):base(isprimtive) 
         {
             Expression[] firstDimention = new Expression[3];
 

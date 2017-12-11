@@ -3,9 +3,11 @@ namespace FinalVersion
 {
     public class Sample_Mean : ExpressionConnected
     {
-        public Sample_Mean()
+        public Sample_Mean(bool isprimtive):base(isprimtive) 
         {
-            Titles.Add("Sample Mean");
+            Title="Sample Mean";
+            Sign = "x̅";
+            InputType = "s";
         }
     }
 }
