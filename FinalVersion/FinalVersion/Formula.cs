@@ -6,7 +6,7 @@ namespace FinalVersion
     public class Formula
     {
         // Data
-        private Expression Answer;
+        private ExpressionConnected Answer;
         private List<Expression> InPutExpression;
         private List<int> SegmentsSelected; // Dependent selected segments
         // Show Data
@@ -23,7 +23,7 @@ namespace FinalVersion
 
         public void SetDescription(string xDescription) { Description = xDescription; }
 
-        public void SetAnswer(Expression xAns)
+        public void SetAnswer(ExpressionConnected xAns)
         {
             Answer = xAns;
         }
@@ -63,7 +63,7 @@ namespace FinalVersion
         public string GetTitle() { return Title; }
         public string GetDescription() { return Description; }
 
-        public Expression GetAnswer()
+        public ExpressionConnected GetAnswer()
         {
             return Answer;
         }

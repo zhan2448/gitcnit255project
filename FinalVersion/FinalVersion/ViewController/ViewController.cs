@@ -124,8 +124,8 @@ namespace FinalVersion
             TestF[0] = new Formula();
             TestF[0].SetTitle("T Values from Values");
             TestF[0].SetDescription("Calculate T_Value from primitive values.");
-             //T_Value t = new T_Value();
-            //TestF[0].SetAnswer(t);
+            T_Value t = new T_Value(false);
+            TestF[0].SetAnswer(t);
             //Sample a = new Sample();
             //PopulationMean b = new PopulationMean();
 
@@ -151,7 +151,7 @@ namespace FinalVersion
                 TestF[2].SetDescription("Big numbers break the system.");
                 Expression temp2 = answerexpression;
 
-                TestF[2].SetAnswer(temp2);
+                //TestF[2].SetAnswer(temp2);
                
             }
 

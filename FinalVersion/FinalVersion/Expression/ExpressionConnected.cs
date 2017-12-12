@@ -7,7 +7,7 @@ namespace FinalVersion
     {
         // DATA STRUCTURE
         //Primitives
-        private int SegmentSelected = 0;
+        private int SegmentSelected = -1;
         private int SegmentFromValueIndex = -1;
         private bool TreatLikePrimitive = false;
         //Composite Data
@@ -64,7 +64,7 @@ namespace FinalVersion
         public void SetSegmentSelected(int xSS) { SegmentSelected = xSS; }
 
         public int GetSegmentFromValueIndex() { return SegmentFromValueIndex; }
-        public bool GetTreatLinkPrimitive() { return TreatLikePrimitive; }
+        public bool GetTreatLikePrimitive() { return TreatLikePrimitive; }
         public int GetSegmentSelected() { return SegmentSelected; }
         public List<string> GetSegmentsTitles() { return SegmentsTitles; }
     }

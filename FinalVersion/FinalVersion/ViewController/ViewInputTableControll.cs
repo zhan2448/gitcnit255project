@@ -42,7 +42,7 @@ namespace FinalVersion
             NavigationItem.Title = seletedexpression.GetTitle();
             LbInput.Text = seletedexpression.GetTitle();
            
-            preparetable(seletedexpression);
+            preparetable(seletedexpression,null);
 
             //if(seletedexpression.GetAllTitle()== "T_Values"){
             //    Sample sp = new Sample();
@@ -85,21 +85,28 @@ namespace FinalVersion
         }
 
 
-        public void preparetable(Expression exp)
+        public void preparetable(ExpressionConnected exp, List<Expression[]> Expressions)
         {
-            var FormulaInPutTable = new FormulaInPutTable(seletedexpression);
+            
+            var FormulaInPutTable = new FormulaInPutTable(exp,Expressions);
             FormulaInPutTable.SelectExpression += (sender, e) =>
             {
-                returnExpression = FormulaInPutTable.temp;
-                {
-
-                    if (((ExpressionConnected)((Expression[])sender)[0]).GetTreatLinkPrimitive() == false)
+                seletedexpression = ((ExpressionConnected)sender);
+                ExpressionConnected temp = ((ExpressionConnected)sender);
+                if (temp.GetSubExressions()[temp.GetSegmentSelected()].Length == 1)
                     {
-                        InPutTable.ReloadData();
-                        preparetable(((ExpressionConnected)((Expression[])sender)[0]));
+                       
+                    List<Expression[]> Expressions2=new List<Expression[]>();
+                    for (int a = 0; a < temp.GetSubExressions()[temp.GetSegmentSelected()].Length;a++){
+                        Expression[] temp2 = new Expression[1] { temp.GetSubExressions()[temp.GetSegmentSelected()][a] };
+                        Expressions2.Add(temp2);
 
                     }
-                }
+                    InPutTable.ReloadData();
+                    preparetable(temp,Expressions2);
+
+                    }
+
             };
            
             InPutTable.Source = FormulaInPutTable;

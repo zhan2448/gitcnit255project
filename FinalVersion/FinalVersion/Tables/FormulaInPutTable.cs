@@ -7,44 +7,37 @@ namespace FinalVersion
     public class FormulaInPutTable : UITableViewSource
     {
         ExpressionConnected inputExpressions;
-        List<Expression[]> StatExpressions;
+        List<Expression[]> StatExpressions=new List<Expression[]>();
         public Expression[] temp { get; private set; }
         public FormulaInPutTable() { }
         public EventHandler SelectExpression;
-
-        public FormulaInPutTable(ExpressionConnected inputExpressions)
+        public bool gettreat=false;
+        public FormulaInPutTable(ExpressionConnected inputExpressions, List<Expression[]> Expressions)
         {
             this.inputExpressions = inputExpressions;
-            sortStatExpressions();
+            StatExpressions = Expressions;
+            if (StatExpressions == null)
+            {
+                sortStatExpressions();
+            }
         }
         public void sortStatExpressions(){
-            //if(inputExpressions.GetTreatLinkPrimitive()==false){
+            StatExpressions = inputExpressions.GetSubExressions();
+            if(((ExpressionConnected)(inputExpressions.GetSubExressions()[0][0])).GetTreatLikePrimitive()==true){
+                if (inputExpressions.GetTitle() == inputExpressions.GetSubExressions()[0][0].GetTitle())
+                {
+                    if (inputExpressions.GetSubExressions().Count < 2)
+                    {
+                        return;
+                    }
+                
+                    gettreat = true;
+  
+                }
+            }else return;
 
 
-
-            //    if (inputExpressions.GetTitle() == inputExpressions.GetSubExressions()[0][0].GetTitle())
-            //    {
-            //        if (inputExpressions.GetSubExressions().Count < 2)
-            //        {
-            //            return;
-            //        }
-            //        int num = 0;
-            //        StatExpressions = new Expression[inputExpressions.GetSubExressions().Count - 1][];
-            //        for (int a = 1; a < inputExpressions.GetSubExressions().Count; a++)
-            //        {
-            //            Expression[] newexpression = new Expression[inputExpressions.GetSubExressions()[a].Length];
-            //            for (int b = 0; b < inputExpressions.GetSubExressions()[a].Length; b++)
-            //            {
-            //                newexpression[b] = inputExpressions.GetSubExressions()[a][b];
-            //            }
-            //            StatExpressions[num] = newexpression;
-            //            num++;
-            //        }
-            //    }else 
-            //}else return;
-
-
-           // StatExpressions = inputExpressions.GetSubExressions();
+         
         }
 
     
@@ -52,21 +45,53 @@ namespace FinalVersion
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
-
-            cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row];
-               
+            if (inputExpressions.GetSegmentSelected() == -1)
+            {
+                if (gettreat == false)
+                {
+                    cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row];
+                }
+                else if (gettreat == true)
+                {
+                    cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row + 1];
+                }
+            }
+            else cell.TextLabel.Text = StatExpressions[indexPath.Row][0].GetTitle();
 
             return cell;
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return inputExpressions.GetSegmentsTitles().Count;
+            if (inputExpressions.GetSegmentSelected() == -1)
+            {
+                if (gettreat == false)
+                {
+                    return inputExpressions.GetSegmentsTitles().Count;
+                }
+                else
+                {
+                    return inputExpressions.GetSegmentsTitles().Count - 1;
+                }
+            }
+            else return StatExpressions.Count;
+           
         }
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
-            inputExpressions.SetSegmentSelected(indexPath.Row);
-            SelectExpression?.Invoke(inputExpressions, null);
+
+            if (gettreat == false)
+            {
+                inputExpressions.SetSegmentSelected(indexPath.Row);
+                SelectExpression?.Invoke(inputExpressions,null);
+
+            }
+            else
+            {
+                inputExpressions.SetSegmentSelected(indexPath.Row+1);
+                SelectExpression?.Invoke(inputExpressions,null);
+            }
+           
         }
 
     }

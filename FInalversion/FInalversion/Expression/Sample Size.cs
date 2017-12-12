@@ -14,6 +14,7 @@ namespace FinalVersion
             if (isPrimitive)
                 return;
 
+            SegmentsTitles.Add("From DataSet");
             Expression[] secondSegment = new Expression[1];
 
             secondSegment[0] = new DataSet();

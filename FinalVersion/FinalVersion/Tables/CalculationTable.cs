@@ -16,7 +16,7 @@ namespace FinalVersion
         }
         public override nint NumberOfSections(UITableView tableView)
         {
-            return 4;
+            return 5;
         }
 
         List<string> titles=new List<string>();
@@ -32,7 +32,7 @@ namespace FinalVersion
 
         //}
 
-
+        int tmp =0;
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
@@ -46,7 +46,7 @@ namespace FinalVersion
                    
                 cell.TextLabel.TextAlignment = UITextAlignment.Center;
 
-            }else if (indexPath.Section == 1)
+            }else if (indexPath.Section == 2)
             {
                 
                 var cell2 = (Calculationcell)tableView.DequeueReusableCell("Cal_Cell", indexPath);
@@ -56,10 +56,16 @@ namespace FinalVersion
                 cell2.UpdateCell(titles[indexPath.Row]);
 
                 return cell2;
-            }else if (indexPath.Section == 2){
+            }else if (indexPath.Section == 3){
                 UIButton btn = new UIButton();
 
 
+            }else if(indexPath.Section==1){
+
+                UISegmentedControl expressionSeg = new UISegmentedControl();
+                expressionSeg.RemoveAllSegments();
+                expressionSeg.InsertSegment(StatExpressions.GetAnswer().GetSegmentsTitles()[tmp],tmp,true);
+                tmp++;
             }
             return cell;
            

@@ -163,7 +163,6 @@
     <Compile Include="Expression\DataSet.cs" />
     <Compile Include="Expression\pmf.cs" />
     <Compile Include="Expression\PopulationMean.cs" />
-    <Compile Include="Expression\Sample.cs" />
     <Compile Include="Expression\T_Value.cs" />
     <Compile Include="Tables\FormulaInPutTable.cs" />
     <Compile Include="Tables\FormulaTable.cs" />
