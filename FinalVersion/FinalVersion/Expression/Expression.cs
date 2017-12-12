@@ -8,7 +8,7 @@ namespace FinalVersion
         // DATA STRUCTURE
         //Values
         protected object Value;
-        protected int SegmentSelected = -2;
+        protected int SegmentSelected = 0;
 
         // Display Data
         private string Title;

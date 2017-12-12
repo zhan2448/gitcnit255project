@@ -25,7 +25,7 @@ namespace FinalVersion
         {
             if (IsPrimitive)
             {
-                SegmentSelected = -2;
+                SegmentSelected = 0;
                 return;
             }
             SegmentSelected = -1;
