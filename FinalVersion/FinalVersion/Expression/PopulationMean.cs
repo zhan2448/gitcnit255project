@@ -7,6 +7,6 @@ namespace FinalVersion
         {
         }
 
-        public void CalculateValues(double xValue) { Value = (double)xValue; }
+        public void CalculateValue(double xValue) { Value = (double)xValue; }
     }
 }

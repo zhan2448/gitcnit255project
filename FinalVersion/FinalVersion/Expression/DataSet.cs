@@ -13,7 +13,9 @@ namespace FinalVersion
         }
 
         // To-Do: different methods for passed fetched/unfetched string dataset.
-        public void SetValues(List<double> xValues) { DSValues = xValues; }
+        private void SetValues(List<double> xValues) { DSValues = xValues; }
+
+        public void CalculateValues(List<double> xValues) { DSValues = xValues; }
 
         public List<double> GetDSValues() { return DSValues; }
 
