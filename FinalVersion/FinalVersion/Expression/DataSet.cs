@@ -8,8 +8,8 @@ namespace FinalVersion
 
         public DataSet()
         {
-            Titles.Add("Dataset");
-            InputTypes.Add("m");
+            Title="Dataset";
+            InputType="m";
         }
 
         // To-Do: different methods for passed fetched/unfetched string dataset.

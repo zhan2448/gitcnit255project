@@ -28,10 +28,6 @@ namespace FinalVersion
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView InPutTable2 { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel LbInput { get; set; }
 
         [Outlet]
@@ -65,11 +61,6 @@ namespace FinalVersion
             if (InPutTable != null) {
                 InPutTable.Dispose ();
                 InPutTable = null;
-            }
-
-            if (InPutTable2 != null) {
-                InPutTable2.Dispose ();
-                InPutTable2 = null;
             }
 
             if (LbInput != null) {

@@ -6,11 +6,11 @@ namespace FinalVersion
 {
     public class FormulaInPutTable : UITableViewSource
     {
-        List<Expression> StatExpressions;
-        public Expression temp { get; private set; }
+        Expression[][] StatExpressions;
+        public Expression[] temp { get; private set; }
         public FormulaInPutTable() { }
         public EventHandler SelectExpression;
-        public FormulaInPutTable(List<Expression> xStatExpressions)
+        public FormulaInPutTable(Expression[][] xStatExpressions)
         {
             StatExpressions = xStatExpressions;
         }
@@ -18,15 +18,17 @@ namespace FinalVersion
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
             var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
-
-            cell.TextLabel.Text = StatExpressions[indexPath.Row].GetAllTitle();
-            cell.TextLabel.TextAlignment = UITextAlignment.Center;
+            for (int a = 0; a < StatExpressions[indexPath.Row].Length; a++)
+            {
+                cell.TextLabel.Text = StatExpressions[indexPath.Row][a].GetTitle();
+                cell.TextLabel.TextAlignment = UITextAlignment.Center;
+            }
             return cell;
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            return StatExpressions.Count;
+            return StatExpressions.Length;
         }
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {

@@ -10,16 +10,16 @@ namespace FinalVersion
             // Values[0] – (int)x.
             Values = new object[1];
 
-            Titles.Add("PMF Value");
+            Title="PMF Value";
 
-            Signs.Add("P(X = x)");
+            Sign="P(X = x)";
 
-            InputTypes.Add("s");
+            InputType="s";
 
             // Associated Data
             // SubExpressions[0] – Binomial_RV
-            SubExpressions = new Expression[1];
-            SubExpressions[0] = new Binomial_RV();
+            //SubExpressions = new Expression[1];
+            //SubExpressions[0] = new Binomial_RV();
 
             // Test: Hides one of the input fields.
             // SubExpressions[0] = new Binomial_RV(new int[] { 1 });

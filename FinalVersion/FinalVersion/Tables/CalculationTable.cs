@@ -20,17 +20,17 @@ namespace FinalVersion
         }
 
         List<string> titles=new List<string>();
-        public void settitle(){
-            for (int a = 0; a < StatExpressions.GetInPutExpression().Count;a++){
-                for (int b = 0; b < StatExpressions.GetInPutExpression()[a].GetTitles().Count;b++){
+        //public void settitle(){
+        //    for (int a = 0; a < StatExpressions.GetInPutExpression().Count;a++){
+        //        for (int b = 0; b < StatExpressions.GetInPutExpression()[a].GetTitles().Count;b++){
 
-                    titles.Add(StatExpressions.GetInPutExpression()[a].GetTitles()[b]);
-                }
+        //            titles.Add(StatExpressions.GetInPutExpression()[a].GetTitles()[b]);
+        //        }
 
-            }
+        //    }
               
 
-        }
+        //}
 
 
 
@@ -51,7 +51,7 @@ namespace FinalVersion
                 
                 var cell2 = (Calculationcell)tableView.DequeueReusableCell("Cal_Cell", indexPath);
 
-                settitle();
+                //settitle();
 
                 cell2.UpdateCell(titles[indexPath.Row]);
 
@@ -86,11 +86,11 @@ namespace FinalVersion
                 int s = 0;
                 for (int a = 0; a < StatExpressions.GetInPutExpression().Count; a++)
                 {
-                    for (int b = 0; b < StatExpressions.GetInPutExpression()[a].GetTitles().Count; b++)
-                    {
+                    //for (int b = 0; b < StatExpressions.GetInPutExpression()[a].GetTitles().Count; b++)
+                    //{
 
-                        s++;
-                    }
+                    //    s++;
+                    //}
                 }
                 return s;
             }

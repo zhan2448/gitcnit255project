@@ -38,26 +38,26 @@ namespace FinalVersion
 
             Queue<Expression> AllExprs = new Queue<Expression>();
             AllExprs.Enqueue(OpenedFormula.GetAnswer());
-            while (true)
-            {
-                if (0 == AllExprs.Count)
-                {
-                    break;
-                }
+            //while (true)
+            //{
+            //    if (0 == AllExprs.Count)
+            //    {
+            //        break;
+            //    }
 
-                Expression TempExpr = AllExprs.Dequeue();
-                if (TempExpr is ExpressionConnected)
-                {
-                    foreach (Expression SubExpr in ((ExpressionConnected)TempExpr).GetSubExressions())
-                    {
-                        AllExprs.Enqueue(SubExpr);
-                    }
-                }
+            //    Expression TempExpr = AllExprs.Dequeue();
+            //    if (TempExpr is ExpressionConnected)
+            //    {
+            //        foreach (Expression SubExpr in ((ExpressionConnected)TempExpr).GetSubExressions())
+            //        {
+            //            AllExprs.Enqueue(SubExpr);
+            //        }
+            //    }
 
-                AllTitles.AddRange(TempExpr.GetTitles());
-                AllSigns.AddRange(TempExpr.GetSigns());
-                AllInputTypes.AddRange(TempExpr.GetInputTypes());
-            }
+            //    AllTitles.AddRange(TempExpr.GetTitles());
+            //    AllSigns.AddRange(TempExpr.GetSigns());
+            //    AllInputTypes.AddRange(TempExpr.GetInputTypes());
+            //}
 
             // Preparing Expressions Area
             PrepareExpresionsArea(AllSigns.ToArray(), AllTitles.ToArray(), AllInputTypes.ToArray());
@@ -101,10 +101,10 @@ namespace FinalVersion
                 tempArray[1] = double.Parse(Graphs[2].Item2.Text);
                 tempArray[2] = int.Parse(Graphs[3].Item2.Text);
 
-                Binomial_RV brv = new Binomial_RV();
-                brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2]);
+         //       Binomial_RV brv = new Binomial_RV();
+       //         brv.CalculateValues((int)tempArray[0], (double)tempArray[1], (int)tempArray[2]);
 
-                OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
+          //      OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
 
                 // Change it to the proper output area.
                 Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
