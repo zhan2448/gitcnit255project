@@ -20,5 +20,9 @@ namespace FinalVersion
 
             SubExpressions.Add(secondSegment);
         }
+
+        public void CalculateValue(int xSize) { Value = (int)xSize; }
+
+        public void CalculateValue(double[] xDataSet) { Value = xDataSet.Length; }
     }
 }

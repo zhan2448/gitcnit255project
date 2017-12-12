@@ -20,6 +20,8 @@ namespace FinalVersion
             secondSegment[0] = new T_Value(true);
 
             SubExpressions.Add(secondSegment);
+
+
         }
     }
 }

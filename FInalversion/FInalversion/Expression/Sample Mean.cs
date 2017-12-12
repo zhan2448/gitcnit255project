@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace FinalVersion
 {
     public class Sample_Mean : ExpressionConnected
@@ -20,5 +22,18 @@ namespace FinalVersion
 
             SubExpressions.Add(secondSegment);
         }
+
+
+        // FUNCTIONAL METHODS
+        public void CalculateValue(double xMean) {
+            Value = (double)xMean;
+        }
+
+
+        public void CalculateValue(double[] xDataSet)
+        {
+            Value = (double)((double)xDataSet.Sum() / xDataSet.Length);
+        }
+        //
     }
 }
