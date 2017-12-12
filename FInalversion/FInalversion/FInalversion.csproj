@@ -163,7 +163,6 @@
     <Compile Include="Expression\DataSet.cs" />
     <Compile Include="Expression\pmf.cs" />
     <Compile Include="Expression\PopulationMean.cs" />
-    <Compile Include="Expression\Sample.cs" />
     <Compile Include="Expression\T_Value.cs" />
     <Compile Include="Tables\FormulaInPutTable.cs" />
     <Compile Include="Tables\FormulaTable.cs" />
@@ -179,7 +178,6 @@
     <Compile Include="Calculationcell.designer.cs">
       <DependentUpon>Calculationcell.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tables\TableDelegate.cs" />
     <Compile Include="Expression\Sample Mean.cs" />
     <Compile Include="Expression\Sample SD.cs" />
     <Compile Include="Expression\Sample Size.cs" />
