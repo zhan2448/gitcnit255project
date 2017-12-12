@@ -14,17 +14,12 @@ namespace FinalVersion
             if (isPrimitive)
                 return;
 
-            SegmentsTitles.Add("From Sample");
-            SegmentsTitles.Add("From DataSet");
+            SegmentsTitles.Add("From T_Value");
 
             Expression[] secondSegment = new Expression[1];
-            secondSegment[0] = new Probability(true);
-
-            Expression[] thirdSegment = new Expression[1];
-            thirdSegment[0] = new T_Value(true);
+            secondSegment[0] = new T_Value(true);
 
             SubExpressions.Add(secondSegment);
-            SubExpressions.Add(thirdSegment);
         }
     }
 }
