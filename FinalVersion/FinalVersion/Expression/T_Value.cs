@@ -28,12 +28,10 @@ namespace FinalVersion
             thirdSegment[0] = new PopulationMean();
             thirdSegment[1] = new DataSet();
 
-<<<<<<< HEAD
-            SubExpressions = new Expression[3][] { firstSegment, secondSegment, thirdSegment };
-=======
+
             SubExpressions.Add(secondSegment);
             SubExpressions.Add(thirdSegment);
->>>>>>> ad6ffe1f0ffcf11abe33a66b13458bda5612e991
+
         }
 
 
