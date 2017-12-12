@@ -3,13 +3,8 @@ namespace FinalVersion
 {
     public class Specific_Number : Expression
     {
-        public Specific_Number()
+        public Specific_Number() : base("Specific Number", "x", "s")
         {
-            Title = "Specific Number";
-            Sign = "n";
-            InputType = "s";
         }
-        public void SetPX(int xX) { Value = (int)xX; }
-        public int GetX() { return (int)Value; }
     }
 }
