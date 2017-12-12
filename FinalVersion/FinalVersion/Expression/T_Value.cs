@@ -16,21 +16,21 @@ namespace FinalVersion
             SegmentsTitles[0] = "From Sample";
             SegmentsTitles[1] = "From DataSet";
 
-            Expression[] firstDimention = new Expression[1];
-            firstDimention[0] = new T_Value(true);
+            Expression[] firstSegment = new Expression[1];
+            firstSegment[0] = new T_Value(true);
 
-            Expression[] secondDimention = new Expression[4];
-            secondDimention[0] = new PopulationMean();
-            secondDimention[1] = new Sample_Mean(false);
-            secondDimention[2] = new Sample_SD(false);
-            secondDimention[3] = new Sample_Size(false);
+            Expression[] secondSegment = new Expression[4];
+            secondSegment[0] = new PopulationMean();
+            secondSegment[1] = new Sample_Mean(false);
+            secondSegment[2] = new Sample_SD(false);
+            secondSegment[3] = new Sample_Size(false);
 
-            Expression[] thirdDimention = new Expression[2];
-            thirdDimention[0] = new PopulationMean();
-            thirdDimention[1] = new DataSet();
+            Expression[] thirdSegment = new Expression[2];
+            thirdSegment[0] = new PopulationMean();
+            thirdSegment[1] = new DataSet();
 
 
-            SubExpressions = new Expression[3][] { firstDimention, secondDimention, thirdDimention };
+            SubExpressions = new Expression[3][] { firstSegment, secondSegment, thirdSegment };
         }
 
 

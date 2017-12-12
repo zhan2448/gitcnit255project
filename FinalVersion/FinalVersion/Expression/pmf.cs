@@ -7,19 +7,15 @@ namespace FinalVersion
         public pmf(bool isprimtive):base(isprimtive) 
         {
             // Data
-            // Values[0] – (int)x.
-           
             Title="PMF Value";
             Sign="P(X = x)";
             InputType="s";
 
             // Associated Data
-            // SubExpressions[0] – Binomial_RV
-            //SubExpressions = new Expression[1];
-            //SubExpressions[0] = new Binomial_RV();
+            Expression[] firstSegment = new Expression[1];
+            firstSegment[0] = new Binomial_RV(false);
 
-            // Test: Hides one of the input fields.
-            // SubExpressions[0] = new Binomial_RV(new int[] { 1 });
+            SubExpressions = new Expression[1][] { firstSegment };
         }
 
     
