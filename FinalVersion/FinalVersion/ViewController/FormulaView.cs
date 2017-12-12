@@ -107,7 +107,7 @@ namespace FinalVersion
           //      OpenedFormula.GetAnswer().GetType().GetMethod("CalculateValues").Invoke(OpenedFormula.GetAnswer(), new object[] { brv });
 
                 // Change it to the proper output area.
-                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValues()[0].ToString();
+                Graphs[0].Item2.Text = OpenedFormula.GetAnswer().GetValue().ToString();
             };
 
             View.BackgroundColor = UIColor.White;
