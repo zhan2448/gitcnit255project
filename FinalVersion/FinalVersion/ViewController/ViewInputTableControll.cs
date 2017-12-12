@@ -26,7 +26,7 @@ namespace FinalVersion
 
             this.NavigationController.SetNavigationBarHidden(false, false);
             ViewController ViewController = this.Storyboard.InstantiateViewController("ViewController") as ViewController;
-       //     ViewController.setPickedtexpression(returnExpression, seletedexpression);
+           //ViewController.setPickedtexpression(returnExpression, seletedexpression);
             NavigationController.PushViewController(ViewController, true);
 
         }
@@ -43,7 +43,7 @@ namespace FinalVersion
             base.ViewDidLoad();
             NavigationItem.Title = seletedexpression.GetTitle();
 
-
+            preparetable();
 
             //if(seletedexpression.GetAllTitle()== "T_Values"){
             //    Sample sp = new Sample();
@@ -91,8 +91,6 @@ namespace FinalVersion
             FormulaInPutTable.SelectExpression += (sender, e) =>
             {
                 returnExpression = FormulaInPutTable.temp;
-
-
             };
             InPutTable.Source = FormulaInPutTable;
         }
