@@ -126,17 +126,17 @@ namespace FinalVersion
             TestF[0].SetDescription("Calculate T_Value from primitive values.");
              //T_Value t = new T_Value();
             //TestF[0].SetAnswer(t);
-            Sample a = new Sample();
-            PopulationMean b = new PopulationMean();
+            //Sample a = new Sample();
+            //PopulationMean b = new PopulationMean();
 
-            Pickedtexpression.Add(a);
-            Pickedtexpression.Add(b);
-            TestF[0].SetInPutExpression(Pickedtexpression);
+            //Pickedtexpression.Add(a);
+            //Pickedtexpression.Add(b);
+            //TestF[0].SetInPutExpression(Pickedtexpression);
 
-            TestF.Add(new Formula());
-            TestF[1] = new Formula();
-            TestF[1].SetTitle("Calculate P(X), X~Binomial");
-            TestF[1].SetDescription("Big numbers break the system.");
+            //TestF.Add(new Formula());
+            //TestF[1] = new Formula();
+            //TestF[1].SetTitle("Calculate P(X), X~Binomial");
+            //TestF[1].SetDescription("Big numbers break the system.");
             //pmf pmFunc = new pmf();
             //TestF[1].SetAnswer(pmFunc);
           

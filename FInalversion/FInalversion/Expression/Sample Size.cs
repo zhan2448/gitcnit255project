@@ -5,6 +5,7 @@ namespace FinalVersion
     {
         public Sample_Size(bool isprimtive):base(isprimtive) 
         {
+         
             Title = "Sample Size";
             Sign = "n";
             InputType = "s";

@@ -3,12 +3,14 @@ namespace FinalVersion
 {
     class T_Value : ExpressionConnected
     {
-        public T_Value(bool IsPrimitive) : base(IsPrimitive)
+        public T_Value(bool isPrimitive) : base(isPrimitive)
         {
             Title = "T_Values";
             Sign = "t";
             InputType = "s";
 
+            if (isPrimitive)
+                return;
             // Associated Data
             SegmentsTitles = new string[2];
             SegmentsTitles[0] = "From Sample";

@@ -9,6 +9,9 @@ namespace FinalVersion
             Sign = "p";
             InputType = "s";
 
+            if (isPrimitive)
+                return;
+
             Expression[] firstDimention = new Expression[1];
             firstDimention[0] = new Probability(true);
 

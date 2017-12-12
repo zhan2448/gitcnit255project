@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace FinalVersion
 {
-    public class Sample : ExpressionConnected
+    public class Sample
     {
         public Sample()
         {
