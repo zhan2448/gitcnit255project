@@ -6,7 +6,7 @@ namespace FinalVersion
     public abstract class Expression
     {
         // Data
-        protected object[] Values;
+        protected object Value;
         // Show Data
         protected string Title;
         protected string Sign;
@@ -23,9 +23,9 @@ namespace FinalVersion
         //    }
         //}
      
-        public void SetValues(object[] xValues) { Values = xValues; }
+        public void SetValues(object xValue) { Value = xValue; }
 
-        public object[] GetValues() { return Values; }
+        public object GetValue() { return Value; }
 
         //public string GetAllTitle() { string temp = "";
         //    for (int a = 0; a < Titles.Count;a++){

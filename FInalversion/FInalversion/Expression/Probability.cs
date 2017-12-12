@@ -17,5 +17,8 @@ namespace FinalVersion
 
             SubExpressions = new Expression[2][] {firstDimention, secondDimention};
         }
+        public void SetP(double xP) { Value = (double)xP; }
+        public double GetP() { return (double)Value; }
+
     }
 }

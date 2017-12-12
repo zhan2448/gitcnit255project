@@ -8,12 +8,9 @@ namespace FinalVersion
         {
             // Data
             // Values[0] – (int)x.
-            Values = new object[1];
-
+           
             Title="PMF Value";
-
             Sign="P(X = x)";
-
             InputType="s";
 
             // Associated Data
@@ -25,19 +22,18 @@ namespace FinalVersion
             // SubExpressions[0] = new Binomial_RV(new int[] { 1 });
         }
 
-        public void SetPX(int xX) { Values[0] = (int)xX; }
+    
 
-        public int GetPX() { return (int)Values[0]; }
 
         public void CalculateValues(Binomial_RV xB_rv)
         {
-            double p = xB_rv.GetP();
-            int n = xB_rv.GetN();
-            int x = xB_rv.GetX();
+            int n = (int)xB_rv.GetSubExressions()[0][0].GetValue();
+            double p   =(double)xB_rv.GetSubExressions()[0][1].GetValue();
+            int x = (int)xB_rv.GetSubExressions()[0][2].GetValue();
 
             // Forumala: P(X = j) = nCj * p ^ j * q ^ (n - j),
             //        - nCr = n! / ((n-r)! * r!).
-            Values[0] = (Factorial(n) / (Factorial(n - x) * Factorial(x))) * Math.Pow(p, x) * Math.Pow((1 - p), (n - x));
+            Value = (Factorial(n) / (Factorial(n - x) * Factorial(x))) * Math.Pow(p, x) * Math.Pow((1 - p), (n - x));
         }
 
         // REDO into a separate class?

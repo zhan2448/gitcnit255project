@@ -39,6 +39,7 @@
                                 </state>
                                 <connections>
                                     <segue destination="2249" kind="push" id="41719"/>
+                                    <action selector="Btnadd_TouchUpInside:" destination="BYZ-38-t0r" id="56206" eventType="touchUpInside"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="43606">

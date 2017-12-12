@@ -29,6 +29,10 @@ namespace FinalVersion
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton test { get; set; }
 
+        [Action ("Btnadd_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void Btnadd_TouchUpInside (UIKit.UIButton sender);
+
         [Action ("Test_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void Test_TouchUpInside (UIKit.UIButton sender);

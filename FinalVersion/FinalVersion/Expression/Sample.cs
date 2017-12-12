@@ -11,7 +11,7 @@ namespace FinalVersion
             // Values[0] – (double)Sample Mean.
             // Values[1] – (double)Sample S.D.
             // Values[2] – (int)Sample Size.
-            Values = new object[3];
+            //Values = new object[3];
 
             // Segments[0] – Displays fields from this class.
             // Segments[1] – Displays fields from DataSet.
