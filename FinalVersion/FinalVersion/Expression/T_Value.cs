@@ -15,7 +15,7 @@ namespace FinalVersion
             SegmentsTitles[1] = "From DataSet";
 
             Expression[] firstDimention = new Expression[1];
-            firstDimention[0] = new T_Value(false);
+            firstDimention[0] = new T_Value(true);
 
             Expression[] secondDimention = new Expression[4];
             secondDimention[0] = new PopulationMean();

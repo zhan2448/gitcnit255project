@@ -8,8 +8,8 @@ namespace FinalVersion
         {
             Expression[] firstDimention = new Expression[3];
 
-            firstDimention[0] = new Sample_Size(false);
-            firstDimention[1] = new Probability(false);
+            firstDimention[0] = new Sample_Size(true);
+            firstDimention[1] = new Probability(true);
             firstDimention[2] = new Specific_Number();
 
             SubExpressions = new Expression[1][] { firstDimention };

@@ -10,7 +10,7 @@ namespace FinalVersion
             InputType = "s";
 
             Expression[] firstDimention = new Expression[1];
-            firstDimention[0] = new Probability(false);
+            firstDimention[0] = new Probability(true);
 
             Expression[] secondDimention = new Expression[1];
             secondDimention[0] = new T_Value(false);
