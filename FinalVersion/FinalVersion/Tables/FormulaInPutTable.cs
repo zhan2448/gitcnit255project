@@ -23,7 +23,7 @@ namespace FinalVersion
         }
         public void sortStatExpressions(){
             StatExpressions = inputExpressions.GetSubExressions();
-            if(((ExpressionConnected)(inputExpressions.GetSubExressions()[0][0])).GetTreatLikePrimitive()==true){
+            if(((ExpressionConnected)(inputExpressions.GetSubExressions()[0][0])).GetSegmentSelected()==0){
                 if (inputExpressions.GetTitle() == inputExpressions.GetSubExressions()[0][0].GetTitle())
                 {
                     if (inputExpressions.GetSubExressions().Count < 2)
