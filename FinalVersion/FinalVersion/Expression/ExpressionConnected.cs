@@ -7,9 +7,7 @@ namespace FinalVersion
     {
         // DATA STRUCTURE
         //Primitives
-        private int SegmentSelected = -1;
         private int SegmentFromValueIndex = -1;
-        private bool TreatLikePrimitive = false;
         //Composite Data
         protected List<string> SegmentsTitles;
         protected List<Expression[]> SubExpressions;
@@ -27,10 +25,10 @@ namespace FinalVersion
         {
             if (IsPrimitive)
             {
-                TreatLikePrimitive = true;
+                SegmentSelected = -2;
                 return;
             }
-            TreatLikePrimitive = false;
+            SegmentSelected = -1;
 
             // Setting up initial segment
             Expression[] firstSegment = new Expression[1];
@@ -64,8 +62,6 @@ namespace FinalVersion
         public void SetSegmentSelected(int xSS) { SegmentSelected = xSS; }
 
         public int GetSegmentFromValueIndex() { return SegmentFromValueIndex; }
-        public bool GetTreatLikePrimitive() { return TreatLikePrimitive; }
-        public int GetSegmentSelected() { return SegmentSelected; }
         public List<string> GetSegmentsTitles() { return SegmentsTitles; }
     }
 }

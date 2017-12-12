@@ -8,6 +8,7 @@ namespace FinalVersion
         // DATA STRUCTURE
         //Values
         protected object Value;
+        protected int SegmentSelected = -2;
 
         // Display Data
         private string Title;
@@ -33,6 +34,8 @@ namespace FinalVersion
 
         // GETs & SETs
         public object GetValue() { return Value; }
+
+        public int GetSegmentSelected() { return SegmentSelected; }
 
         public string GetTitle() { return Title; }
 
