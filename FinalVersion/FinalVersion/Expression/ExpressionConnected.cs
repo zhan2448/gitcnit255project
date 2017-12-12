@@ -63,6 +63,7 @@ namespace FinalVersion
 
         public void SetSegmentSelected(int xSS) { SegmentSelected = xSS; }
 
+        public int GetSegmentFromValueIndex() { return SegmentFromValueIndex; }
         public bool GetTreatLinkPrimitive() { return TreatLikePrimitive; }
         public int GetSegmentSelected() { return SegmentSelected; }
         public List<string> GetSegmentsTitles() { return SegmentsTitles; }

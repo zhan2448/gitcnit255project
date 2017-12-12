@@ -90,15 +90,10 @@ namespace FinalVersion
             var FormulaInPutTable = new FormulaInPutTable(seletedexpression);
             FormulaInPutTable.SelectExpression += (sender, e) =>
             {
-                
-                if (((Expression[])sender).Length > 1)
+                returnExpression = FormulaInPutTable.temp;
                 {
-                    returnExpression = FormulaInPutTable.temp;
-                }
-                else if (((Expression[])sender).Length == 1)
-                { 
 
-                    if (((ExpressionConnected)((Expression[])sender)[0]).GetDisabled() == false)
+                    if (((ExpressionConnected)((Expression[])sender)[0]).GetTreatLinkPrimitive() == false)
                     {
                         InPutTable.ReloadData();
                         preparetable(((ExpressionConnected)((Expression[])sender)[0]));
