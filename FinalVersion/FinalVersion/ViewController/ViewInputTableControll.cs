@@ -23,8 +23,8 @@ namespace FinalVersion
 
         partial void Btnroot_TouchUpInside(UIButton sender)
         {
-
             this.NavigationController.SetNavigationBarHidden(false, false);
+
             ViewController ViewController = this.Storyboard.InstantiateViewController("ViewController") as ViewController;
            //ViewController.setPickedtexpression(returnExpression, seletedexpression);
             NavigationController.PushViewController(ViewController, true);
@@ -34,16 +34,15 @@ namespace FinalVersion
         {
             this.NavigationController.SetNavigationBarHidden(false, false);
             NavigationController.PopViewController(true);
-
-
         }
         public override void ViewDidLoad()
         {
             this.NavigationController.SetNavigationBarHidden(true, false);
             base.ViewDidLoad();
             NavigationItem.Title = seletedexpression.GetTitle();
-
-            preparetable();
+            LbInput.Text = seletedexpression.GetTitle();
+           
+            preparetable(seletedexpression);
 
             //if(seletedexpression.GetAllTitle()== "T_Values"){
             //    Sample sp = new Sample();
@@ -85,13 +84,29 @@ namespace FinalVersion
             }
         }
 
-        public void preparetable()
+
+        public void preparetable(Expression exp)
         {
-            var FormulaInPutTable = new FormulaInPutTable(seletedexpression.GetSubExressions());
+            var FormulaInPutTable = new FormulaInPutTable(seletedexpression);
             FormulaInPutTable.SelectExpression += (sender, e) =>
             {
-                returnExpression = FormulaInPutTable.temp;
+                
+                if (((Expression[])sender).Length > 1)
+                {
+                    returnExpression = FormulaInPutTable.temp;
+                }
+                else if (((Expression[])sender).Length == 1)
+                { 
+
+                    if (((ExpressionConnected)((Expression[])sender)[0]).GetDisabled() == false)
+                    {
+                        InPutTable.ReloadData();
+                        preparetable(((ExpressionConnected)((Expression[])sender)[0]));
+
+                    }
+                }
             };
+           
             InPutTable.Source = FormulaInPutTable;
         }
 

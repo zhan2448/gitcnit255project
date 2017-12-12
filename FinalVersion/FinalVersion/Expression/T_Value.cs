@@ -29,7 +29,6 @@ namespace FinalVersion
             thirdSegment[0] = new PopulationMean();
             thirdSegment[1] = new DataSet();
 
-
             SubExpressions = new Expression[3][] { firstSegment, secondSegment, thirdSegment };
         }
 
