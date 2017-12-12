@@ -3,21 +3,20 @@ namespace FinalVersion
 {
     class T_Value : ExpressionConnected
     {
-        public T_Value(bool isPrimitive) : base(isPrimitive)
+        public T_Value(bool isPrimitive) : base(
+            isPrimitive,
+            typeof(T_Value),
+        "T_Value",
+        "t",
+        "s"
+        )
         {
-            Title = "T_Values";
-            Sign = "t";
-            InputType = "s";
-
             if (isPrimitive)
                 return;
+            
             // Associated Data
-            SegmentsTitles = new string[2];
-            SegmentsTitles[0] = "From Sample";
-            SegmentsTitles[1] = "From DataSet";
-
-            Expression[] firstSegment = new Expression[1];
-            firstSegment[0] = new T_Value(true);
+            SegmentsTitles.Add("From Sample");
+            SegmentsTitles.Add("From DataSet");
 
             Expression[] secondSegment = new Expression[4];
             secondSegment[0] = new PopulationMean();
@@ -29,7 +28,12 @@ namespace FinalVersion
             thirdSegment[0] = new PopulationMean();
             thirdSegment[1] = new DataSet();
 
+<<<<<<< HEAD
             SubExpressions = new Expression[3][] { firstSegment, secondSegment, thirdSegment };
+=======
+            SubExpressions.Add(secondSegment);
+            SubExpressions.Add(thirdSegment);
+>>>>>>> ad6ffe1f0ffcf11abe33a66b13458bda5612e991
         }
 
 

@@ -3,14 +3,22 @@ namespace FinalVersion
 {
     public class Sample_SD : ExpressionConnected
     {
-        public Sample_SD(bool isprimtive):base(isprimtive) 
+        public Sample_SD(bool isPrimitive) : base(
+            isPrimitive,
+            typeof(Sample_SD),
+            "Sample S.D.",
+            "σ",
+            "s"
+        )
         {
-            Title="Sample S.D.";
-            Sign = "σ";
-            InputType = "s";
-            Expression[] firstSegment = new Expression[1];
-            firstSegment[0] = new DataSet();
-            SubExpressions = new Expression[1][] { firstSegment };
+            if (isPrimitive)
+                return;
+
+            Expression[] secondSegment = new Expression[1];
+
+            secondSegment[0] = new DataSet();
+
+            SubExpressions.Add(secondSegment);
         }
     }
 }

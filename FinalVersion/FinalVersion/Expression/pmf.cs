@@ -4,27 +4,25 @@ namespace FinalVersion
     public class pmf : ExpressionConnected
     {
         // Probability Mass Function
-        public pmf(bool isprimtive):base(isprimtive) 
+        public pmf(bool isPrimitive) : base(
+            isPrimitive,
+            typeof(pmf),
+            "pmf",
+            "P(X=x)",
+            "s"
+        )
         {
-            // Data
-            Title="PMF Value";
-            Sign="P(X = x)";
-            InputType="s";
+            // Segments
+            Expression[] secondSegment = new Expression[1];
+            secondSegment[0] = new Binomial_RV();
 
-            // Associated Data
-            Expression[] firstSegment = new Expression[1];
-            firstSegment[0] = new Binomial_RV(false);
-
-            SubExpressions = new Expression[1][] { firstSegment };
+            SubExpressions.Add(secondSegment);
         }
-
-    
-
 
         public void CalculateValues(Binomial_RV xB_rv)
         {
             int n = (int)xB_rv.GetSubExressions()[0][0].GetValue();
-            double p   =(double)xB_rv.GetSubExressions()[0][1].GetValue();
+            double p = (double)xB_rv.GetSubExressions()[0][1].GetValue();
             int x = (int)xB_rv.GetSubExressions()[0][2].GetValue();
 
             // Forumala: P(X = j) = nCj * p ^ j * q ^ (n - j),

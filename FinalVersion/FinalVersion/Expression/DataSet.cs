@@ -1,21 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FinalVersion
 {
     public class DataSet : Expression
     {
-        private double[] DSValues;
+        private List<double> DSValues;
 
-        public DataSet()
+        public DataSet() : base("Dataset", "ds","m")
         {
-            Title="Dataset";
-            InputType="m";
+            DSValues = new List<double>();
         }
 
         // To-Do: different methods for passed fetched/unfetched string dataset.
-        public void SetValues(double[] xValues) { DSValues = xValues; }
+        public void SetValues(List<double> xValues) { DSValues = xValues; }
 
-        public double[] GetDSValues() { return DSValues; }
+        public List<double> GetDSValues() { return DSValues; }
 
         // To-Do: Fetch dataSet method.
 

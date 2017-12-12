@@ -5,25 +5,32 @@ namespace FinalVersion
 {
     public abstract class Expression
     {
-        // Data
+        // DATA STRUCTURE
+        //Values
         protected object Value;
-        // Show Data
-        protected string Title;
-        protected string Sign;
-        protected string InputType;
-       
-        public Expression()
+
+        // Display Data
+        private string Title;
+        private string Sign;
+        private string InputType;
+        //
+
+
+        // CONSTRUCTORS
+        //Calculatable
+        public Expression(string xTitle, string xSign, string xInputType)
         {
+            Title = xTitle;
+            Sign = xSign;
+            InputType = xInputType;
         }
 
-        //public Expression(int[] xIndex) : this(){
-        //    for (int i = 0; i < xIndex.Length; i++)
-        //    {
-        //        Titles.RemoveAt(xIndex[i]);
-        //    }
-        //}
+        //Non-calculatable
+        public Expression() {
+        }
+        //
      
-        public void SetValues(object xValue) { Value = xValue; }
+        public void SetValue(object xValue) { Value = xValue; }
 
         public object GetValue() { return Value; }
 
