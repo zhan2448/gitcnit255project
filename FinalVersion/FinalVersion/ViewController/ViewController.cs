@@ -72,6 +72,12 @@ namespace FinalVersion
             // Note: this .ctor should not contain any initialization logic.
         }
 
+        partial void Btnadd_TouchUpInside(UIButton sender)
+        {
+            FormulaAddView Addformulaview = this.Storyboard.InstantiateViewController("FormulaAddView") as FormulaAddView;
+            this.NavigationController.PushViewController(Addformulaview, true);
+        }
+
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();

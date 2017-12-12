@@ -13,7 +13,7 @@ namespace FinalVersion
             firstDimention[0] = new Probability(false);
 
             Expression[] secondDimention = new Expression[1];
-            secondDimention[0] = new T_Value(true);
+            secondDimention[0] = new T_Value(false);
 
             SubExpressions = new Expression[2][] {firstDimention, secondDimention};
         }
