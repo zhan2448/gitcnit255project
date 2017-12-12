@@ -43,7 +43,7 @@ namespace FinalVersion
             base.ViewDidLoad();
             NavigationItem.Title = seletedexpression.GetTitle();
 
-
+            preparetable();
 
             //if(seletedexpression.GetAllTitle()== "T_Values"){
             //    Sample sp = new Sample();

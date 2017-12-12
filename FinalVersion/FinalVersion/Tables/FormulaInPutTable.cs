@@ -20,8 +20,9 @@ namespace FinalVersion
             var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
             for (int a = 0; a < StatExpressions[indexPath.Row].Length; a++)
             {
+                
                 cell.TextLabel.Text = StatExpressions[indexPath.Row][a].GetTitle();
-                cell.TextLabel.TextAlignment = UITextAlignment.Center;
+               
             }
             return cell;
         }

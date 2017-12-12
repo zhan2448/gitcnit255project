@@ -41,7 +41,7 @@ namespace FinalVersion
             {
                 if (t.IsSubclassOf(typeof(ExpressionConnected)))
                 {
-                    ExpressionConnected obj = (ExpressionConnected)Activator.CreateInstance(t, new object[]{true});
+                    ExpressionConnected obj = (ExpressionConnected)Activator.CreateInstance(t, new object[]{false});
                     StatExpressions.Add(obj);
 
                 }
