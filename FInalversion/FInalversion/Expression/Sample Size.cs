@@ -10,5 +10,7 @@ namespace FinalVersion
             Sign = "n";
             InputType = "s";
         }
+        public void SetN(int xN) { Value = (int)xN; }
+        public int GetN() { return (int)Value; }
     }
 }

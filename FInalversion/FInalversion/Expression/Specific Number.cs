@@ -9,5 +9,7 @@ namespace FinalVersion
             Sign = "n";
             InputType = "s";
         }
+        public void SetPX(int xX) { Value = (int)xX; }
+        public int GetX() { return (int)Value; }
     }
 }

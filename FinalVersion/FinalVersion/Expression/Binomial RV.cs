@@ -17,18 +17,6 @@ namespace FinalVersion
             SubExpressions = new Expression[1][] { firstDimention };
         }
 
-        public void SetN(int xN) { Values[0] = (int)xN; }
-        public void SetP(double xP) { Values[1] = (double)xP; }
-        public void SetX(int xX) { Values[2] = (int)xX; }
 
-        public int GetN() { return (int)Values[0]; }
-        public double GetP() { return (double)Values[1]; }
-        public int GetX() { return (int)Values[2]; }
-
-        public void CalculateValues(int xN, double xP, int xX) {
-            SetN(xN);
-            SetP(xP);
-            SetX(xX);
-        }
     }
 }
