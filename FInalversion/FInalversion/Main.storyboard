@@ -126,7 +126,6 @@
         <!--Formula View Controller-->
         <scene sceneID="253">
             <objects>
-                <viewController storyboardIdentifier="FormulaView" id="254" customClass="FormulaView" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="251"/>
                         <viewControllerLayoutGuide type="bottom" id="252"/>

@@ -182,8 +182,12 @@
     <Compile Include="Expression\Sample Size.cs" />
     <Compile Include="Expression\Probability.cs" />
     <Compile Include="Expression\Specific Number.cs" />
+<<<<<<< HEAD
     <Compile Include="Tables\Formulas Source.cs" />
     <Compile Include="Tables\Expressions Area Table Source.cs" />
+=======
+    <Compile Include="Tables\FormulaInputTableTwo.cs" />
+>>>>>>> 2da11f9913a78fcb9828b94d11eab47c29af3ead
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />

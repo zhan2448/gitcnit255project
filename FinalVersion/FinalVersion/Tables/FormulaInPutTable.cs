@@ -6,93 +6,115 @@ namespace FinalVersion
 {
     public class FormulaInPutTable : UITableViewSource
     {
+        ExpressionConnected inputExpressionsfix;
         ExpressionConnected inputExpressions;
-        List<Expression[]> StatExpressions=new List<Expression[]>();
-        public Expression[] temp { get; private set; }
-        public FormulaInPutTable() { }
         public EventHandler SelectExpression;
-        public bool gettreat=false;
-        public FormulaInPutTable(ExpressionConnected inputExpressions, List<Expression[]> Expressions)
+        public bool primitive = false;
+        public FormulaInPutTable(ExpressionConnected inputExpressions, ExpressionConnected temp)
         {
+            inputExpressionsfix = inputExpressions;
             this.inputExpressions = inputExpressions;
-            StatExpressions = Expressions;
-            if (StatExpressions == null)
-            {
-                sortStatExpressions();
-            }
+            sortStatExpressions();
         }
-        public void sortStatExpressions(){
-            StatExpressions = inputExpressions.GetSubExressions();
-            if(((ExpressionConnected)(inputExpressions.GetSubExressions()[0][0])).GetSegmentSelected()==0){
-                if (inputExpressions.GetTitle() == inputExpressions.GetSubExressions()[0][0].GetTitle())
-                {
-                    if (inputExpressions.GetSubExressions().Count < 2)
-                    {
-                        return;
-                    }
-                
-                    gettreat = true;
-  
-                }
-            }else return;
+        public FormulaInPutTable(ExpressionConnected inputExpressions)
+        {
+            inputExpressionsfix = inputExpressions;
+            this.inputExpressions = inputExpressions;
 
-
-         
         }
+        public void sortStatExpressions()
+        {
 
-    
+            primitive = true;
+
+        }
 
         public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
         {
-            var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
-            if (inputExpressions.GetSegmentSelected() == -1)
-            {
-                if (gettreat == false)
-                {
-                    cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row];
-                }
-                else if (gettreat == true)
-                {
-                    cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row + 1];
-                }
-            }
-            else cell.TextLabel.Text = StatExpressions[indexPath.Row][0].GetTitle();
 
+            var cell = new UITableViewCell(UITableViewCellStyle.Default, "");
+            if (primitive)
+            {
+                cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row + 1];
+            }
+            else if (primitive == false)
+            {
+                cell.TextLabel.Text = inputExpressions.GetSegmentsTitles()[indexPath.Row];
+            }
             return cell;
         }
 
         public override nint RowsInSection(UITableView tableview, nint section)
         {
-            if (inputExpressions.GetSegmentSelected() == -1)
+            if (primitive)
             {
-                if (gettreat == false)
-                {
-                    return inputExpressions.GetSegmentsTitles().Count;
-                }
-                else
-                {
-                    return inputExpressions.GetSegmentsTitles().Count - 1;
-                }
-            }
-            else return StatExpressions.Count;
-           
-        }
-        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
-        {
-
-            if (gettreat == false)
-            {
-                inputExpressions.SetSegmentSelected(indexPath.Row);
-                SelectExpression?.Invoke(inputExpressions,null);
-
+                return inputExpressions.GetSegmentsTitles().Count - 1;
             }
             else
             {
-                inputExpressions.SetSegmentSelected(indexPath.Row+1);
-                SelectExpression?.Invoke(inputExpressions,null);
+                return inputExpressions.GetSegmentsTitles().Count;
             }
-           
+
         }
 
+        public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+        {
+            if (primitive == true)
+            {
+                if (inputExpressions.GetSubExressions()[indexPath.Row + 1].Length == 1)
+                {
+
+                    if (inputExpressions.GetSubExressions()[indexPath.Row + 1][0].GetType().IsSubclassOf(typeof(ExpressionConnected)))
+                    {
+                        tableView.Hidden = true;
+                        tableView.Source = new FormulaInPutTable((ExpressionConnected)inputExpressions.GetSubExressions()[indexPath.Row + 1][0]);
+
+                        tableView.ReloadData();
+                        tableView.Hidden = false;
+                        primitive = false;
+                    }
+                    else
+                    {
+                        tableView.VisibleCells[indexPath.Row].Accessory = UITableViewCellAccessory.Checkmark;
+                    }
+                }
+                else if (inputExpressions.GetSubExressions()[indexPath.Row + 1].Length > 1)
+                {
+                    tableView.Hidden = true;
+                    tableView.Source = new FormulaInPutTableTwo(inputExpressions.GetSubExressions()[indexPath.Row + 1]);
+                    tableView.ReloadData();
+                    tableView.Hidden = false;
+                }
+                else
+                {
+                        if (inputExpressions.GetSubExressions()[indexPath.Row].Length == 1)
+                        {
+
+                        if (inputExpressions.GetSubExressions()[indexPath.Row][0].GetType().IsSubclassOf(typeof(ExpressionConnected)))
+                        {
+                            tableView.Hidden = true;
+                            tableView.Source = new FormulaInPutTable((ExpressionConnected)inputExpressions.GetSubExressions()[indexPath.Row][0]);
+                            tableView.ReloadData();
+                            tableView.Hidden = false;
+                        }
+                        else
+                        {
+                            tableView.VisibleCells[indexPath.Row].Accessory = UITableViewCellAccessory.Checkmark;
+                            tableView.DeselectRow(indexPath,true);
+                        }
+                    }
+                    else if (inputExpressions.GetSubExressions()[indexPath.Row].Length > 1)
+                    {
+                        tableView.Hidden = true;
+                        tableView.Source = new FormulaInPutTableTwo(inputExpressions.GetSubExressions()[indexPath.Row]);
+                        tableView.ReloadData();
+                        tableView.Hidden = false;
+
+                    }
+                }
+            }
+
+        }
     }
 }
+
