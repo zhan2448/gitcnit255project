@@ -3,7 +3,8 @@ namespace FinalVersion
 {
     public class ICalculatable
     {
-        public void CalculateValues(Expression input)
+        
+        void CalculatValues(bool calculateable)
         {
            
         }

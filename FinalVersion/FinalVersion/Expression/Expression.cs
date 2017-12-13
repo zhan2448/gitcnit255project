@@ -29,8 +29,8 @@ namespace FinalVersion
         //Non-calculatable
         public Expression() {
         }
-        //
-
+        //         
+         
 
         // GETs & SETs
         public object GetValue() { return Value; }
