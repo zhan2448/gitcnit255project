@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FinalVersion
 {
-    public abstract class Expression
+    public abstract class Expression: ICalculatable
     {
         // DATA STRUCTURE
         //Values

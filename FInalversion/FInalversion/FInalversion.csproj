@@ -183,6 +183,7 @@
     <Compile Include="Tables\Formulas Source.cs" />
     <Compile Include="Tables\Expressions Area Table Source.cs" />
     <Compile Include="Tables\FormulaInputTableTwo.cs" />
+    <Compile Include="ICalculatable.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />
