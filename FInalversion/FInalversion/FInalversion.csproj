@@ -133,6 +133,9 @@
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="MyCollectionViewCell.xib" />
+    <InterfaceDefinition Include="MyTableViewCell.xib" />
+    <InterfaceDefinition Include="Expression_Connected_Cell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -169,10 +172,6 @@
     <Compile Include="Tables\ViewControllFormulaTable.cs" />
     <Compile Include="Expression\Expression.cs" />
     <Compile Include="Expression\ExpressionConnected.cs" />
-    <Compile Include="ViewController\FormulaViewController.cs" />
-    <Compile Include="ViewController\FormulaViewController.designer.cs">
-      <DependentUpon>FormulaViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Tables\CalculationTable.cs" />
     <Compile Include="Calculationcell.cs" />
     <Compile Include="Calculationcell.designer.cs">
@@ -183,6 +182,8 @@
     <Compile Include="Expression\Sample Size.cs" />
     <Compile Include="Expression\Probability.cs" />
     <Compile Include="Expression\Specific Number.cs" />
+    <Compile Include="Tables\Formulas Source.cs" />
+    <Compile Include="Tables\Expressions Area Table Source.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\画板 1.png" />

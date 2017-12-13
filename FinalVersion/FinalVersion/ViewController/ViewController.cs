@@ -11,14 +11,11 @@ namespace FinalVersion
 {
     public partial class ViewController : UIViewController
     {
+        private Formula PickedFormula;
 
-        private List<Expression> Pickedtexpression =new List<Expression>();
-        private Expression answerexpression;
-        Formula temp = new Formula();
-        public void setPickedtexpression(List<Expression> Pickedtexpression, Expression answerexpression)
+        private void setPickedtexpression(Formula xPickedFormula)
         {
-            this.Pickedtexpression = Pickedtexpression;
-            this.answerexpression = answerexpression;
+            PickedFormula = xPickedFormula;
         }
        
         partial void UIButton17067_TouchUpInside(UIButton sender)
@@ -60,13 +57,6 @@ namespace FinalVersion
             DismissViewController(true, null);
         }
 
-        partial void Test_TouchUpInside(UIButton sender)
-        {
-            FormulaViewController inputview = this.Storyboard.InstantiateViewController("FormulaViewController") as FormulaViewController;
-            inputview.setinput(temp);
-            this.NavigationController.PushViewController(inputview,true);
-        }
-
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -82,95 +72,58 @@ namespace FinalVersion
         {
             base.ViewDidLoad();
             this.ViewDidAppear();
-          //  btnadd.Enabled = false;
 
-
-
-
-            //this.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, args) =>  
-            //{
-            //}), true);
+            this.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, args) =>  
+            {
+                // WRITE CODE HERE
+            }), true);
 
             // Reference: https://developer.xamarin.com/recipes/ios/content_controls/navigation_controller/add_a_nav_bar_bottom_toolbar/
-            //var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
-            //var btnLabel = new UIBarButtonItem("Add a Formula", UIBarButtonItemStyle.Plain, target: this, action: new ObjCRuntime.Selector(""));
+            var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
+            var btnLabel = new UIBarButtonItem("Add a Formula", UIBarButtonItemStyle.Plain, target: this, action: new ObjCRuntime.Selector(""));
 
-            //this.SetToolbarItems(new UIBarButtonItem[] {
-            //    spacer,
-            //    new UIBarButtonItem(UIBarButtonSystemItem.Add, (s,e) => {  
-            //        FormulaAddView AddFormula = new FormulaAddView();
-                  
-            //    // To-Do: change the index accordingly to which Formula was selected
-                   
-            //        this.NavigationController.PushViewController(AddFormula, true);
-                
-            //    }), btnLabel, spacer
-            //}, true);
-
-            //btnLabel.Clicked += (sender, e) =>
-            //{
-                
-            //    FormulaAddView AddFormula = new FormulaAddView();
-            //    // To-Do: change the index accordingly to which Formula was selected
-
-            //    this.NavigationController.PushViewController(AddFormula, true);
-            //};
-
-            //this.NavigationController.ToolbarHidden = false;
-
-            //Test Data
-            List<Formula> TestF = new List<Formula>();
-            TestF.Add(new Formula());
-            TestF[0] = new Formula();
-            TestF[0].SetTitle("T Values from Values");
-            TestF[0].SetDescription("Calculate T_Value from primitive values.");
-            T_Value t = new T_Value(false);
-            TestF[0].SetAnswer(t);
-            //Sample a = new Sample();
-            //PopulationMean b = new PopulationMean();
-
-            //Pickedtexpression.Add(a);
-            //Pickedtexpression.Add(b);
-            //TestF[0].SetInPutExpression(Pickedtexpression);
-
-            //TestF.Add(new Formula());
-            //TestF[1] = new Formula();
-            //TestF[1].SetTitle("Calculate P(X), X~Binomial");
-            //TestF[1].SetDescription("Big numbers break the system.");
-            //pmf pmFunc = new pmf();
-            //TestF[1].SetAnswer(pmFunc);
-          
-            //
-
-
-            if (answerexpression != null)
+            btnLabel.Clicked += (sender, e) =>
             {
-                TestF.Add(new Formula());
-                TestF[2] = new Formula();
-                TestF[2].SetTitle("Calculate P(X), X~Binomial");
-                TestF[2].SetDescription("Big numbers break the system.");
-                Expression temp2 = answerexpression;
+                FormulaAddView Addformulaview = this.Storyboard.InstantiateViewController("FormulaAddView") as FormulaAddView;
+                this.NavigationController.PushViewController(Addformulaview, true);
+            };
 
-                //TestF[2].SetAnswer(temp2);
-               
-            }
-
-
-            temp = TestF[0];
-            var ViewControllFormulaTable = new ViewControllFormulaTable(TestF);
+            var ViewControllFormulaTable = new Formulas_Source(LoadFormulas());
            
-            FormulaTable.SeparatorColor = UIColor.Blue;
-            ViewControllFormulaTable.Selectformula += (sender, e) =>
+            ViewControllFormulaTable.Formula_Selected += (sender, e) =>
             {
-                FormulaView VFormula = new FormulaView();
+                FormulaView VFormula = this.Storyboard.InstantiateViewController("FormulaView") as  FormulaView;
                 // To-Do: change the index accordingly to which Formula was selected
                 VFormula.SetFormula((Formula)sender);
-
                 this.NavigationController.PushViewController(VFormula, true);
             };
+
             FormulaTable.Source = ViewControllFormulaTable;
         }
        
+        private List<Formula> LoadFormulas(){
+            List<Formula> xFormulas = new List<Formula>();
+            xFormulas.Add(new Formula());
+            xFormulas[0].SetTitle("pmf from binomial RV");
+            xFormulas[0].SetDescription("test");
+
+            pmf xPMF = new pmf(false);
+            xPMF.SetSegmentSelected(1);
+            xFormulas[0].SetAnswer(xPMF);
+
+            xFormulas.Add(new Formula());
+            xFormulas[1].SetTitle("P value from T");
+            xFormulas[1].SetDescription("find Pval");
+
+            Probability xPval = new Probability(false);
+
+            xPval.SetSegmentSelected(1);
+            ((T_Value)xPval.GetSubExressions()[1][0]).SetSegmentSelected(1);
+            xFormulas[1].SetAnswer(xPval);
+
+            return xFormulas;
+        }
+
 
         private void ViewDidAppear()
         {

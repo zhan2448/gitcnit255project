@@ -5,15 +5,15 @@ using UIKit;
 
 namespace FinalVersion
 {
-    public class ViewControllFormulaTable : UITableViewSource
+    public class Formulas_Source : UITableViewSource
     {
         List<Formula> formula;
-       
-        public ViewControllFormulaTable() { }
+
+        public Formulas_Source() { }
 
         public EventHandler Formula_Selected;
 
-        public ViewControllFormulaTable(List<Formula> xFormula)
+        public Formulas_Source(List<Formula> xFormula)
         {
             formula = xFormula;
         }
@@ -35,7 +35,7 @@ namespace FinalVersion
         public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
         {
             var selectedformula = formula[indexPath.Row];
-       
+
             Formula_Selected?.Invoke(selectedformula, null);
         }
 

@@ -12,6 +12,10 @@ namespace FinalVersion
             "s"
         )
         {
+            if (isPrimitive)
+                return;
+
+            SegmentsTitles.Add("From Binomial");
             // Segments
             Expression[] secondSegment = new Expression[1];
             secondSegment[0] = new Binomial_RV();
@@ -25,7 +29,7 @@ namespace FinalVersion
             double p = (double)xB_rv.GetSubExressions()[0][1].GetValue();
             int x = (int)xB_rv.GetSubExressions()[0][2].GetValue();
 
-            // Forumala: P(X = j) = nCj * p ^ j * q ^ (n - j),
+            // Formula: P(X = j) = nCj * p ^ j * q ^ (n - j),
             //        - nCr = n! / ((n-r)! * r!).
             Value = (Factorial(n) / (Factorial(n - x) * Factorial(x))) * Math.Pow(p, x) * Math.Pow((1 - p), (n - x));
         }
