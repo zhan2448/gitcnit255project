@@ -62,16 +62,6 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="52147">
-                                <rect key="frame" x="157" y="563" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Test_TouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="53530"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -98,7 +88,6 @@
                         <outlet property="FormulaTable" destination="43606" id="name-outlet-43606"/>
                         <outlet property="btnadd" destination="41417" id="name-outlet-41417"/>
                         <outlet property="lb1" destination="20888" id="name-outlet-20888"/>
-                        <outlet property="test" destination="52147" id="name-outlet-52147"/>
                         <segue destination="254" kind="push" id="53258"/>
                         <segue id="57051" destination="2249" kind="push"/>
                     </connections>

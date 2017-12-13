@@ -25,17 +25,9 @@ namespace FinalVersion
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lb1 { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton test { get; set; }
-
         [Action ("Btnadd_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void Btnadd_TouchUpInside (UIKit.UIButton sender);
-
-        [Action ("Test_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void Test_TouchUpInside (UIKit.UIButton sender);
 
         [Action ("UIButton17067_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -56,11 +48,6 @@ namespace FinalVersion
             if (lb1 != null) {
                 lb1.Dispose ();
                 lb1 = null;
-            }
-
-            if (test != null) {
-                test.Dispose ();
-                test = null;
             }
         }
     }

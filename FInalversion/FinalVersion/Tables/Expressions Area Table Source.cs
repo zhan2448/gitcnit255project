@@ -20,7 +20,7 @@ namespace FinalVersion
 
         public override nint NumberOfSections(UITableView tableView)
         {
-            return 1;
+            return 5;
         }
 
 
