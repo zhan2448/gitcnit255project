@@ -59,7 +59,6 @@ namespace FinalVersion
             return SubExpressions;
         }
 
-        public void SetSegmentSelected(int xSS) { SegmentSelected = xSS; }
 
         public int GetSegmentFromValueIndex() { return SegmentFromValueIndex; }
         public List<string> GetSegmentsTitles() { return SegmentsTitles; }

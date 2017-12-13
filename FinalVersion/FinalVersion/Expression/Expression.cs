@@ -36,6 +36,8 @@ namespace FinalVersion
         public object GetValue() { return Value; }
 
         public int GetSegmentSelected() { return SegmentSelected; }
+        public void SetSegmentSelected(int SegmentSelected ) { this.SegmentSelected= SegmentSelected; }
+
 
         public string GetTitle() { return Title; }
 
