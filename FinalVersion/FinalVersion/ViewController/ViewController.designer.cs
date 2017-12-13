@@ -15,19 +15,11 @@ namespace FinalVersion
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnadd { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITableView FormulaTable { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UILabel lb1 { get; set; }
-
-        [Action ("Btnadd_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void Btnadd_TouchUpInside (UIKit.UIButton sender);
 
         [Action ("UIButton17067_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -35,11 +27,6 @@ namespace FinalVersion
 
         void ReleaseDesignerOutlets ()
         {
-            if (btnadd != null) {
-                btnadd.Dispose ();
-                btnadd = null;
-            }
-
             if (FormulaTable != null) {
                 FormulaTable.Dispose ();
                 FormulaTable = null;

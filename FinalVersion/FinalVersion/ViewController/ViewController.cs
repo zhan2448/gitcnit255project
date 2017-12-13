@@ -52,7 +52,6 @@ namespace FinalVersion
                 var twitterUser = JsonConvert.DeserializeObject<TwitterUser>(json);
                  DismissViewController(true, null);
                 lb1.Text = "Hi: "+twitterUser.name;
-                btnadd.Enabled = true;
             }
             DismissViewController(true, null);
         }
@@ -62,12 +61,6 @@ namespace FinalVersion
             // Note: this .ctor should not contain any initialization logic.
         }
 
-        partial void Btnadd_TouchUpInside(UIButton sender)
-        {
-            FormulaAddView Addformulaview = this.Storyboard.InstantiateViewController("FormulaAddView") as FormulaAddView;
-            this.NavigationController.PushViewController(Addformulaview, true);
-        }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
@@ -75,18 +68,9 @@ namespace FinalVersion
 
             this.NavigationItem.SetRightBarButtonItem(new UIBarButtonItem(UIBarButtonSystemItem.Add, (sender, args) =>  
             {
-                // WRITE CODE HERE
-            }), true);
-
-            // Reference: https://developer.xamarin.com/recipes/ios/content_controls/navigation_controller/add_a_nav_bar_bottom_toolbar/
-            var spacer = new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace) { Width = 50 };
-            var btnLabel = new UIBarButtonItem("Add a Formula", UIBarButtonItemStyle.Plain, target: this, action: new ObjCRuntime.Selector(""));
-
-            btnLabel.Clicked += (sender, e) =>
-            {
                 FormulaAddView Addformulaview = this.Storyboard.InstantiateViewController("FormulaAddView") as FormulaAddView;
                 this.NavigationController.PushViewController(Addformulaview, true);
-            };
+            }), true);
 
             var ViewControllFormulaTable = new Formulas_Source(LoadFormulas());
            
